@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="PM.ViewModel.UpdateProfile">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <BoxView x:Name="headingBuffer" HeightRequest="20"/>
+            <Grid>
+                <Image Source="backgroundBlob.png" HorizontalOptions="Fill" Margin="-330, -1000, -330, 0" HeightRequest="700" WidthRequest="700"/> 
+            <StackLayout x:Name="mainStack">
+
+                <Grid x:Name="headerGrid" Margin="20, 0, 20, 10" HeightRequest="40">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--<ImageButton Source="back.png" BackgroundColor="Transparent" HorizontalOptions="Start" HeightRequest="25" Clicked="backClicked"/>-->
+                    <ImageButton x:Name="menu" Grid.Column="1" Source="menu.png" HorizontalOptions="End" VerticalOptions="Center" HeightRequest="25" WidthRequest="50" Clicked="menuClicked"/>
+                    <!--<BoxView x:Name="whiteCover" IsVisible="false" BackgroundColor="White" HorizontalOptions="Fill" VerticalOptions="Fill" Grid.Column="0" Grid.ColumnSpan="2"/>-->
+                </Grid>
+
+                <Label x:Name="name" Text="John Doe" TextColor="White" FontAttributes="Bold" FontSize="35" HorizontalOptions="Center" Margin="0,10,0,5"/>
+
+                <Image Source="profileCircle.png" HorizontalOptions="Center" HeightRequest="150" WidthRequest="150" Margin="0,0,0,40"/>
+
+                <Grid Margin="30,0,30,10" ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="7*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="phone.png" HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="50" WidthRequest="50"/>
+                    <Frame Grid.Column="1" x:Name="phone" Padding="20,10" BackgroundColor="White" HasShadow="False"
+                              BorderColor="#707070" CornerRadius="25" HorizontalOptions="Fill" HeightRequest="32" VerticalOptions="Center">
+                        <Entry x:Name="phoneEntry" FontSize="16" TextColor="Black" Placeholder="Phone Number" PlaceholderColor="Black"/>
+                    </Frame>
+                </Grid>
+
+                <BoxView HeightRequest="2" Margin="30,0,30,10" Color="#707070" HorizontalOptions="Fill" VerticalOptions="Center"/>
+
+                <Grid Margin="30,0,30,10" ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="7*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="work.png" HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="50" WidthRequest="50"/>
+                    <Frame Grid.Column="1" x:Name="schoolAffil" Padding="20,10" BackgroundColor="White" HasShadow="False"
+                              BorderColor="#707070" CornerRadius="25" HorizontalOptions="Fill" HeightRequest="32" VerticalOptions="Center">
+                        <Entry x:Name="schoolAffilEntry" FontSize="16" TextColor="Black" Placeholder="School/Affiliation" PlaceholderColor="Black"/>
+                    </Frame>
+                </Grid>
+
+                <BoxView HeightRequest="2" Margin="30,0,30,10" Color="#707070" HorizontalOptions="Fill" VerticalOptions="Center"/>
+
+                <Grid Margin="30,0,30,10" ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="7*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                    <Image Source="badge.png" HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="50" WidthRequest="50"/>
+
+                    <StackLayout Grid.Column="1">
+                    <Frame x:Name="idTypeFrame" Padding="20,10"  BackgroundColor="White" HasShadow="False"
+                          BorderColor="#707070" CornerRadius="25"  HorizontalOptions="Fill" HeightRequest="32" VerticalOptions="Start">
+                        <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Label x:Name="idTypeButton" Text="ID Type  ᐯ" VerticalOptions="Center" HorizontalOptions="Start" FontSize="16" TextColor="Black"/>
+                        <Button HorizontalOptions="Fill" VerticalOptions="Fill" Clicked="idTypeClicked" BackgroundColor="Transparent"/>
+                        </Grid>
+                    </Frame>
+
+                    <!--<ListView x:Name="idList" IsVisible="False" HeightRequest="185" Margin="0,30,0,0" ItemSelected="idListItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                <Frame CornerRadius="0" BorderColor="#E7404A" HeightRequest="18" Padding="0" HasShadow="False">
+                                    <Label Text="{Binding type}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="15" TextColor="#E7404A"/>
+                                </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                    </ListView>-->
+
+                    <Frame x:Name="idNum" Padding="20,10" Margin="0,2,0,0.5" BackgroundColor="White" HasShadow="False"
+                              BorderColor="#707070" CornerRadius="25" HorizontalOptions="Fill" HeightRequest="32" VerticalOptions="Start">
+                        <Entry x:Name="idNumEntry" FontSize="16" TextColor="Black" Placeholder="ID Number" PlaceholderColor="Black"/>
+                    </Frame>
+                    </StackLayout>
+                </Grid>
+
+                <BoxView HeightRequest="2" Margin="30,0,30,10" Color="#707070" HorizontalOptions="Fill" VerticalOptions="Center"/>
+
+                <Grid Margin="30,0,30,10" ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="7*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                    <Image Source="home.png" HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="50" WidthRequest="50"/>
+
+                <StackLayout Grid.Column="1">
+                    <Grid x:Name="St" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="16*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                        <Frame x:Name="street" Padding="20,10" Margin="0,0.5" BackgroundColor="White" HasShadow="False"
+                              BorderColor="#707070" CornerRadius="25" HeightRequest="32">
+                        <Entry x:Name="AddressEntry" Text="{Binding AddressText}" FontSize="17" TextColor="Black"
+                               Focused="addressEntryFocused" Unfocused="addressEntryUnfocused" Placeholder="Current Address" PlaceholderColor="Black"/>
+                        </Frame>
+
+                  
+                    </Grid>
+
+                    <!--<ListView x:Name="addressList" ItemsSource="{Binding Addresses}" IsVisible="false" Margin="0, 0, 0, 20" ItemSelected="addressSelected" HeightRequest="180">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextCell Text="{Binding Address}"/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                    </ListView>-->
+
+                    <Grid x:Name="UnitCity" HorizontalOptions="Center" VerticalOptions="Center"  ColumnSpacing="4" Margin="0,0.5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                       <Frame x:Name="unit" Grid.Row="0" Grid.Column="0" Padding="20,10" BackgroundColor="White" HasShadow="False"
+                              BorderColor="#707070" CornerRadius="25" HeightRequest="32">
+                            <Entry x:Name="AptEntry" Keyboard="Text" FontSize="16" TextColor="Black" Placeholder="Unit" PlaceholderColor="Black"
+                                   />
+                       </Frame>
+
+
+                       <Frame x:Name="city" Grid.Row="0" Grid.Column="1" Padding="20,10" BackgroundColor="White" HasShadow="False"
+                              BorderColor="#707070" CornerRadius="25" HeightRequest="32">
+                            <Entry x:Name="CityEntry" Keyboard="Text" FontSize="16" TextColor="Black" Placeholder="City" PlaceholderColor="Black"
+                                   />
+                       </Frame>
+
+                    </Grid>
+
+
+                    <Grid x:Name="StateZip" HorizontalOptions="Center" VerticalOptions="Center"  ColumnSpacing="4" Margin="0,0.5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Frame x:Name="state" Padding="20,10" BackgroundColor="White" HasShadow="False"
+                              BorderColor="#707070" CornerRadius="25" HeightRequest="32" Grid.Column="0" Grid.Row="0">
+                            <Entry x:Name="StateEntry" Keyboard="Text" FontSize="16" TextColor="Black" Placeholder="State" PlaceholderColor="Black"
+                                   />
+                       </Frame>
+
+                       <Frame x:Name="zipCode" Padding="20,10" BackgroundColor="White" HasShadow="False"
+                              BorderColor="#707070" CornerRadius="25" HeightRequest="32" Grid.Column="1">
+                            <Entry x:Name="ZipEntry" Keyboard="Numeric" FontSize="16" TextColor="Black" Placeholder="Zip Code" PlaceholderColor="Black"
+                                   />
+                       </Frame>
+
+                    </Grid>
+                </StackLayout>
+                </Grid>
+
+
+                <ImageButton Source="saveChangesButton.png" Clicked="saveChanges" Margin="30,20,30,0" HorizontalOptions="Fill"/>
+
+                <ImageButton Source="continueButton.png" Clicked="profileClicked" Margin="30,-10,30,20" HorizontalOptions="Fill"/>
+
+            </StackLayout>
+
+            <Grid Margin="30,530,30,10" ColumnSpacing="10" x:Name="idGrid" IsVisible="false">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="7*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                <ListView x:Name="idList" Grid.Column="1" Margin="7,0" VerticalOptions="Start" HeightRequest="185" ItemSelected="idListItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                            <Frame CornerRadius="0" BorderColor="#E7404A" HeightRequest="18" Padding="0" HasShadow="False">
+                                <Label Text="{Binding type}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="15" TextColor="#E7404A"/>
+                            </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+
+            </Grid>
+
+            <Grid Margin="30,690,30,0" ColumnSpacing="10" x:Name="addressGrid" IsVisible="false">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="7*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                <ListView x:Name="addressList" ItemsSource="{Binding Addresses}" Grid.Column="1" ItemSelected="addressSelected" VerticalOptions="Start" HeightRequest="180">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextCell Text="{Binding Address}"/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                    </ListView>
+
+            </Grid>
+
+            <Grid x:Name="openMenuGrid" IsVisible="false" Margin="20, 0, 20, 10" HeightRequest="40">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                    <!--<ImageButton Source="back.png" BackgroundColor="Transparent" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="25" Clicked="backClicked"/>-->
+                    <ImageButton Margin="0,0,15,0" CornerRadius="0" x:Name="openedMenu" Grid.Column="1" Source="openedMenu.png" HorizontalOptions="End" VerticalOptions="Center" HeightRequest="25" Clicked="openedMenuClicked"/>
+
+                    <Image x:Name="menuBackground" Source="loggedinMenuBackground.png" HeightRequest="305" VerticalOptions="Start" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="End"/>
+                    <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  VerticalOptions="Start" HorizontalOptions="End" Margin="0,0,30,0" Padding="0,25">
+                        <Grid ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32"/>
+                                <ColumnDefinition Width="200"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image HeightRequest="32" Source="menuProfileRed.png" HorizontalOptions="Fill" VerticalOptions="Center" BackgroundColor="Transparent"/>
+                            <Label Grid.Column="1" Text="My Profile" VerticalOptions="Center" FontSize="20" FontAttributes="Bold" TextColor="#E7404A" HorizontalOptions="Start"/>
+                            <Button BackgroundColor="Transparent" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Fill" VerticalOptions="Fill" Clicked="profileClicked"/>
+                        </Grid>
+
+                        <Grid ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="29"/>
+                                <ColumnDefinition Width="200"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image HeightRequest="29" Source="menuUtensilsRed.png" HorizontalOptions="Fill" VerticalOptions="Center" BackgroundColor="Transparent"/>
+                            <Label Grid.Column="1" Text="Order Food" VerticalOptions="Center" FontSize="20" FontAttributes="Bold" TextColor="#E7404A" HorizontalOptions="Start"/>
+                            <Button BackgroundColor="Transparent" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Fill" VerticalOptions="Fill" Clicked="orderClicked"/>
+                        </Grid>
+
+                        <Grid ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32"/>
+                                <ColumnDefinition Width="200"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image HeightRequest="32" Source="menuSearchRed.png" HorizontalOptions="Fill" VerticalOptions="Center" BackgroundColor="Transparent"/>
+                            <Label Grid.Column="1" Text="Food Banks Map" VerticalOptions="Center" FontSize="20" FontAttributes="Bold" TextColor="#E7404A" HorizontalOptions="StartAndExpand"/>
+                            <Button BackgroundColor="Transparent" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Fill" VerticalOptions="Fill" Clicked="browseClicked"/>
+                        </Grid>
+
+                        <Grid ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="29"/>
+                                <ColumnDefinition Width="200"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image HeightRequest="29" Source="menuFAQRed.png" HorizontalOptions="Fill" VerticalOptions="Center" BackgroundColor="Transparent"/>
+                            <Label Grid.Column="1" Text="FAQs" VerticalOptions="Center" FontSize="20" FontAttributes="Bold" TextColor="#E7404A" HorizontalOptions="Start"/>
+                            <Button BackgroundColor="Transparent" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                        </Grid>
+
+                        <Grid ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="28"/>
+                                <ColumnDefinition Width="200"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image HeightRequest="28" Source="menuLogoutRed.png" HorizontalOptions="Fill" VerticalOptions="Center" BackgroundColor="Transparent"/>
+                            <Label Grid.Column="1" Text="Logout" VerticalOptions="Center" FontSize="20" FontAttributes="Bold" TextColor="#E7404A" HorizontalOptions="Start"/>
+                            <Button BackgroundColor="Transparent" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Fill" VerticalOptions="Fill" Clicked="logoutClicked"/>
+                        </Grid>
+
+                    </StackLayout>
+
+            </Grid>
+
+            </Grid>
+
+                <BoxView HeightRequest="50"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:Forms9Patch="clr-namespace:Forms9Patch;assembly=Forms9Patch"
+    x:Class="PM.ViewModel.SubscriptionHistory">
+    <ContentPage.Content>
+            <ScrollView>
+                <Grid>
+            <StackLayout x:Name="StackL" BackgroundColor="White">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    
+                    <BoxView x:Name="orangeBox" BackgroundColor="#F26522" HorizontalOptions="Fill"/>
+                    <Image x:Name="heading" Source="heading.png" Margin="0,0,0,10" VerticalOptions="End" HorizontalOptions="Center"/>
+
+                    <Grid x:Name="innerGrid" VerticalOptions="End" HorizontalOptions="End">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <ImageButton x:Name="pfp" BackgroundColor="LightGray" VerticalOptions="End" HorizontalOptions="End" Clicked="clickedPfp"/>
+                        <Label x:Name="initials" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center"  HorizontalOptions="Center"/>
+
+                    </Grid>
+
+                    <!--<ImageButton x:Name="back" IsVisible="false" Source="backButton.png" VerticalOptions="End" HorizontalOptions="Start" Clicked="clickedBack"/>-->
+                    <ImageButton x:Name="menu" Source="new_menu.png" BackgroundColor="Transparent" VerticalOptions="End" HorizontalOptions="Start" Clicked="clickedOpenMenu"/>
+                </Grid>
+
+                <BoxView HeightRequest="10"/>
+
+                <Grid HorizontalOptions="Fill" ColumnSpacing="5" BackgroundColor="#f8bb17" Padding="20, 10" Margin="0, 0, 0, 5">
+                    <Label Text="Subscription History" FontAttributes="Bold" TextColor="Black" TextDecorations="Underline" HorizontalOptions="Start" BackgroundColor="Transparent" FontSize="18"/>
+                </Grid>
+
+                <Grid Margin="10,0,10,20" ColumnSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <!--<ColumnDefinition Width="2*"/>-->
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+
+                <!--<Label Text="Upcoming Menus" Margin="0,20,0,0" TextColor="Black" FontAttributes="Bold" FontSize="Small" HorizontalOptions="Center" VerticalOptions="Start"/>-->
+
+                <StackLayout Grid.Column="0">
+
+                    <!--<BoxView Margin="20,10,20,0" BackgroundColor="#F26522" HeightRequest="50"/>-->
+                    <Grid>
+                    <BoxView x:Name="connect" IsVisible="false" Margin="20,28,20,-30" BackgroundColor="#F26522" HeightRequest="50"/>
+                    <ImageButton x:Name="dropDownButton" BackgroundColor="Transparent" HorizontalOptions="Fill" Margin="20,0" Source="planSelecter.png" HeightRequest="55" Aspect="AspectFit" Clicked="clickedExpand"/>
+                    <Label x:Name="dropDownText" VerticalOptions="Center" HorizontalOptions="Start" Margin="35,0,0,0" TextColor="White" FontSize="Medium" FontAttributes="Bold" BackgroundColor="Transparent"/>
+                    <Button BackgroundColor="Transparent" HeightRequest="55" HorizontalOptions="Fill" Clicked="clickedExpand"/>
+                    </Grid>
+
+                    <ListView x:Name="dropDownList" IsVisible="false" HeightRequest="200" ItemSelected="ItemSelected" BackgroundColor="#F26522" HorizontalOptions="End" Margin="20, 0, 20, 0">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                <!--<TextCell Text="Hello" Height="50" TextColor="Black"/>-->
+                                <Frame HasShadow="False" Margin="8,5" BackgroundColor="White" Padding="10,0" HeightRequest="40" CornerRadius="17">
+                                    <Label Text="{Binding name}" FontSize="16" HorizontalTextAlignment="Start" VerticalOptions="Center" VerticalTextAlignment="Center" TextColor="Black"/>
+                                </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                </Grid>
+
+                <BoxView HeightRequest="2"  Margin="25,0" BackgroundColor="#F26522" HorizontalOptions="Fill"/>
+
+                <Grid Margin="0,2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                <Label Margin="25, 0, 0,0" Text="Next Billing date " FontSize="17" TextColor="#F26522" HorizontalTextAlignment="Start" HorizontalOptions="Fill"/>
+                <Label Grid.Column="1" Margin="0, 0, 25, 0" Text="TBD" x:Name="nextBillingLabel" FontSize="17" TextColor="#F26522" HorizontalTextAlignment="End" HorizontalOptions="Fill"/>
+                </Grid>
+
+                <BoxView HeightRequest="2" Margin="25,0,25,10" BackgroundColor="#F26522" HorizontalOptions="Fill"/> 
+
+                <CollectionView x:Name="weekOneMenu">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout
+                        Orientation="Vertical"
+                        Span="1" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                    <!--<Forms9Patch:Label x:Name="mealDesc" Margin="3,0" Text="{Binding MealDesc}" HorizontalTextAlignment="Center" IsVisible="{Binding SeeDesc}" Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="Transparent" TextColor="Black"/>-->
+                                    <StackLayout IsVisible="{Binding mainGridVisible}">
+
+                                    <BoxView HeightRequest="2" Margin="15,0" BackgroundColor="#F26522" HorizontalOptions="Fill"/>
+
+                                    <Grid Margin="0,2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="1*"/>
+                                        </Grid.ColumnDefinitions>
+                                    <Label Margin="15, 0, 0,0" Text="Billing date" FontSize="17" TextColor="#F26522" HorizontalTextAlignment="Start" HorizontalOptions="Fill"/>
+                                    <Label Grid.Column="1" Margin="0, 0, 15, 0" Text="{Binding Date}" FontSize="17" TextColor="#F26522" HorizontalTextAlignment="End" HorizontalOptions="Fill"/>
+                                    </Grid>
+
+                                    <BoxView HeightRequest="2" Margin="15,0" BackgroundColor="#F26522" HorizontalOptions="Fill"/>
+
+                                    <Grid Margin="0,2,0,0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="3*"/>
+                                        </Grid.ColumnDefinitions>
+                                    <Label Margin="15, 0, 0,0" Text="Meal plan" FontSize="17" TextColor="#F26522" HorizontalTextAlignment="Start" HorizontalOptions="Fill"/>
+                                    <Label Grid.Column="1" Margin="0, 0, 15, 0" Text="{Binding mealPlanName}" FontSize="17" TextColor="#F26522" HorizontalTextAlignment="End" HorizontalOptions="Fill"/>
+                                    <Button BackgroundColor="Transparent" Grid.ColumnSpan="2" HorizontalOptions="Fill" VerticalOptions="Fill"  Clicked="clickedSeeMeals"/>
+                                    </Grid>
+
+                                    <!--<Label Text="{Binding Date}" FontSize="15" HorizontalTextAlignment="Center" HorizontalOptions="Center" Margin="10"/>
+                                    <Button Text="{Binding mealPlanName}" HeightRequest="40" FontSize="15" HorizontalOptions="Fill" BackgroundColor="LightGray" Margin="40,5" Clicked="clickedSeeMeals"/>-->  
+                                    
+                                    <CollectionView Margin="15,-15,15,0" ItemsSource="{Binding mealColl}" IsVisible="{Binding CollVisible}" HeightRequest="{Binding mealCollHeight}">
+                                        <CollectionView.ItemsLayout>
+                                            <GridItemsLayout
+                                            Orientation="Vertical"
+                                            Span="1" />
+                                        </CollectionView.ItemsLayout>
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackLayout>
+                                                <Grid ColumnSpacing="3" Margin="0,5" IsVisible="{Binding DelivDateVisible}">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto" />
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="1*" />
+                                                        <ColumnDefinition Width="1*" />
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Label Text="Meals Delivered" TextColor="Black" Grid.Column="0" FontSize="21" HeightRequest="30" FontAttributes="Bold" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start"/>
+                                                    <Label Text="{Binding DelivDate}" TextColor="Black" Grid.Column="1" FontSize="21" HeightRequest="30" FontAttributes="Bold" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="End" HorizontalTextAlignment="End"/>
+                                                        
+                                                </Grid>
+
+                                                <Grid ColumnSpacing="3" Margin="0,5">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto" />
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="1*" />
+                                                        <ColumnDefinition Width="4*" />
+                                                        <ColumnDefinition Width="1*" />
+                                                    </Grid.ColumnDefinitions>
+                                                        <!--<Forms9Patch:Label x:Name="mealDesc" Margin="3,0" Text="{Binding MealDesc}" HorizontalTextAlignment="Center" IsVisible="{Binding SeeDesc}" Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="Transparent" TextColor="Black"/>-->
+                                                        
+                                                        <Label Grid.Column="0" TextColor="Black" Text="{Binding qty}" FontSize="30" HeightRequest="50" FontAttributes="Bold" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HorizontalOptions="Fill"/>
+                                                        <Label Grid.Column="1" TextColor="Black" Text="{Binding mealName}" FontSize="16" HeightRequest="50" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" HorizontalOptions="Fill"/>
+                                                        <Image Grid.Column="2" HorizontalOptions="Center" Aspect="AspectFill" VerticalOptions="Center" HeightRequest="50" WidthRequest="50" Source="{Binding urlLink}"/>
+                                                </Grid>
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                 </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                
+            </StackLayout>
+
+
+
+            <Grid x:Name="openedMenu" IsVisible="false">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                    
+                <BoxView x:Name="orangeBox2" Grid.RowSpan="2" BackgroundColor="#F26522" HorizontalOptions="Fill"/>
+                <Image x:Name="heading2" Source="heading.png" Margin="0,0,0,10" VerticalOptions="End" HorizontalOptions="Center"/>               
+
+                <ImageButton x:Name="menu2" Source="closeMenu.png" VerticalOptions="End" HorizontalOptions="Start" BackgroundColor="Transparent" Clicked="clickedCloseMenu"/>
+
+                <StackLayout Grid.Row="1" Margin="0,0,0,25">
+                    <Forms9Patch:Button Text="    Home" FontAttributes="Bold" OutlineColor="Transparent" FontSize="20" HorizontalTextAlignment="Start" HorizontalOptions="Fill" TextColor="White" />
+                    <Forms9Patch:Button Text="    Select Meals" FontAttributes="Bold" OutlineColor="Transparent" FontSize="20" HorizontalTextAlignment="Start" HorizontalOptions="Fill" TextColor="White" Clicked="clickedSelect"/>
+                    <Forms9Patch:Button Text="    Change Meal Plans" FontAttributes="Bold" OutlineColor="Transparent" FontSize="20" HorizontalTextAlignment="Start" HorizontalOptions="Fill" TextColor="White" Clicked="clickedMealPlan"/>
+                    <Forms9Patch:Button Text="    Add Subscriptions" FontAttributes="Bold" OutlineColor="Transparent" FontSize="20" HorizontalTextAlignment="Start" HorizontalOptions="Fill" TextColor="White" Clicked="clickedSubscription"/>
+                    <Forms9Patch:Button Text="    Subscription History" FontAttributes="Bold" OutlineColor="Transparent" FontSize="20" HorizontalTextAlignment="Start" HorizontalOptions="Fill" TextColor="White" Clicked="clickedSubHistory"/>
+                    <Forms9Patch:Button Text="    Become an Ambassador" FontAttributes="Bold" OutlineColor="Transparent" FontSize="20" HorizontalTextAlignment="Start" HorizontalOptions="Fill" TextColor="White" Clicked="clickedBecomeAmb"/>
+                    <Forms9Patch:Button Text="    Log Out" FontAttributes="Bold" OutlineColor="Transparent" FontSize="20" HorizontalTextAlignment="Start" HorizontalOptions="Fill" TextColor="White" Clicked="clickedLogout"/>
+                </StackLayout>
+
+            </Grid>
+
+            <BoxView x:Name="fade" IsVisible="false" BackgroundColor="White" Opacity="0.7" Margin="0,-250" HorizontalOptions="Fill" VerticalOptions="Fill"/>
+
+            <Grid x:Name="baaPopUpGrid" VerticalOptions="Start" Margin="40,120,40,0" IsVisible="false">
+                    <Frame BorderColor="#F26522" CornerRadius="0" HasShadow="False">
+                        <StackLayout>
+                            <ImageButton Source="xButton.png" Aspect="AspectFit" HorizontalOptions="End" Margin="-10" WidthRequest="30" Clicked="xButtonClicked"/>
+
+                            <Label Text="Love MealsFor.Me?" FontAttributes="Bold" FontSize="25" HorizontalOptions="Center" Margin="0, 0, 0, 5"/>
+                            <Label Text="Become an Ambassador" FontAttributes="Bold" FontSize="13" HorizontalOptions="Center" Margin="0, 0, 0, 15"/>
+
+                            <Label Text="Your friend(s) saves 20% on their first order and you save 20% on your next renewal&#10;+&#10;Each time your friend renews, you get an additional 5% renewal bonus. Sign up 20 friends and eat for free!"
+                                   HorizontalOptions="Center" HorizontalTextAlignment="Center" HeightRequest="170" FontSize="16" Margin="15, 0"/>
+
+                            <Frame x:Name="AmbEmailFrame" BorderColor="#F26522" CornerRadius="10" HasShadow="false" Padding="15, 5">
+                                <Entry x:Name="AmbEmailEntry" Placeholder="Email" TextColor="Black"/>
+                            </Frame>
+
+                            <Button Text="Sign Up" BackgroundColor="#F26522" TextColor="White" Margin="0, 10, 0, 10" CornerRadius="10" Clicked="clickedCreateAmb"/>
+
+                            <Label Text="Your friends can use this email address as the Ambassador code when they sign up" FontAttributes="Bold" FontSize="16" HorizontalTextAlignment="Center" TextColor="#F26522" HorizontalOptions="Center" HeightRequest="65" Margin="0, 0, 0, 15"/>
+
+                            <!--<Button x:Name="OkayButton" Text="Sign Up" BackgroundColor="#F26522" TextColor="White" Margin="40, 20, 40, 10" CornerRadius="10" Clicked="OkayClicked"/>-->
+                            <!--<Button x:Name="signUpButton2" Text="Sign Up" BackgroundColor="#F26522" TextColor="White" Margin="40, 0, 40, 10" CornerRadius="10" Clicked="clickedSignUp"/>-->
+                        </StackLayout>
+                    </Frame>
+            </Grid>
+
+                </Grid>
+        </ScrollView>
+        </ContentPage.Content>
+</ContentPage>

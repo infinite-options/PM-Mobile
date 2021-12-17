@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="PM.ViewModel.EditAddressPage"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame VerticalOptions="CenterAndExpand" CornerRadius="20" Margin="25,0,25,0">
+                <StackLayout Spacing="20">
+                    <StackLayout HorizontalOptions="End">
+                        <ImageButton WidthRequest="29" HeightRequest="29" Source="closeIcon" Clicked="CloseModalNavigateToCheckoutPage"></ImageButton>
+                    </StackLayout>
+                    <StackLayout Margin="0,-10,0,0" HorizontalOptions="Center">
+                        <Label Text="Delivery Address" FontAttributes="Bold" FontSize="28" ></Label>
+                    </StackLayout>
+                    <StackLayout>
+                        <StackLayout HeightRequest="150">
+                            <RelativeLayout
+                                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
+                                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
+                                <StackLayout Spacing="5"
+                                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
+                                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
+                                    <Frame Padding="5" CornerRadius="10" HasShadow="False" BorderColor="#707070">
+                                        <Frame Padding="0" HasShadow="False" BorderColor="White">
+                                            <Entry x:Name="signUpAddress1Entry" FontSize="17" Placeholder="Street Address" PlaceholderColor="Black"  Keyboard="Text" TextColor="Black" TextChanged="signUpAddress1Entry_TextChanged" Focused="signUpAddress1Entry_Focused" Unfocused="signUpAddress1Entry_Unfocused"/>
+                                        </Frame>
+                                    </Frame>
+                                    <Grid>
+                                        <Frame Grid.Column="0" Padding="5" CornerRadius="10" HasShadow="False" BorderColor="#707070">
+                                            <Frame Padding="0" HasShadow="False" BorderColor="White">
+                                                <Entry x:Name="signUpAddress2Entry" Placeholder="Unit" PlaceholderColor="Black" TextColor="Black" FontSize="17"></Entry>
+                                            </Frame>
+                                        </Frame>
+                                        <Frame Grid.Column="1" Padding="5" CornerRadius="10" HasShadow="False" BorderColor="#707070">
+                                            <Frame Padding="0" HasShadow="False" BorderColor="White">
+                                                <Entry x:Name="signUpCityEntry" Placeholder="City" PlaceholderColor="Black" TextColor="Black" FontSize="17"></Entry>
+                                            </Frame>
+                                        </Frame>
+                                    </Grid>
+                                    <Grid>
+                                        <Frame Grid.Column="0" Padding="5" CornerRadius="10" HasShadow="False" BorderColor="#707070">
+                                            <Frame Padding="0" HasShadow="False" BorderColor="White">
+                                                <Entry x:Name="signUpStateEntry" Placeholder="State" PlaceholderColor="Black" TextColor="Black" FontSize="17"></Entry>
+                                            </Frame>
+                                        </Frame>
+                                        <Frame Grid.Column="1" Padding="5" CornerRadius="10" HasShadow="False" BorderColor="#707070">
+                                            <Frame Padding="0" HasShadow="False" BorderColor="White">
+                                                <Entry x:Name="signUpZipcodeEntry" Placeholder="Zip Code" PlaceholderColor="Black" TextColor="Black" FontSize="17"></Entry>
+                                            </Frame>
+                                        </Frame>
+                                    </Grid>
+                                    <Frame Margin="0,-100,0,0" HasShadow="False" Padding="2" BackgroundColor="White" CornerRadius="0" HorizontalOptions="CenterAndExpand" x:Name="signUpAddressFrame" IsVisible="false">
+                                        <ListView x:Name="SignUpAddressList" IsVisible="false" BackgroundColor="White"  HeightRequest="100"  ItemsSource="{Binding Addresses}" ItemSelected="SignUpAddressList_ItemSelected">
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <ViewCell>
+                                                        <StackLayout HeightRequest="53" VerticalOptions="CenterAndExpand">
+                                                            <Label HeightRequest="53" VerticalTextAlignment="Center" Text="{Binding Address}" FontSize="12" TextColor="Black" LineBreakMode="WordWrap"/>
+                                                        <BoxView HeightRequest="1" Color="LightGray"></BoxView>
+                                                    </StackLayout>
+                                                    </ViewCell>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
+                                    </Frame>
+                                </StackLayout>
+                            </RelativeLayout>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout>
+                        <Button Margin="25,0,25,0" CornerRadius="20" Clicked="SaveAddress" FontAttributes="Bold" Text="Save Changes" TextColor="White" FontSize="18" BackgroundColor="#E7404A"></Button>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

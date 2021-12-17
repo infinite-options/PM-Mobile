@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:Forms9Patch="clr-namespace:Forms9Patch;assembly=Forms9Patch"
+             x:Class="PM.MainPage" NavigationPage.HasNavigationBar="False">
+
+    <!-- center all of the main page content -->
+    <ContentPage.Content>
+    <ScrollView>
+        <StackLayout>
+        <BoxView HeightRequest="70" BackgroundColor="Transparent"/> <!--to avoid the notch on top-->
+        <BoxView HeightRequest="120" BackgroundColor="Transparent"/>
+
+        <Image HeightRequest="160" Source="pmLogo.png" BackgroundColor="Transparent" HorizontalOptions="Fill"/>
+
+        <Label Margin="0,5,0,0" HorizontalOptions="Center" HorizontalTextAlignment="Center" Text="Property Management" FontSize="22" TextColor="#007AFF"/> 
+
+        <Forms9Patch:Button Margin="0,100,0,0" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold" Text="Login" TextColor="White" BackgroundColor="#007AFF" HeightRequest="38" BorderRadius="33" WidthRequest="100" Clicked="loginClicked"/>
+
+        <Label Margin="0,30,0,5" Text="Don't have an account?" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" FontSize="18"/>
+        <Forms9Patch:Button HorizontalOptions="Center" Text="Sign Up" FontSize="20" FontAttributes="Bold" TextColor="#007AFF" BackgroundColor="White" BorderColor="#007AFF" BorderWidth="2" HeightRequest="38" BorderRadius="33" WidthRequest="130"/>
+
+        <!--<Label Text="Welcome to" TextColor="Black" FontAttributes="Bold" FontSize="35" HorizontalTextAlignment="Start" Margin="30,0,0,0"/>
+        <Label Text="Serving Now" TextColor="#E7404A" FontAttributes="Bold" FontSize="35" HorizontalTextAlignment="Start" Margin="30,0,0,20"/>-->
+
+        <!--<Image HeightRequest="350" BackgroundColor="Transparent" Margin="10,0" Source="shopping.png" HorizontalOptions="Fill" VerticalOptions="Start"/>-->
+
+        <!--<ImageButton x:Name="loginButton" Source="loginButton.png" Margin="60,20,60,0" Clicked="loginClicked"/>
+        <ImageButton x:Name="registerButton" Source="registerButton.png" Margin="60,5,60,10" Clicked="registerClicked"/>-->
+
+        </StackLayout>
+    </ScrollView>
+    </ContentPage.Content>
+
+    
+    
+</ContentPage>

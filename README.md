@@ -1,2 +1,1 @@
-# PM-Mobile
-Property Management App
+﻿# PM-Mobile
