@@ -65,7 +65,7 @@
                                     <Label Text="{Binding month}" FontSize="15" TextColor="{Binding TextColor}" HorizontalTextAlignment="Center"/>
                                 </StackLayout>
 
-                                <Button HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="Transparent" Clicked="dateChange"/>
+                                <Button HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="Transparent"/> <!--original had clicked: dateChange-->
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>

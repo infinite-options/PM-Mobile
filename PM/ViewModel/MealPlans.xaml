@@ -49,7 +49,7 @@
                                 <Label Margin="20,0,0,0" VerticalOptions="Center" VerticalTextAlignment="Center" FontAttributes="Bold" Text="{Binding PlanName}" BackgroundColor="Transparent" TextColor="{Binding FontColor}" FontSize="20"/>
                             </Forms9Patch:Frame>
 
-                            <Button HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="Transparent" Clicked="planChange"/>
+                            <Button HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="Transparent"/> <!--original had clicked: planChange-->
                             </Grid>
 
                         </DataTemplate>

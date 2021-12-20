@@ -26,7 +26,7 @@ namespace PM
     public partial class App : Application
     {
         //public HttpClient client = new HttpClient();
-        public ObservableCollection<Plans> NewMainPage = new ObservableCollection<Plans>();
+        //public ObservableCollection<Plans> NewMainPage = new ObservableCollection<Plans>();
         static UserLoginDatabase database;
         static Boolean loggedIn = false;
         JObject info_obj2;
@@ -57,7 +57,7 @@ namespace PM
             Debug.WriteLine("userString: " + userString);
             info_obj2 = JObject.Parse(userString);
             Debug.WriteLine("info_obj2: " + info_obj2.ToString());
-            this.NewMainPage.Clear();
+            //this.NewMainPage.Clear();
             return;
         }
 

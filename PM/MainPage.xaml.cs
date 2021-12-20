@@ -46,7 +46,7 @@ namespace PM
         public HttpClient client = new HttpClient();
         public event EventHandler SignIn;
         public bool createAccount = false;
-        public ObservableCollection<Plans> NewMainPage = new ObservableCollection<Plans>();
+        //public ObservableCollection<Plans> NewMainPage = new ObservableCollection<Plans>();
         LoginViewModel vm = new LoginViewModel();
         //-1 if the email_verified section is not found in the returned message, 0 if false, 1 if true
         int directEmailVerified = 0;
@@ -769,7 +769,7 @@ namespace PM
                                         Console.WriteLine("content: " + content);
                                         userString = await content.ReadAsStringAsync();
                                         JObject info_obj2 = JObject.Parse(userString);
-                                        this.NewMainPage.Clear();
+                                        //this.NewMainPage.Clear();
                                         Preferences.Set("user_latitude", (info_obj2["result"])[0]["customer_lat"].ToString());
                                         Debug.WriteLine("user latitude" + Preferences.Get("user_latitude", ""));
                                         Preferences.Set("user_longitude", (info_obj2["result"])[0]["customer_long"].ToString());
@@ -786,7 +786,7 @@ namespace PM
                                     }
 
                                     JObject info_obj = JObject.Parse(userString);
-                                    this.NewMainPage.Clear();
+                                    //this.NewMainPage.Clear();
 
                                     //ArrayList item_price = new ArrayList();
                                     //ArrayList num_items = new ArrayList();
@@ -810,7 +810,7 @@ namespace PM
                                         Console.WriteLine("content: " + content);
                                         userString = await content.ReadAsStringAsync();
                                         JObject info_obj2 = JObject.Parse(userString);
-                                        this.NewMainPage.Clear();
+                                        //this.NewMainPage.Clear();
                                         Preferences.Set("user_latitude", (info_obj2["result"])[0]["customer_lat"].ToString());
                                         Debug.WriteLine("user latitude" + Preferences.Get("user_latitude", ""));
                                         Preferences.Set("user_longitude", (info_obj2["result"])[0]["customer_long"].ToString());
@@ -838,7 +838,7 @@ namespace PM
                                         Console.WriteLine("content: " + content);
                                         userString = await content.ReadAsStringAsync();
                                         JObject info_obj2 = JObject.Parse(userString);
-                                        this.NewMainPage.Clear();
+                                        //this.NewMainPage.Clear();
                                         Preferences.Set("user_latitude", (info_obj2["result"])[0]["customer_lat"].ToString());
                                         Debug.WriteLine("user latitude" + Preferences.Get("user_latitude", ""));
                                         Preferences.Set("user_longitude", (info_obj2["result"])[0]["customer_long"].ToString());
@@ -1177,7 +1177,7 @@ namespace PM
                                         Console.WriteLine("content: " + content);
                                         userString = await content.ReadAsStringAsync();
                                         JObject info_obj2 = JObject.Parse(userString);
-                                        this.NewMainPage.Clear();
+                                        //this.NewMainPage.Clear();
                                         Console.WriteLine("google first: " + (info_obj2["result"])[0]["customer_first_name"].ToString());
                                         Console.WriteLine("google last: " + (info_obj2["result"])[0]["customer_last_name"].ToString());
                                         Console.WriteLine("google email: " + (info_obj2["result"])[0]["customer_email"].ToString());
@@ -1214,7 +1214,7 @@ namespace PM
                                     //testing
 
                                     JObject info_obj = JObject.Parse(userString);
-                                    this.NewMainPage.Clear();
+                                    //this.NewMainPage.Clear();
 
                                     //ArrayList item_price = new ArrayList();
                                     //ArrayList num_items = new ArrayList();
@@ -1248,7 +1248,7 @@ namespace PM
                                         Console.WriteLine("content: " + content);
                                         userString = await content.ReadAsStringAsync();
                                         JObject info_obj2 = JObject.Parse(userString);
-                                        this.NewMainPage.Clear();
+                                        //this.NewMainPage.Clear();
                                         Console.WriteLine("google first: " + (info_obj2["result"])[0]["customer_first_name"].ToString());
                                         Console.WriteLine("google last: " + (info_obj2["result"])[0]["customer_last_name"].ToString());
                                         Console.WriteLine("google email: " + (info_obj2["result"])[0]["customer_email"].ToString());
@@ -1293,7 +1293,7 @@ namespace PM
                                         Console.WriteLine("content: " + content);
                                         userString = await content.ReadAsStringAsync();
                                         JObject info_obj2 = JObject.Parse(userString);
-                                        this.NewMainPage.Clear();
+                                        //this.NewMainPage.Clear();
                                         Preferences.Set("user_latitude", (info_obj2["result"])[0]["customer_lat"].ToString());
                                         Debug.WriteLine("user latitude" + Preferences.Get("user_latitude", ""));
                                         Preferences.Set("user_longitude", (info_obj2["result"])[0]["customer_long"].ToString());
@@ -1505,7 +1505,7 @@ namespace PM
                 JObject info_obj3 = JObject.Parse(userString);
                 Debug.WriteLine("info_obj3: " + info_obj3.ToString());
                 //await DisplayAlert("success", "reached after info_obj: " + info_obj3.ToString(), "OK");
-                this.NewMainPage.Clear();
+                //this.NewMainPage.Clear();
                 Preferences.Set("user_latitude", (info_obj3["result"])[0]["customer_lat"].ToString());
                 Debug.WriteLine("user latitude" + Preferences.Get("user_latitude", ""));
                 Preferences.Set("user_longitude", (info_obj3["result"])[0]["customer_long"].ToString());

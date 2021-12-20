@@ -60,12 +60,6 @@
     <Compile Remove="DirectSignUpA.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Update="ViewModel\PaymentPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="Constants\" />
   </ItemGroup>
 </Project>

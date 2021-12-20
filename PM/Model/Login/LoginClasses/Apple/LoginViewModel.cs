@@ -42,8 +42,8 @@ namespace PM.Model.Login.LoginClasses.Apple
     public class LoginViewModel
     {
         public HttpClient client = new HttpClient();
-        public ObservableCollection<Plans> NewMainPage = new ObservableCollection<Plans>();
-        public ObservableCollection<Plans> NewLogin = new ObservableCollection<Plans>();
+        //public ObservableCollection<Plans> NewMainPage = new ObservableCollection<Plans>();
+        //public ObservableCollection<Plans> NewLogin = new ObservableCollection<Plans>();
         public static string apple_token = null;
         public static string apple_email = null;
         string deviceId;
@@ -285,7 +285,7 @@ namespace PM.Model.Login.LoginClasses.Apple
                                     Console.WriteLine("content: " + content);
                                     userString = await content.ReadAsStringAsync();
                                     JObject info_obj3 = JObject.Parse(userString);
-                                    this.NewMainPage.Clear();
+                                    //this.NewMainPage.Clear();
                                     Preferences.Set("user_latitude", (info_obj3["result"])[0]["customer_lat"].ToString());
                                     Debug.WriteLine("user latitude" + Preferences.Get("user_latitude", ""));
                                     Preferences.Set("user_longitude", (info_obj3["result"])[0]["customer_long"].ToString());
@@ -301,7 +301,7 @@ namespace PM.Model.Login.LoginClasses.Apple
                                 }
 
                                 JObject info_obj2 = JObject.Parse(userString);
-                                this.NewLogin.Clear();
+                                //this.NewLogin.Clear();
 
                                 //ArrayList item_price = new ArrayList();
                                 //ArrayList num_items = new ArrayList();
@@ -328,7 +328,7 @@ namespace PM.Model.Login.LoginClasses.Apple
                                     Console.WriteLine("content: " + content);
                                     userString = await content.ReadAsStringAsync();
                                     JObject info_obj3 = JObject.Parse(userString);
-                                    this.NewMainPage.Clear();
+                                    //this.NewMainPage.Clear();
                                     Preferences.Set("user_latitude", (info_obj3["result"])[0]["customer_lat"].ToString());
                                     Debug.WriteLine("user latitude" + Preferences.Get("user_latitude", ""));
                                     Preferences.Set("user_longitude", (info_obj3["result"])[0]["customer_long"].ToString());
@@ -351,7 +351,7 @@ namespace PM.Model.Login.LoginClasses.Apple
                                     Console.WriteLine("content: " + content);
                                     userString = await content.ReadAsStringAsync();
                                     JObject info_obj3 = JObject.Parse(userString);
-                                    this.NewMainPage.Clear();
+                                    //this.NewMainPage.Clear();
                                     Preferences.Set("user_latitude", (info_obj3["result"])[0]["customer_lat"].ToString());
                                     Debug.WriteLine("user latitude" + Preferences.Get("user_latitude", ""));
                                     Preferences.Set("user_longitude", (info_obj3["result"])[0]["customer_long"].ToString());

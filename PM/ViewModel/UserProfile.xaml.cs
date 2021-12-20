@@ -22,7 +22,7 @@ namespace PM.ViewModel
 {
     public partial class UserProfile : ContentPage
     {
-        public ObservableCollection<Plans> customerProfileInfo = new ObservableCollection<Plans>();
+        //public ObservableCollection<Plans> customerProfileInfo = new ObservableCollection<Plans>();
         public ObservableCollection<PaymentInfo> NewPlan = new ObservableCollection<PaymentInfo>();
         public Dictionary<string, string> profileInfoDict = new Dictionary<string, string>();
         PaymentInfo orderInfo;
@@ -36,11 +36,11 @@ namespace PM.ViewModel
         bool withinZones = false;
         bool socialMediaLogin = false;
         Address addr;
-        EditProfile editprof;
+        //EditProfile editprof;
 
         public UserProfile()
         {
-            editprof = new EditProfile();
+            //editprof = new EditProfile();
             var width = DeviceDisplay.MainDisplayInfo.Width;
             var height = DeviceDisplay.MainDisplayInfo.Height;
             //addr = new Address();
@@ -103,11 +103,11 @@ namespace PM.ViewModel
                 Console.WriteLine("user social media: " + (info_obj["result"])[0]["user_social_media"].ToString());
 
                 //fill update profile obj info with the fields that can't change
-                editprof.first_name = (info_obj["result"])[0]["customer_first_name"].ToString();
-                editprof.last_name = (info_obj["result"])[0]["customer_last_name"].ToString();
-                editprof.email = (info_obj["result"])[0]["customer_email"].ToString();
-                editprof.uid = (info_obj["result"])[0]["customer_uid"].ToString();
-                editprof.noti = "";
+                //editprof.first_name = (info_obj["result"])[0]["customer_first_name"].ToString();
+                //editprof.last_name = (info_obj["result"])[0]["customer_last_name"].ToString();
+                //editprof.email = (info_obj["result"])[0]["customer_email"].ToString();
+                //editprof.uid = (info_obj["result"])[0]["customer_uid"].ToString();
+                //editprof.noti = "";
 
                 profileInfoDict.Add("first_name", (info_obj["result"])[0]["customer_first_name"].ToString());
                 profileInfoDict.Add("last_name", (info_obj["result"])[0]["customer_last_name"].ToString());

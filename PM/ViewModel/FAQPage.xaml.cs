@@ -13,7 +13,7 @@ namespace PM.ViewModel
 {
     public partial class FAQPage : ContentPage
     {
-        public ObservableCollection<faqElement> questionColl = new ObservableCollection<faqElement>();
+        //public ObservableCollection<faqElement> questionColl = new ObservableCollection<faqElement>();
         int qNum;
         bool isGuest;
 
@@ -29,27 +29,27 @@ namespace PM.ViewModel
             Console.WriteLine("Height = " + height.ToString());
 
             InitializeComponent();
-            fillList();
+            //fillList();
         }
 
-        async void fillList()
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                string quest = "What food banks are there?";
-                string ans = "We have a variety!";
-                questionColl.Add(new faqElement
-                {
-                    question = qNum.ToString() + ") " + quest,
-                    answer = ans
-                });
+        //async void fillList()
+        //{
+        //    for (int i = 0; i < 10; i++)
+        //    {
+        //        string quest = "What food banks are there?";
+        //        string ans = "We have a variety!";
+        //        questionColl.Add(new faqElement
+        //        {
+        //            question = qNum.ToString() + ") " + quest,
+        //            answer = ans
+        //        });
 
-                faqCollView.ItemsSource = questionColl;
-                if (qNum != 1)
-                    faqCollView.HeightRequest += 100;
-                qNum++;
-            }
-        }
+        //        faqCollView.ItemsSource = questionColl;
+        //        if (qNum != 1)
+        //            faqCollView.HeightRequest += 100;
+        //        qNum++;
+        //    }
+        //}
 
         void backClicked(System.Object sender, System.EventArgs e)
         {

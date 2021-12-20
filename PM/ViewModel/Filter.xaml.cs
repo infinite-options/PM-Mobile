@@ -19,8 +19,8 @@ namespace PM.ViewModel
 {
     public partial class Filter : ContentPage
     {
-        List<Date1> availableDates;
-        Date1 selectedDate;
+        //List<Date1> availableDates;
+        //Date1 selectedDate;
         //allowing multiple date selections
         //List<Date1> selectedDates;
         List<ImageButton> selectedTypes;
@@ -43,7 +43,7 @@ namespace PM.ViewModel
             Debug.WriteLine("user id: " + Application.Current.Properties["user_id"]);
 
             selectedTypes = new List<ImageButton>();
-            availableDates = new List<Date1>();
+            //availableDates = new List<Date1>();
             //allowing multiple date selections
             //selectedDates = new List<Date1>();
             NavigationPage.SetHasBackButton(this, false);
@@ -59,7 +59,7 @@ namespace PM.ViewModel
 
             getDates();
             getFoodBanks();
-            Debug.WriteLine("availableDates size: " + availableDates.Count);
+            //Debug.WriteLine("availableDates size: " + availableDates.Count);
 
             Debug.WriteLine("main grid height: " + mainGrid.HeightRequest);
             //Debug.WriteLine("topstack height: " +;
@@ -387,14 +387,14 @@ namespace PM.ViewModel
                 todaysDate = DateTime.Now;
                 DateTime nextDate = todaysDate.AddDays(i);
                 Debug.WriteLine("todays date: " + nextDate.ToLongDateString() + " endOfLongDate " + nextDate.Date);
-                Date1 addingDate = new Date1();
-                addingDate.BackgroundImg = "dateUnselected.png";
-                addingDate.dotw = nextDate.DayOfWeek.ToString().Substring(0, 1);
-                addingDate.day = nextDate.Day.ToString();
-                addingDate.month = nextDate.ToLongDateString().Substring(nextDate.ToLongDateString().IndexOf(",") + 2, 3);
-                addingDate.TextColor = Color.Black;
-                addingDate.dateObj = nextDate;
-                availableDates.Add(addingDate);
+                //Date1 addingDate = new Date1();
+                //addingDate.BackgroundImg = "dateUnselected.png";
+                //addingDate.dotw = nextDate.DayOfWeek.ToString().Substring(0, 1);
+                //addingDate.day = nextDate.Day.ToString();
+                //addingDate.month = nextDate.ToLongDateString().Substring(nextDate.ToLongDateString().IndexOf(",") + 2, 3);
+                //addingDate.TextColor = Color.Black;
+                //addingDate.dateObj = nextDate;
+                //availableDates.Add(addingDate);
             }
 
 
@@ -419,118 +419,118 @@ namespace PM.ViewModel
             //    });
             //}
 
-            dateCarousel.ItemsSource = availableDates;
+            //dateCarousel.ItemsSource = availableDates;
         }
 
 
-        private void dateChange(object sender, EventArgs e)
-        {
-            Button button1 = (Button)sender;
-            Date1 dateChosen = button1.BindingContext as Date1;
+        //private void dateChange(object sender, EventArgs e)
+        //{
+        //    Button button1 = (Button)sender;
+        //    Date1 dateChosen = button1.BindingContext as Date1;
 
-            //unselected -> selected
-            if (dateChosen.BackgroundImg == "dateUnselected.png")
-            {
-                orderDateChosen = dateChosen.dateObj.ToLongDateString();
+        //    //unselected -> selected
+        //    if (dateChosen.BackgroundImg == "dateUnselected.png")
+        //    {
+        //        orderDateChosen = dateChosen.dateObj.ToLongDateString();
 
-                if (selectedDate != null)
-                {
-                    selectedDate.BackgroundImg = "dateUnselected.png";
-                    selectedDate.TextColor = Color.Black;
-                }
-                selectedDate = dateChosen;
-                dateChosen.BackgroundImg = "dateSelected.png";
-                dateChosen.TextColor = Color.White;
-                pickDateButton.Text = dateChosen.month + " " + dateChosen.day;
-                //allowing multiple date selections
-                //dateChosen.BackgroundImg = "dateSelected.png";
-                //dateChosen.TextColor = Color.White;
-                //selectedDates.Add(dateChosen);
+        //        if (selectedDate != null)
+        //        {
+        //            selectedDate.BackgroundImg = "dateUnselected.png";
+        //            selectedDate.TextColor = Color.Black;
+        //        }
+        //        selectedDate = dateChosen;
+        //        dateChosen.BackgroundImg = "dateSelected.png";
+        //        dateChosen.TextColor = Color.White;
+        //        pickDateButton.Text = dateChosen.month + " " + dateChosen.day;
+        //        //allowing multiple date selections
+        //        //dateChosen.BackgroundImg = "dateSelected.png";
+        //        //dateChosen.TextColor = Color.White;
+        //        //selectedDates.Add(dateChosen);
 
-                pickDateFrame.BackgroundColor = Color.FromHex("#E7404A"); 
-                pickDateButton.TextColor = Color.White;
+        //        pickDateFrame.BackgroundColor = Color.FromHex("#E7404A"); 
+        //        pickDateButton.TextColor = Color.White;
 
-                ObservableCollection<FoodBanks> newBanks = new ObservableCollection<FoodBanks>();
+        //        ObservableCollection<FoodBanks> newBanks = new ObservableCollection<FoodBanks>();
 
-                foreach (var bank in totalBanksColl)
-                {
-                    if ((dateChosen.dateObj.DayOfWeek.ToString() == "Monday" && bank.mondayHours == "Closed") ||
-                        (dateChosen.dateObj.DayOfWeek.ToString() == "Tuesday" && bank.tuesdayHours == "Closed") ||
-                        (dateChosen.dateObj.DayOfWeek.ToString() == "Wednesday" && bank.wednesdayHours == "Closed") ||
-                        (dateChosen.dateObj.DayOfWeek.ToString() == "Thursday" && bank.thursdayHours == "Closed") ||
-                        (dateChosen.dateObj.DayOfWeek.ToString() == "Friday" && bank.fridayHours == "Closed") ||
-                        (dateChosen.dateObj.DayOfWeek.ToString() == "Saturday" && bank.saturdayHours == "Closed") ||
-                        (dateChosen.dateObj.DayOfWeek.ToString() == "Sunday" && bank.sundayHours == "Closed"))
-                    {
-                        totalBanks[bank] += 1;
-                    }
-                    else if (currentList.Contains(bank))
-                    {
-                        newBanks.Add(bank);
-                    }
-                }
+        //        foreach (var bank in totalBanksColl)
+        //        {
+        //            if ((dateChosen.dateObj.DayOfWeek.ToString() == "Monday" && bank.mondayHours == "Closed") ||
+        //                (dateChosen.dateObj.DayOfWeek.ToString() == "Tuesday" && bank.tuesdayHours == "Closed") ||
+        //                (dateChosen.dateObj.DayOfWeek.ToString() == "Wednesday" && bank.wednesdayHours == "Closed") ||
+        //                (dateChosen.dateObj.DayOfWeek.ToString() == "Thursday" && bank.thursdayHours == "Closed") ||
+        //                (dateChosen.dateObj.DayOfWeek.ToString() == "Friday" && bank.fridayHours == "Closed") ||
+        //                (dateChosen.dateObj.DayOfWeek.ToString() == "Saturday" && bank.saturdayHours == "Closed") ||
+        //                (dateChosen.dateObj.DayOfWeek.ToString() == "Sunday" && bank.sundayHours == "Closed"))
+        //            {
+        //                totalBanks[bank] += 1;
+        //            }
+        //            else if (currentList.Contains(bank))
+        //            {
+        //                newBanks.Add(bank);
+        //            }
+        //        }
 
-                currentList = newBanks;
-                foodBankColl.ItemsSource = newBanks;
+        //        currentList = newBanks;
+        //        foodBankColl.ItemsSource = newBanks;
 
-            }
-            //selected -> unselected
-            else
-            {
-                orderDateChosen = "";
+        //    }
+        //    //selected -> unselected
+        //    else
+        //    {
+        //        orderDateChosen = "";
 
-                selectedDate = null;
-                pickDateFrame.BackgroundColor = Color.White;
-                pickDateButton.TextColor = Color.FromHex("#E7404A");
-                pickDateButton.Text = "Pick a date";
-                //allowing multiple date selections
-                dateChosen.BackgroundImg = "dateUnselected.png";
-                dateChosen.TextColor = Color.Black;
-                //selectedDates.Remove(dateChosen);
+        //        selectedDate = null;
+        //        pickDateFrame.BackgroundColor = Color.White;
+        //        pickDateButton.TextColor = Color.FromHex("#E7404A");
+        //        pickDateButton.Text = "Pick a date";
+        //        //allowing multiple date selections
+        //        dateChosen.BackgroundImg = "dateUnselected.png";
+        //        dateChosen.TextColor = Color.Black;
+        //        //selectedDates.Remove(dateChosen);
 
-                //if (selectedDates.Count == 0)
-                //{
-                //    pickDateFrame.BackgroundColor = Color.White;
-                //    pickDateButton.TextColor = Color.FromHex("#E7404A");
-                //}
-                ObservableCollection<FoodBanks> newBanks = new ObservableCollection<FoodBanks>();
+        //        //if (selectedDates.Count == 0)
+        //        //{
+        //        //    pickDateFrame.BackgroundColor = Color.White;
+        //        //    pickDateButton.TextColor = Color.FromHex("#E7404A");
+        //        //}
+        //        ObservableCollection<FoodBanks> newBanks = new ObservableCollection<FoodBanks>();
 
-                foreach (var bank in totalBanksColl)
-                {
-                    if (totalBanks[bank] > 1 &&
-                        ((dateChosen.dateObj.DayOfWeek.ToString() == "Monday" && bank.mondayHours == "Closed") ||
-                        (dateChosen.dateObj.DayOfWeek.ToString() == "Tuesday" && bank.tuesdayHours == "Closed") ||
-                        (dateChosen.dateObj.DayOfWeek.ToString() == "Wednesday" && bank.wednesdayHours == "Closed") ||
-                        (dateChosen.dateObj.DayOfWeek.ToString() == "Thursday" && bank.thursdayHours == "Closed") ||
-                        (dateChosen.dateObj.DayOfWeek.ToString() == "Friday" && bank.fridayHours == "Closed") ||
-                        (dateChosen.dateObj.DayOfWeek.ToString() == "Saturday" && bank.saturdayHours == "Closed") ||
-                        (dateChosen.dateObj.DayOfWeek.ToString() == "Sunday" && bank.sundayHours == "Closed")))
-                    {
-                        totalBanks[bank]--;
-                    }
-                    else if (totalBanks[bank] == 1 &&
-                        ((dateChosen.dateObj.DayOfWeek.ToString() == "Monday" && bank.mondayHours == "Closed") ||
-                        (dateChosen.dateObj.DayOfWeek.ToString() == "Tuesday" && bank.tuesdayHours == "Closed") ||
-                        (dateChosen.dateObj.DayOfWeek.ToString() == "Wednesday" && bank.wednesdayHours == "Closed") ||
-                        (dateChosen.dateObj.DayOfWeek.ToString() == "Thursday" && bank.thursdayHours == "Closed") ||
-                        (dateChosen.dateObj.DayOfWeek.ToString() == "Friday" && bank.fridayHours == "Closed") ||
-                        (dateChosen.dateObj.DayOfWeek.ToString() == "Saturday" && bank.saturdayHours == "Closed") ||
-                        (dateChosen.dateObj.DayOfWeek.ToString() == "Sunday" && bank.sundayHours == "Closed")))
-                    {
-                        totalBanks[bank]--;
-                        newBanks.Add(bank);
-                    }
-                    else if (totalBanks[bank] == 0)
-                        newBanks.Add(bank);
+        //        foreach (var bank in totalBanksColl)
+        //        {
+        //            if (totalBanks[bank] > 1 &&
+        //                ((dateChosen.dateObj.DayOfWeek.ToString() == "Monday" && bank.mondayHours == "Closed") ||
+        //                (dateChosen.dateObj.DayOfWeek.ToString() == "Tuesday" && bank.tuesdayHours == "Closed") ||
+        //                (dateChosen.dateObj.DayOfWeek.ToString() == "Wednesday" && bank.wednesdayHours == "Closed") ||
+        //                (dateChosen.dateObj.DayOfWeek.ToString() == "Thursday" && bank.thursdayHours == "Closed") ||
+        //                (dateChosen.dateObj.DayOfWeek.ToString() == "Friday" && bank.fridayHours == "Closed") ||
+        //                (dateChosen.dateObj.DayOfWeek.ToString() == "Saturday" && bank.saturdayHours == "Closed") ||
+        //                (dateChosen.dateObj.DayOfWeek.ToString() == "Sunday" && bank.sundayHours == "Closed")))
+        //            {
+        //                totalBanks[bank]--;
+        //            }
+        //            else if (totalBanks[bank] == 1 &&
+        //                ((dateChosen.dateObj.DayOfWeek.ToString() == "Monday" && bank.mondayHours == "Closed") ||
+        //                (dateChosen.dateObj.DayOfWeek.ToString() == "Tuesday" && bank.tuesdayHours == "Closed") ||
+        //                (dateChosen.dateObj.DayOfWeek.ToString() == "Wednesday" && bank.wednesdayHours == "Closed") ||
+        //                (dateChosen.dateObj.DayOfWeek.ToString() == "Thursday" && bank.thursdayHours == "Closed") ||
+        //                (dateChosen.dateObj.DayOfWeek.ToString() == "Friday" && bank.fridayHours == "Closed") ||
+        //                (dateChosen.dateObj.DayOfWeek.ToString() == "Saturday" && bank.saturdayHours == "Closed") ||
+        //                (dateChosen.dateObj.DayOfWeek.ToString() == "Sunday" && bank.sundayHours == "Closed")))
+        //            {
+        //                totalBanks[bank]--;
+        //                newBanks.Add(bank);
+        //            }
+        //            else if (totalBanks[bank] == 0)
+        //                newBanks.Add(bank);
 
                   
-                }
+        //        }
 
-                currentList = newBanks;
-                foodBankColl.ItemsSource = newBanks;
+        //        currentList = newBanks;
+        //        foodBankColl.ItemsSource = newBanks;
 
-            }
-        }
+        //    }
+        //}
 
         void clickedOpenNow(System.Object sender, System.EventArgs e)
         {
@@ -780,8 +780,8 @@ namespace PM.ViewModel
         void clickedClearDates(System.Object sender, System.EventArgs e)
         {
             orderDateChosen = "";
-            selectedDate.BackgroundImg = "dateUnselected.png";
-            selectedDate.TextColor = Color.Black;
+            //selectedDate.BackgroundImg = "dateUnselected.png";
+            //selectedDate.TextColor = Color.Black;
             pickDateButton.Text = "Pick a date";
             //allowing multiple date selections
             //foreach (Date1 date in selectedDates)
@@ -1192,19 +1192,19 @@ namespace PM.ViewModel
                 //just check a little over a week's worth of dates
                 for (int i = 0; i < 8; i++)
                 {
-                    Debug.WriteLine("available date: " + availableDates[i].dateObj.ToLongDateString());
-                    if ((availableDates[i].dateObj.DayOfWeek.ToString() == "Monday" && bankChosen.mondayHours != "Closed") ||
-                        (availableDates[i].dateObj.DayOfWeek.ToString() == "Tuesday" && bankChosen.tuesdayHours != "Closed") ||
-                        (availableDates[i].dateObj.DayOfWeek.ToString() == "Wednesday" && bankChosen.wednesdayHours != "Closed") ||
-                        (availableDates[i].dateObj.DayOfWeek.ToString() == "Thursday" && bankChosen.thursdayHours != "Closed") ||
-                        (availableDates[i].dateObj.DayOfWeek.ToString() == "Friday" && bankChosen.fridayHours != "Closed") ||
-                        (availableDates[i].dateObj.DayOfWeek.ToString() == "Saturday" && bankChosen.saturdayHours != "Closed") ||
-                        (availableDates[i].dateObj.DayOfWeek.ToString() == "Sunday" && bankChosen.sundayHours != "Closed"))
-                    {
-                        dateAvailable = true;
-                        Application.Current.Properties["date_chosen"] = availableDates[i].dateObj.ToLongDateString();
-                        break;
-                    }
+                    //Debug.WriteLine("available date: " + availableDates[i].dateObj.ToLongDateString());
+                    //if ((availableDates[i].dateObj.DayOfWeek.ToString() == "Monday" && bankChosen.mondayHours != "Closed") ||
+                    //    (availableDates[i].dateObj.DayOfWeek.ToString() == "Tuesday" && bankChosen.tuesdayHours != "Closed") ||
+                    //    (availableDates[i].dateObj.DayOfWeek.ToString() == "Wednesday" && bankChosen.wednesdayHours != "Closed") ||
+                    //    (availableDates[i].dateObj.DayOfWeek.ToString() == "Thursday" && bankChosen.thursdayHours != "Closed") ||
+                    //    (availableDates[i].dateObj.DayOfWeek.ToString() == "Friday" && bankChosen.fridayHours != "Closed") ||
+                    //    (availableDates[i].dateObj.DayOfWeek.ToString() == "Saturday" && bankChosen.saturdayHours != "Closed") ||
+                    //    (availableDates[i].dateObj.DayOfWeek.ToString() == "Sunday" && bankChosen.sundayHours != "Closed"))
+                    //{
+                    //    dateAvailable = true;
+                    //    Application.Current.Properties["date_chosen"] = availableDates[i].dateObj.ToLongDateString();
+                    //    break;
+                    //}
                 }
 
                 //if none of the available dates work
@@ -1229,7 +1229,7 @@ namespace PM.ViewModel
             Debug.WriteLine("sending bankImg: " + bankChosen.bankImg);
             Debug.WriteLine("sending itemLimit: " + bankChosen.itemLimit);
             Debug.WriteLine("sending business_uid: " + bankChosen.business_uid);
-            await Navigation.PushAsync(new FoodBackStore(bankChosen, bankChosen.name, bankChosen.distance, bankChosen.bankImg, bankChosen.itemLimit, bankChosen.business_uid));
+            //await Navigation.PushAsync(new FoodBackStore(bankChosen, bankChosen.name, bankChosen.distance, bankChosen.bankImg, bankChosen.itemLimit, bankChosen.business_uid));
         }
 
         //menu functions

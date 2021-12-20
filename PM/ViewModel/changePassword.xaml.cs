@@ -21,7 +21,7 @@ namespace PM.ViewModel
     public partial class changePassword : ContentPage
     {
         string userEmail;
-        public ObservableCollection<Plans> NewMainPage = new ObservableCollection<Plans>();
+        //public ObservableCollection<Plans> NewMainPage = new ObservableCollection<Plans>();
         public bool createAccount = false;
         public HttpClient client = new HttpClient();
 
@@ -181,7 +181,7 @@ namespace PM.ViewModel
                                 Console.WriteLine("content: " + content);
                                 userString = await content.ReadAsStringAsync();
                                 JObject info_obj3 = JObject.Parse(userString);
-                                this.NewMainPage.Clear();
+                                //this.NewMainPage.Clear();
                                 Preferences.Set("password_salt", (info_obj3["result"])[0]["password_salt"].ToString());
                                 Preferences.Set("password_hashed", (info_obj3["result"])[0]["password_hashed"].ToString());
 
@@ -205,7 +205,7 @@ namespace PM.ViewModel
                             }
 
                             JObject info_obj2 = JObject.Parse(userString);
-                            this.NewMainPage.Clear();
+                            //this.NewMainPage.Clear();
 
                             //ArrayList item_price = new ArrayList();
                             //ArrayList num_items = new ArrayList();
@@ -235,7 +235,7 @@ namespace PM.ViewModel
                                 Console.WriteLine("content: " + content);
                                 userString = await content.ReadAsStringAsync();
                                 JObject info_obj3 = JObject.Parse(userString);
-                                this.NewMainPage.Clear();
+                                //this.NewMainPage.Clear();
                                 Preferences.Set("password_salt", (info_obj3["result"])[0]["password_salt"].ToString());
                                 Preferences.Set("password_hashed", (info_obj3["result"])[0]["password_hashed"].ToString());
 
@@ -268,7 +268,7 @@ namespace PM.ViewModel
                                 Console.WriteLine("content: " + content);
                                 userString = await content.ReadAsStringAsync();
                                 JObject info_obj3 = JObject.Parse(userString);
-                                this.NewMainPage.Clear();
+                                //this.NewMainPage.Clear();
                                 Preferences.Set("password_salt", (info_obj3["result"])[0]["password_salt"].ToString());
                                 Preferences.Set("password_hashed", (info_obj3["result"])[0]["password_hashed"].ToString());
 

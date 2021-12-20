@@ -210,6 +210,7 @@
     <BundleResource Include="Resources\appleButton.png" />
     <BundleResource Include="Resources\fbButton.png" />
     <BundleResource Include="Resources\googleButton.png" />
+    <BundleResource Include="Resources\rentedButton.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppleSignIn\" />

@@ -169,35 +169,35 @@ namespace PM.ViewModel
         }
         //address autocomplete end
 
-        async void saveChanges(System.Object sender, System.EventArgs e)
-        {
-            EditProfile editprof = new EditProfile();
-            editprof.first_name = autofillInfoDict["first_name"];
-            editprof.last_name = autofillInfoDict["last_name"];
-            editprof.phone_num = phoneEntry.Text;
-            editprof.email = autofillInfoDict["email"];
-            editprof.id_type = idTypeButton.Text;
-            editprof.id_number = idNumEntry.Text;
-            editprof.address = AddressEntry.Text;
-            if (AptEntry.Text == null)
-                editprof.unit = "";
-            else editprof.unit = AptEntry.Text;
-            editprof.city = CityEntry.Text;
-            editprof.state = StateEntry.Text;
-            editprof.zip = ZipEntry.Text;
-            editprof.uid = autofillInfoDict["cust_uid"];
-            editprof.noti = autofillInfoDict["notification"];
+        //async void saveChanges(System.Object sender, System.EventArgs e)
+        //{
+        //    EditProfile editprof = new EditProfile();
+        //    editprof.first_name = autofillInfoDict["first_name"];
+        //    editprof.last_name = autofillInfoDict["last_name"];
+        //    editprof.phone_num = phoneEntry.Text;
+        //    editprof.email = autofillInfoDict["email"];
+        //    editprof.id_type = idTypeButton.Text;
+        //    editprof.id_number = idNumEntry.Text;
+        //    editprof.address = AddressEntry.Text;
+        //    if (AptEntry.Text == null)
+        //        editprof.unit = "";
+        //    else editprof.unit = AptEntry.Text;
+        //    editprof.city = CityEntry.Text;
+        //    editprof.state = StateEntry.Text;
+        //    editprof.zip = ZipEntry.Text;
+        //    editprof.uid = autofillInfoDict["cust_uid"];
+        //    editprof.noti = autofillInfoDict["notification"];
 
-            var editProfJSONString = JsonConvert.SerializeObject(editprof);
-            // Console.WriteLine("newPaymentJSONString" + newPaymentJSONString);
-            var editProfContent = new StringContent(editProfJSONString, Encoding.UTF8, "application/json");
-            Console.WriteLine("edit profile Content: " + editProfContent);
-            var client = new HttpClient();
-            var response = client.PostAsync("https://c1zwsl05s5.execute-api.us-west-1.amazonaws.com/dev/api/v2/UpdateProfile", editProfContent);
-            await DisplayAlert("Success", "Profile updated!", "OK");
-            Console.WriteLine("RESPONSE TO UPDATEPROFILE   " + response.Result);
-            Console.WriteLine("UPDATEPROFILE JSON OBJECT BEING SENT: " + editProfJSONString);
-        }
+        //    var editProfJSONString = JsonConvert.SerializeObject(editprof);
+        //    // Console.WriteLine("newPaymentJSONString" + newPaymentJSONString);
+        //    var editProfContent = new StringContent(editProfJSONString, Encoding.UTF8, "application/json");
+        //    Console.WriteLine("edit profile Content: " + editProfContent);
+        //    var client = new HttpClient();
+        //    var response = client.PostAsync("https://c1zwsl05s5.execute-api.us-west-1.amazonaws.com/dev/api/v2/UpdateProfile", editProfContent);
+        //    await DisplayAlert("Success", "Profile updated!", "OK");
+        //    Console.WriteLine("RESPONSE TO UPDATEPROFILE   " + response.Result);
+        //    Console.WriteLine("UPDATEPROFILE JSON OBJECT BEING SENT: " + editProfJSONString);
+        //}
 
         //menu functions
         void profileClicked(System.Object sender, System.EventArgs e)

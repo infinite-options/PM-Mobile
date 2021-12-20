@@ -107,37 +107,37 @@ namespace PM.ViewModel
 
         void clickedSeePassword(System.Object sender, System.EventArgs e)
         {
-            //if (passEntry.IsPassword == true)
-            //    passEntry.IsPassword = false;
-            //else passEntry.IsPassword = true;
+            if (passEntry.IsPassword == true)
+                passEntry.IsPassword = false;
+            else passEntry.IsPassword = true;
         }
 
         async void tempLogin(System.Object sender, System.EventArgs e)
         {
             SHA512 sHA512 = new SHA512Managed();
-            byte[] data = sHA512.ComputeHash(Encoding.UTF8.GetBytes(""));//passEntry.Text.Trim())); // take the password and account salt to generate hash
+            byte[] data = sHA512.ComputeHash(Encoding.UTF8.GetBytes(passEntry.Text.Trim())); // take the password and account salt to generate hash
             string hashedPassword = BitConverter.ToString(data).Replace("-", string.Empty).ToLower(); // convert hash to hex
             Debug.WriteLine("hashedpassword without salt: " + hashedPassword);
 
             SHA512 sHA5122 = new SHA512Managed();
-            byte[] data2 = sHA5122.ComputeHash(Encoding.UTF8.GetBytes(""));// passEntry.Text.Trim() + "2021-09-09 05:36:40")); // take the password and account salt to generate hash
+            byte[] data2 = sHA5122.ComputeHash(Encoding.UTF8.GetBytes(passEntry.Text.Trim() + "2021-09-09 05:36:40")); // take the password and account salt to generate hash
             string hashedPassword2 = BitConverter.ToString(data2).Replace("-", string.Empty).ToLower(); // convert hash to hex
             Debug.WriteLine("hashedpassword with first salt: " + hashedPassword2);
 
             SHA512 sHA51222 = new SHA512Managed();
-            byte[] data3 = sHA5122.ComputeHash(Encoding.UTF8.GetBytes(""));// passEntry.Text.Trim() + "2021-09-07 16:58:56")); // take the password and account salt to generate hash
+            byte[] data3 = sHA5122.ComputeHash(Encoding.UTF8.GetBytes(passEntry.Text.Trim() + "2021-09-07 16:58:56")); // take the password and account salt to generate hash
             string hashedPassword3 = BitConverter.ToString(data3).Replace("-", string.Empty).ToLower(); // convert hash to hex
             Debug.WriteLine("hashedpassword with last salt: " + hashedPassword3);
         }
 
         async void clickedLogin(System.Object sender, System.EventArgs e)
         {
-            var accountSalt = await retrieveAccountSalt("");// nameEntry.Text.ToLower().Trim());
+            var accountSalt = await retrieveAccountSalt(nameEntry.Text.ToLower().Trim());
 
             if (accountSalt != null)
             {
                 wrongPass = false;
-                var loginAttempt = await LogInUser("","", accountSalt);//nameEntry.Text.ToLower(), passEntry.Text, accountSalt);
+                var loginAttempt = await LogInUser(nameEntry.Text.ToLower(), passEntry.Text, accountSalt);
 
 
                 //if (directEmailVerified == 0)
@@ -193,7 +193,7 @@ namespace PM.ViewModel
                         
                         UpdatePassword updatePassObj = new UpdatePassword();
                         updatePassObj.customer_uid = loginAttempt.result[0].customer_uid;
-                        updatePassObj.old_password = "";// passEntry.Text.Trim();
+                        updatePassObj.old_password = passEntry.Text.Trim();
                         updatePassObj.new_password = result;
                         string updatepassContentJson = JsonConvert.SerializeObject(updatePassObj); // make orderContent into json
                         var httpContent = new StringContent(updatepassContentJson, Encoding.UTF8, "application/json"); // encode orderContentJson into format to send to database
@@ -209,7 +209,7 @@ namespace PM.ViewModel
                     }
                     
 
-                    Application.Current.MainPage = new NavigationPage(new Filter());
+                    Application.Current.MainPage = new NavigationPage(new PropertySummary());
 
 
                     //System.Diagnostics.Debug.WriteLine("USER'S DATA");

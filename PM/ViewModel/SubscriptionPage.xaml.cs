@@ -21,7 +21,7 @@ namespace PM.ViewModel
 {
     public partial class SubscriptionPage : ContentPage
     {
-        public ObservableCollection<Plans> NewPlan = new ObservableCollection<Plans>();
+        //public ObservableCollection<Plans> NewPlan = new ObservableCollection<Plans>();
 
         string cust_firstName; string cust_lastName; string cust_email;
         int mealSelected;
@@ -48,7 +48,7 @@ namespace PM.ViewModel
                     HttpContent content = response.Content;
                     var userString = await content.ReadAsStringAsync();
                     JObject plan_obj = JObject.Parse(userString);
-                    this.NewPlan.Clear();
+                    //this.NewPlan.Clear();
 
                     ArrayList numMealsList = new ArrayList();
                     int i = 0, j = 0;
@@ -702,7 +702,7 @@ namespace PM.ViewModel
                 Console.WriteLine("item_name: " + Preferences.Get("item_name", ""));
                 Console.WriteLine("item_uid: " + Preferences.Get("item_uid", ""));
 
-                await Navigation.PushAsync(new PaymentPage(cust_firstName, cust_lastName, cust_email));
+                //await Navigation.PushAsync(new PaymentPage(cust_firstName, cust_lastName, cust_email));
                 //Application.Current.MainPage = new DeliveryBilling();
                 //await NavigationPage.PushAsync(DeliveryBilling());
             }

@@ -9,7 +9,7 @@
            <Grid BackgroundColor="#F5F5F5" VerticalOptions="Start">
                <StackLayout VerticalOptions="Start">
                    <BoxView HeightRequest="60"/>
-                   <Label Text="Login" FontSize="19" Margin="0,0,0,10" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>
+                   <Label Text="Login" FontSize="17" Margin="0,0,0,10" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>
                </StackLayout>
            </Grid>
 
@@ -27,7 +27,7 @@
 
                 <Frame Margin="20,0,20,10" x:Name="userFrame" BackgroundColor="White" BorderColor="#707070" CornerRadius="0" HasShadow="False" Padding="10, 15">
                     
-                    <Entry x:Name="loginEmail" Keyboard="Email" FontSize="17" Placeholder="johndoe@gmail.com"
+                    <Entry x:Name="nameEntry" Keyboard="Email" FontSize="17" Placeholder="johndoe@gmail.com"
                             TextColor="Black" BackgroundColor="White" PlaceholderColor="#777777">
 
                     </Entry>
@@ -38,14 +38,14 @@
 
                 <Frame Margin="20,0,20,15" x:Name="passFrame" BackgroundColor="White" BorderColor="#707070" CornerRadius="0" HasShadow="False" Padding="10, 15">
                     
-                    <Entry x:Name="loginPass" IsPassword="True" FontSize="17" Placeholder="JohnDoePassword123!"
+                    <Entry x:Name="passEntry" IsPassword="True" FontSize="17" Placeholder="JohnDoePassword123!"
                             TextColor="Black" BackgroundColor="White" PlaceholderColor="#777777">
 
                     </Entry>
 
                 </Frame>
 
-                <Forms9Patch:Button HorizontalOptions="Center" FontSize="20" FontAttributes="Bold" Text="Login" TextColor="White" BackgroundColor="#007AFF" HeightRequest="38" BorderRadius="33" WidthRequest="100" Clicked="loginClicked"/>
+                <Forms9Patch:Button HorizontalOptions="Center" FontSize="20" FontAttributes="Bold" Text="Login" TextColor="White" BackgroundColor="#007AFF" HeightRequest="38" BorderRadius="33" WidthRequest="100" Clicked="clickedLogin"/>
 
                 <Label Margin="0,60,0,5" Text="Don't have an account?" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" FontSize="18"/>
                 <Forms9Patch:Button HorizontalOptions="Center" Text="Sign Up" FontSize="20" FontAttributes="Bold" TextColor="#007AFF" BackgroundColor="White" BorderColor="#007AFF" BorderWidth="2" HeightRequest="38" BorderRadius="33" WidthRequest="130"/>

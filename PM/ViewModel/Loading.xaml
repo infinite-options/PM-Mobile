@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PM.ViewModel.Loading"
              Title="Load"
-             BackgroundColor="#F3F2DC"
+             BackgroundColor="#F5F5F5"
              xmlns:Forms9Patch="clr-namespace:Forms9Patch;assembly=Forms9Patch"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
     <ContentPage.Content>
@@ -11,7 +11,7 @@
         
         <Grid>
             <!--<Label Text="loading page" FontSize="15" HorizontalOptions="Center" Margin="0,20,0,0"/>-->
-            <Image x:Name="logo" Source="logo.png" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit" BackgroundColor="#F3F2DC"/>
+            <!--<Image x:Name="logo" Source="logo.png" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit" BackgroundColor="#F3F2DC"/>-->
            <!--<xct:MediaElement x:Name="loading" Aspect="AspectFit" HorizontalOptions="Fill" VerticalOptions="CenterAndExpand" Margin="0,0,0,0" AutoPlay="True" ShowsPlaybackControls="False" />-->
         </Grid>
     </ContentPage.Content>

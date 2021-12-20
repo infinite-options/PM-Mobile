@@ -21,7 +21,7 @@ namespace PM
 {
     public partial class CarlosSocialSignUp : ContentPage
     {
-        public ObservableCollection<Plans> NewMainPage = new ObservableCollection<Plans>();
+        //public ObservableCollection<Plans> NewMainPage = new ObservableCollection<Plans>();
         public SignUpPost socialSignUp = new SignUpPost();
         public bool isAddressValidated = false;
         WebClient client4 = new WebClient();
@@ -585,7 +585,7 @@ namespace PM
                     Console.WriteLine("content: " + content);
                     var userString = await content.ReadAsStringAsync();
                     JObject info_obj2 = JObject.Parse(userString);
-                    this.NewMainPage.Clear();
+                    //this.NewMainPage.Clear();
 
                     DateTime today = DateTime.Now;
                     DateTime expDate = today.AddDays(Constant.days);

@@ -22,7 +22,7 @@ namespace PM
 {
     public partial class CarlosSignUp : ContentPage
     {
-        public ObservableCollection<Plans> NewMainPage = new ObservableCollection<Plans>();
+        //public ObservableCollection<Plans> NewMainPage = new ObservableCollection<Plans>();
         public SignUpPost directSignUp = new SignUpPost();
         public bool isAddessValidated = false;
         Address addr;
@@ -286,7 +286,7 @@ namespace PM
                         Console.WriteLine("content: " + content2);
                         var userString = await content2.ReadAsStringAsync();
                         JObject info_obj2 = JObject.Parse(userString);
-                        this.NewMainPage.Clear();
+                        //this.NewMainPage.Clear();
                         Preferences.Set("profilePicLink", null);
                         // Go to Subscripton page
                         // Application.Current.MainPage = new SubscriptionPage();

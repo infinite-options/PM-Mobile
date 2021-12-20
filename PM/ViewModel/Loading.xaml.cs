@@ -54,14 +54,14 @@ namespace PM.ViewModel
 
         public void checkPlatform(double height, double width)
         {
-            if (Device.RuntimePlatform == Device.iOS)
-            {
-                logo.WidthRequest = width / 3;
-            }
-            else
-            {
-                logo.WidthRequest = width / 3;
-            }
+            //if (Device.RuntimePlatform == Device.iOS)
+            //{
+            //    logo.WidthRequest = width / 3;
+            //}
+            //else
+            //{
+            //    logo.WidthRequest = width / 3;
+            //}
         }
     }
 }

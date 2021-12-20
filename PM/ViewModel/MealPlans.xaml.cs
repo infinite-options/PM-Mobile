@@ -23,9 +23,9 @@ namespace PM.ViewModel
     public partial class MealPlans : ContentPage
     {
         string cust_firstName; string cust_lastName; string cust_email;
-        public ObservableCollection<Plans> userProfileInfo = new ObservableCollection<Plans>();
+        //public ObservableCollection<Plans> userProfileInfo = new ObservableCollection<Plans>();
         public ObservableCollection<PaymentInfo> NewPlan = new ObservableCollection<PaymentInfo>();
-        public static ObservableCollection<MealPlanItem> mealPlanColl = new ObservableCollection<MealPlanItem>();
+        //public static ObservableCollection<MealPlanItem> mealPlanColl = new ObservableCollection<MealPlanItem>();
         PaymentInfo orderInfo;
         ArrayList itemsArray = new ArrayList();
         ArrayList purchUidArray = new ArrayList();
@@ -51,14 +51,14 @@ namespace PM.ViewModel
         string stateToPass;
         string zipToPass;
         Address addr;
-        MealPlanItem prevPlan = null;
+        //MealPlanItem prevPlan = null;
 
 
         public MealPlans(string firstName, string lastName, string email)
         {
             try
             {
-                mealPlanColl.Clear();
+                //mealPlanColl.Clear();
                 info_obj = null;
                 activePlans.Clear();
                 itemsArray.Clear();
@@ -215,7 +215,7 @@ namespace PM.ViewModel
                     Console.WriteLine("content: " + content);
                     var userString = await content.ReadAsStringAsync();
                     var freq_obj = JObject.Parse(userString);
-                    this.userProfileInfo.Clear();
+                    //this.userProfileInfo.Clear();
 
                     frequency = (freq_obj["result"])[currentIndex]["payment_frequency"].ToString();
                     Console.WriteLine("frequency: " + (freq_obj["result"])[currentIndex]["payment_frequency"].ToString());
@@ -432,7 +432,7 @@ namespace PM.ViewModel
                     }
 
                     info_obj = JObject.Parse(userString);
-                    this.userProfileInfo.Clear();
+                    //this.userProfileInfo.Clear();
                     //Console.WriteLine("info_obj: " + info_obj);
 
                     while (info_obj == null)
@@ -446,190 +446,190 @@ namespace PM.ViewModel
             }
         }
 
-        private async void planChange(object sender, EventArgs e)
-        {
-            try
-            {
-                if (prevPlan != null)
-                {
-                    prevPlan.Background = Color.White;
-                    prevPlan.FontColor = Color.Black;
-                }
-                Button b = (Button)sender;
-                MealPlanItem item = b.BindingContext as MealPlanItem;
-                //MealPlanItem item = (MealPlanItem)sender;
-                int selectedIndex = item.Index;
-                item.Background = Color.FromHex("#F26522");
-                item.FontColor = Color.White;
-                prevPlan = item;
+        //private async void planChange(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        //if (prevPlan != null)
+        //        //{
+        //        //    prevPlan.Background = Color.White;
+        //        //    prevPlan.FontColor = Color.Black;
+        //        //}
+        //        Button b = (Button)sender;
+        //        //MealPlanItem item = b.BindingContext as MealPlanItem;
+        //        //MealPlanItem item = (MealPlanItem)sender;
+        //        //int selectedIndex = item.Index;
+        //        //item.Background = Color.FromHex("#F26522");
+        //        //item.FontColor = Color.White;
+        //        //prevPlan = item;
 
-                currentIndex = selectedIndex;
+        //        currentIndex = selectedIndex;
 
-                Console.WriteLine("planChange entered");
-                planChangeCalled = true;
-                //selectPlanFrame.BackgroundColor = Color.FromHex("#F26522");
-                //coverPickerBorder.BorderColor = Color.FromHex("#F26522");
+        //        Console.WriteLine("planChange entered");
+        //        planChangeCalled = true;
+        //        //selectPlanFrame.BackgroundColor = Color.FromHex("#F26522");
+        //        //coverPickerBorder.BorderColor = Color.FromHex("#F26522");
 
-                //planPicker.TextColor = Color.White;
-                //planPicker.BackgroundColor = Color.FromHex("#F26522");
+        //        //planPicker.TextColor = Color.White;
+        //        //planPicker.BackgroundColor = Color.FromHex("#F26522");
 
-                Console.WriteLine("before frequency " + frequency);
-                //getFrequency();
+        //        Console.WriteLine("before frequency " + frequency);
+        //        //getFrequency();
 
-                Console.WriteLine("after frequency " + frequency);
+        //        Console.WriteLine("after frequency " + frequency);
 
-                if (info_obj == null)
-                {
-                    while (info_obj == null)
-                        await Task.Delay(100);
+        //        if (info_obj == null)
+        //        {
+        //            while (info_obj == null)
+        //                await Task.Delay(100);
 
-                    if (info_obj != null && (info_obj["result"]).ToString() == "[]")
-                    {
-                        return;
-                    }
-                }
-                else
-                {
-                    if ((info_obj["result"]).ToString() == "[]")
-                    {
-                        return;
-                    }
-                }
-                //if ((info_obj["result"]).ToString() == "[]")
-                //{
-                //    return;
-                //}
+        //            if (info_obj != null && (info_obj["result"]).ToString() == "[]")
+        //            {
+        //                return;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            if ((info_obj["result"]).ToString() == "[]")
+        //            {
+        //                return;
+        //            }
+        //        }
+        //        //if ((info_obj["result"]).ToString() == "[]")
+        //        //{
+        //        //    return;
+        //        //}
 
-                //old
-                //if (prevPlan != null)
-                //{
-                //    prevPlan.Background = Color.White;
-                //    prevPlan.FontColor = Color.Black;
-                //}
+        //        //old
+        //        //if (prevPlan != null)
+        //        //{
+        //        //    prevPlan.Background = Color.White;
+        //        //    prevPlan.FontColor = Color.Black;
+        //        //}
 
-                //MealPlanItem item = (MealPlanItem)sender;
-                //int selectedIndex = item.Index;
-                //item.Background = Color.FromHex("#F26522");
-                //item.FontColor = Color.White;
-                //prevPlan = item;
+        //        //MealPlanItem item = (MealPlanItem)sender;
+        //        //int selectedIndex = item.Index;
+        //        //item.Background = Color.FromHex("#F26522");
+        //        //item.FontColor = Color.White;
+        //        //prevPlan = item;
 
-                //chosenPurchUid = (info_obj["result"])[planPicker.SelectedIndex]["purchase_uid"].ToString();
-                //chosenPurchUid = purchUidArray[planPicker.SelectedIndex].ToString();
-                chosenPurchUid = purchUidArray[selectedIndex].ToString();
-                chosenPurchId = purchIdArray[selectedIndex].ToString();
-                //chosenPurchUid = purchUidArray[PlanCollectionView.].ToString();
-                Debug.WriteLine("selected chosen purch id in plan change: " + chosenPurchUid.ToString());
+        //        //chosenPurchUid = (info_obj["result"])[planPicker.SelectedIndex]["purchase_uid"].ToString();
+        //        //chosenPurchUid = purchUidArray[planPicker.SelectedIndex].ToString();
+        //        chosenPurchUid = purchUidArray[selectedIndex].ToString();
+        //        chosenPurchId = purchIdArray[selectedIndex].ToString();
+        //        //chosenPurchUid = purchUidArray[PlanCollectionView.].ToString();
+        //        Debug.WriteLine("selected chosen purch id in plan change: " + chosenPurchUid.ToString());
 
-                //currentIndex = planPicker.SelectedIndex;
-                //Debug.WriteLine("current index: " + currentIndex.ToString());
-                //string tet = planPicker.SelectedItem.ToString();
-                //Debug.WriteLine("picker text: " + tet);
-                string plan = item.PlanName.Substring(0, item.PlanName.IndexOf(" ")) + " Meal Plan";
-                currentPlan = plan;
+        //        //currentIndex = planPicker.SelectedIndex;
+        //        //Debug.WriteLine("current index: " + currentIndex.ToString());
+        //        //string tet = planPicker.SelectedItem.ToString();
+        //        //Debug.WriteLine("picker text: " + tet);
+        //        string plan = item.PlanName.Substring(0, item.PlanName.IndexOf(" ")) + " Meal Plan";
+        //        currentPlan = plan;
 
-                //currentIndex = selectedIndex;
+        //        //currentIndex = selectedIndex;
 
-                FNameEntry.Text = (info_obj["result"])[selectedIndex]["delivery_first_name"].ToString();
+        //        FNameEntry.Text = (info_obj["result"])[selectedIndex]["delivery_first_name"].ToString();
 
-                LNameEntry.Text = (info_obj["result"])[selectedIndex]["delivery_last_name"].ToString();
-                emailEntry.Text = (info_obj["result"])[selectedIndex]["delivery_email"].ToString();
-                AddressEntry.Text = (info_obj["result"])[selectedIndex]["delivery_address"].ToString();
-                AptEntry.Text = (info_obj["result"])[selectedIndex]["delivery_unit"].ToString();
+        //        LNameEntry.Text = (info_obj["result"])[selectedIndex]["delivery_last_name"].ToString();
+        //        emailEntry.Text = (info_obj["result"])[selectedIndex]["delivery_email"].ToString();
+        //        AddressEntry.Text = (info_obj["result"])[selectedIndex]["delivery_address"].ToString();
+        //        AptEntry.Text = (info_obj["result"])[selectedIndex]["delivery_unit"].ToString();
 
-                if (AptEntry.Text == "NULL")
-                {
-                    AptEntry.Text = "";
-                }
+        //        if (AptEntry.Text == "NULL")
+        //        {
+        //            AptEntry.Text = "";
+        //        }
 
-                CityEntry.Text = (info_obj["result"])[selectedIndex]["delivery_city"].ToString();
-                StateEntry.Text = (info_obj["result"])[selectedIndex]["delivery_state"].ToString();
-                ZipEntry.Text = (info_obj["result"])[selectedIndex]["delivery_zip"].ToString();
-                PhoneEntry.Text = (info_obj["result"])[selectedIndex]["delivery_phone_num"].ToString();
-                DeliveryEntry.Text = (info_obj["result"])[selectedIndex]["delivery_instructions"].ToString();
-                //instructionsEntry.Text = (info_obj["result"])[planPicker.SelectedIndex]["delivery_instructions"].ToString();
+        //        CityEntry.Text = (info_obj["result"])[selectedIndex]["delivery_city"].ToString();
+        //        StateEntry.Text = (info_obj["result"])[selectedIndex]["delivery_state"].ToString();
+        //        ZipEntry.Text = (info_obj["result"])[selectedIndex]["delivery_zip"].ToString();
+        //        PhoneEntry.Text = (info_obj["result"])[selectedIndex]["delivery_phone_num"].ToString();
+        //        DeliveryEntry.Text = (info_obj["result"])[selectedIndex]["delivery_instructions"].ToString();
+        //        //instructionsEntry.Text = (info_obj["result"])[planPicker.SelectedIndex]["delivery_instructions"].ToString();
 
-                try
-                {
-                    nextDate.Text = (string)nextBillDatesArray[selectedIndex];
+        //        try
+        //        {
+        //            nextDate.Text = (string)nextBillDatesArray[selectedIndex];
 
-                    var nextamt = (string)nextBillAmountsArray[selectedIndex];
-                    if (nextamt.Contains(".") == false)
-                        nextamt = nextamt + ".00";
-                    else if (nextamt.Substring(nextamt.IndexOf(".") + 1).Length == 1)
-                        nextamt = nextamt + "0";
-                    else if (nextamt.Substring(nextamt.IndexOf(".") + 1).Length == 0)
-                        nextamt = nextamt + "00";
+        //            var nextamt = (string)nextBillAmountsArray[selectedIndex];
+        //            if (nextamt.Contains(".") == false)
+        //                nextamt = nextamt + ".00";
+        //            else if (nextamt.Substring(nextamt.IndexOf(".") + 1).Length == 1)
+        //                nextamt = nextamt + "0";
+        //            else if (nextamt.Substring(nextamt.IndexOf(".") + 1).Length == 0)
+        //                nextamt = nextamt + "00";
 
-                    nextAmount.Text = "$" + nextamt;
-                    //WebClient client4 = new WebClient();
-                    //string url3 = "https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/predict_autopay_day/" + chosenPurchId;
-                    //Debug.WriteLine("next billing date url: " + url3);
-                    //var content = client4.DownloadString(url3);
-                    //var obj = JsonConvert.DeserializeObject<nextDelivDate>(content);
+        //            nextAmount.Text = "$" + nextamt;
+        //            //WebClient client4 = new WebClient();
+        //            //string url3 = "https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/predict_autopay_day/" + chosenPurchId;
+        //            //Debug.WriteLine("next billing date url: " + url3);
+        //            //var content = client4.DownloadString(url3);
+        //            //var obj = JsonConvert.DeserializeObject<nextDelivDate>(content);
 
-                    //Debug.WriteLine("next date: " + obj.MenuDate);
-                    //Debug.WriteLine("year: " + obj.MenuDate.Substring(0, 4));
-                    //Debug.WriteLine("month: " + obj.MenuDate.Substring(5, 2));
-                    //Debug.WriteLine("day: " + obj.MenuDate.Substring(8, 2));
-                    //var date1 = new DateTime(int.Parse(obj.MenuDate.Substring(0, 4)), int.Parse(obj.MenuDate.Substring(5, 2)), int.Parse(obj.MenuDate.Substring(8, 2)));
-                    //nextDate.Text = date1.ToString("D");
+        //            //Debug.WriteLine("next date: " + obj.MenuDate);
+        //            //Debug.WriteLine("year: " + obj.MenuDate.Substring(0, 4));
+        //            //Debug.WriteLine("month: " + obj.MenuDate.Substring(5, 2));
+        //            //Debug.WriteLine("day: " + obj.MenuDate.Substring(8, 2));
+        //            //var date1 = new DateTime(int.Parse(obj.MenuDate.Substring(0, 4)), int.Parse(obj.MenuDate.Substring(5, 2)), int.Parse(obj.MenuDate.Substring(8, 2)));
+        //            //nextDate.Text = date1.ToString("D");
 
-                    //nextAmount.Text = "$" + obj.Total;
-                }
-                catch
-                {
-                    nextDate.Text = "TBD";
-                    nextAmount.Text = "TBD";
-                }
+        //            //nextAmount.Text = "$" + obj.Total;
+        //        }
+        //        catch
+        //        {
+        //            nextDate.Text = "TBD";
+        //            nextAmount.Text = "TBD";
+        //        }
 
-                try
-                {
-                    string creditCardNum = (info_obj["result"])[selectedIndex]["cc_num"].ToString();
-                    //cardNum.Text = creditCardNum.Substring(creditCardNum.Length - 2);
-                    //cardNum.Text = "**************" + cardNum.Text;
-                    cardNum1.Text = "**********" + creditCardNum.Substring(creditCardNum.Length - 2);
-                }
-                catch
-                {
-                    cardNum1.Text = "************";
-                }
-
-
-                string itemsStr = (info_obj["result"])[selectedIndex]["items"].ToString();
-                addressList.IsVisible = false;
-                UnitCity.IsVisible = true;
-                StateZip.IsVisible = true;
-                //UnitCityState.IsVisible = true;
-                //ZipPhone.IsVisible = true;
-
-                Console.WriteLine("items: " + itemsStr);
-                Console.WriteLine("name: " + itemsStr.Substring(itemsStr.IndexOf("itm_business_uid") + 20, 10));
-                Console.WriteLine("item_uid: " + itemsStr.Substring(itemsStr.IndexOf("item_uid") + 12, 10));
-
-                JArray newobj = Newtonsoft.Json.JsonConvert.DeserializeObject<JArray>(itemsStr);
+        //        try
+        //        {
+        //            string creditCardNum = (info_obj["result"])[selectedIndex]["cc_num"].ToString();
+        //            //cardNum.Text = creditCardNum.Substring(creditCardNum.Length - 2);
+        //            //cardNum.Text = "**************" + cardNum.Text;
+        //            cardNum1.Text = "**********" + creditCardNum.Substring(creditCardNum.Length - 2);
+        //        }
+        //        catch
+        //        {
+        //            cardNum1.Text = "************";
+        //        }
 
 
-                foreach (JObject config in newobj)
-                {
-                    delivNum1.Text = (string)config["qty"];
-                    mealNum1.Text = ((string)config["name"]).Substring(0, ((string)config["name"]).IndexOf(" "));
-                    //string qty = (string)config["qty"];
-                    //string name = (string)config["name"];
-                }
+        //        string itemsStr = (info_obj["result"])[selectedIndex]["items"].ToString();
+        //        addressList.IsVisible = false;
+        //        UnitCity.IsVisible = true;
+        //        StateZip.IsVisible = true;
+        //        //UnitCityState.IsVisible = true;
+        //        //ZipPhone.IsVisible = true;
 
-                    //delivNum1.Text = itemsStr.Substring(itemsStr.IndexOf("qty") + 7, itemsStr.IndexOf("name") - itemsStr.IndexOf("qty") - 7 - 4);
-                //delivNum1.Text = delivNum1.Text.Substring(delivNum1.Text.IndexOf("\""));
-                //mealNum1.Text = itemsStr.Substring(itemsStr.IndexOf("name") + 8, itemsStr.IndexOf("Meal Plan") - 1 - itemsStr.IndexOf("name") - 8);
-                //mealNum1.Text = mealNum1.Text.Substring(mealNum1.Text.IndexOf("Meal Plan") - 1);
-                if (AddressEntry.Text != "" && AddressEntry.Text != null)
-                    setMap();
-            }
-            catch (Exception ex)
-            {
-                Generic gen = new Generic();
-                gen.parseException(ex.ToString());
-            }
-        }
+        //        Console.WriteLine("items: " + itemsStr);
+        //        Console.WriteLine("name: " + itemsStr.Substring(itemsStr.IndexOf("itm_business_uid") + 20, 10));
+        //        Console.WriteLine("item_uid: " + itemsStr.Substring(itemsStr.IndexOf("item_uid") + 12, 10));
+
+        //        JArray newobj = Newtonsoft.Json.JsonConvert.DeserializeObject<JArray>(itemsStr);
+
+
+        //        foreach (JObject config in newobj)
+        //        {
+        //            delivNum1.Text = (string)config["qty"];
+        //            mealNum1.Text = ((string)config["name"]).Substring(0, ((string)config["name"]).IndexOf(" "));
+        //            //string qty = (string)config["qty"];
+        //            //string name = (string)config["name"];
+        //        }
+
+        //            //delivNum1.Text = itemsStr.Substring(itemsStr.IndexOf("qty") + 7, itemsStr.IndexOf("name") - itemsStr.IndexOf("qty") - 7 - 4);
+        //        //delivNum1.Text = delivNum1.Text.Substring(delivNum1.Text.IndexOf("\""));
+        //        //mealNum1.Text = itemsStr.Substring(itemsStr.IndexOf("name") + 8, itemsStr.IndexOf("Meal Plan") - 1 - itemsStr.IndexOf("name") - 8);
+        //        //mealNum1.Text = mealNum1.Text.Substring(mealNum1.Text.IndexOf("Meal Plan") - 1);
+        //        if (AddressEntry.Text != "" && AddressEntry.Text != null)
+        //            setMap();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Generic gen = new Generic();
+        //        gen.parseException(ex.ToString());
+        //    }
+        //}
 
         protected async Task GetMealPlans()
         {
@@ -754,15 +754,15 @@ namespace PM.ViewModel
                             namesArray.Add(name + qty + " : " + purchIdCurrent);
                             //only includes meal plan name
                             //namesArray.Add(name);
-                            mealPlanColl.Add(
-                                new MealPlanItem
-                                {
-                                    Background = Color.White,
-                                    FontColor = Color.Black,
-                                    PlanName = name + qty + " : " + purchIdCurrent,
-                                    Index = index
-                                }
-                            );
+                            //mealPlanColl.Add(
+                            //    new MealPlanItem
+                            //    {
+                            //        Background = Color.White,
+                            //        FontColor = Color.Black,
+                            //        PlanName = name + qty + " : " + purchIdCurrent,
+                            //        Index = index
+                            //    }
+                            //);
                             index++;
                             //adds purchase uid to front of meal plan name
                             //namesArray.Add(purchUidArray[i].ToString().Substring(4) + " : " + name);
@@ -777,17 +777,17 @@ namespace PM.ViewModel
                     //firstIndex = namesArray[0].ToString();
                     //Console.WriteLine("namesArray contents:" + namesArray[0].ToString() + " " + namesArray[1].ToString() + " " + namesArray[2].ToString() + " ");
                     //planPicker.ItemsSource = namesArray;
-                    PlanCollectionView.ItemsSource = mealPlanColl;
+                    //PlanCollectionView.ItemsSource = mealPlanColl;
                     Console.WriteLine("namesArray contents:" + namesArray[0].ToString());
                     //SubscriptionPicker.Title = namesArray[0];
 
                     EventArgs e = new EventArgs();
-                    if (mealPlanColl.Count != 0)
-                    {
-                        Button b = new Button();
-                        b.BindingContext = mealPlanColl[0];
-                        planChange(b, e);
-                    }
+                    //if (mealPlanColl.Count != 0)
+                    //{
+                    //    Button b = new Button();
+                    //    b.BindingContext = mealPlanColl[0];
+                    //    planChange(b, e);
+                    //}
 
                     //if (namesArray.Count != 0)
                     //    planPicker.SelectedIndex = 0;
@@ -837,14 +837,14 @@ namespace PM.ViewModel
 
                 if (activePlans[currentIndex]["cc_num"].ToString() == null || activePlans[currentIndex]["cc_num"].ToString() == "")
                 {
-                    await Navigation.PushAsync(new SubscriptionModal(cust_firstName, cust_lastName, cust_email, "",
-                    "", "", "",
-                    activePlans[currentIndex]["purchase_id"].ToString(), activePlans[currentIndex]["purchase_uid"].ToString(),
-                    itemsStr.Substring(itemsStr.IndexOf("itm_business_uid") + 20, 10),
-                    itemsStr.Substring(itemsStr.IndexOf("item_uid") + 12, 10), activePlans[currentIndex]["pur_customer_uid"].ToString(),
-                    qty, numMeal, AddressEntry.Text, AptEntry.Text, CityEntry.Text, StateEntry.Text, ZipEntry.Text,
-                    activePlans[currentIndex]["delivery_instructions"].ToString(), activePlans[currentIndex]["start_delivery_date"].ToString(),
-                    activePlans[currentIndex]["delivery_phone_num"].ToString()), false);
+                    //await Navigation.PushAsync(new SubscriptionModal(cust_firstName, cust_lastName, cust_email, "",
+                    //"", "", "",
+                    //activePlans[currentIndex]["purchase_id"].ToString(), activePlans[currentIndex]["purchase_uid"].ToString(),
+                    //itemsStr.Substring(itemsStr.IndexOf("itm_business_uid") + 20, 10),
+                    //itemsStr.Substring(itemsStr.IndexOf("item_uid") + 12, 10), activePlans[currentIndex]["pur_customer_uid"].ToString(),
+                    //qty, numMeal, AddressEntry.Text, AptEntry.Text, CityEntry.Text, StateEntry.Text, ZipEntry.Text,
+                    //activePlans[currentIndex]["delivery_instructions"].ToString(), activePlans[currentIndex]["start_delivery_date"].ToString(),
+                    //activePlans[currentIndex]["delivery_phone_num"].ToString()), false);
                 }
                 else
                 {
@@ -852,15 +852,15 @@ namespace PM.ViewModel
                     //var testing = (info_obj["result"])[1];
                     //string zip = testing["cc_zip"].ToString();
 
-                    await Navigation.PushAsync(new SubscriptionModal(cust_firstName, cust_lastName, cust_email,
-                        activePlans[currentIndex]["cc_num"].ToString(), expDate.Substring(0, 10),
-                        activePlans[currentIndex]["cc_cvv"].ToString(), activePlans[currentIndex]["cc_zip"].ToString(),
-                        activePlans[currentIndex]["purchase_id"].ToString(), activePlans[currentIndex]["purchase_uid"].ToString(),
-                        itemsStr.Substring(itemsStr.IndexOf("itm_business_uid") + 20, 10),
-                        itemsStr.Substring(itemsStr.IndexOf("item_uid") + 12, 10), activePlans[currentIndex]["pur_customer_uid"].ToString(),
-                        qty, numMeal, AddressEntry.Text, AptEntry.Text, CityEntry.Text, StateEntry.Text, ZipEntry.Text,
-                        activePlans[currentIndex]["delivery_instructions"].ToString(), activePlans[currentIndex]["start_delivery_date"].ToString(),
-                        activePlans[currentIndex]["delivery_phone_num"].ToString()), false);
+                    //await Navigation.PushAsync(new SubscriptionModal(cust_firstName, cust_lastName, cust_email,
+                    //    activePlans[currentIndex]["cc_num"].ToString(), expDate.Substring(0, 10),
+                    //    activePlans[currentIndex]["cc_cvv"].ToString(), activePlans[currentIndex]["cc_zip"].ToString(),
+                    //    activePlans[currentIndex]["purchase_id"].ToString(), activePlans[currentIndex]["purchase_uid"].ToString(),
+                    //    itemsStr.Substring(itemsStr.IndexOf("itm_business_uid") + 20, 10),
+                    //    itemsStr.Substring(itemsStr.IndexOf("item_uid") + 12, 10), activePlans[currentIndex]["pur_customer_uid"].ToString(),
+                    //    qty, numMeal, AddressEntry.Text, AptEntry.Text, CityEntry.Text, StateEntry.Text, ZipEntry.Text,
+                    //    activePlans[currentIndex]["delivery_instructions"].ToString(), activePlans[currentIndex]["start_delivery_date"].ToString(),
+                    //    activePlans[currentIndex]["delivery_phone_num"].ToString()), false);
                 }
                 
             }
@@ -1415,24 +1415,24 @@ namespace PM.ViewModel
                     bool answer = await DisplayAlert("Delete a Plan", "Are you sure you want to delete this " + currentPlan + "? If yes, you will be refunded $" + refundString + ".", "Yes", "No");
                     Debug.WriteLine("Answer: " + answer);
 
-                    if (answer == true)
-                    {
-                        CancelPlanPost willDelete = new CancelPlanPost();
-                        willDelete.purchase_uid = chosenPurchUid;
+                    //if (answer == true)
+                    //{
+                    //    CancelPlanPost willDelete = new CancelPlanPost();
+                    //    willDelete.purchase_uid = chosenPurchUid;
 
-                        var deleteSerializedObject = JsonConvert.SerializeObject(willDelete);
-                        Debug.WriteLine("delete JSON Object to send: " + deleteSerializedObject);
+                    //    var deleteSerializedObject = JsonConvert.SerializeObject(willDelete);
+                    //    Debug.WriteLine("delete JSON Object to send: " + deleteSerializedObject);
 
-                        var deleteContent = new StringContent(deleteSerializedObject, Encoding.UTF8, "application/json");
+                    //    var deleteContent = new StringContent(deleteSerializedObject, Encoding.UTF8, "application/json");
 
-                        var clientResponse = await client.PutAsync(Constant.DeletePlanUrl, deleteContent);
+                    //    var clientResponse = await client.PutAsync(Constant.DeletePlanUrl, deleteContent);
 
-                        Debug.WriteLine("Status code from deleting plan: " + clientResponse);
-                        //await DisplayAlert("Deleted Plan", currentPlan + " was cancelled and refunded.", "OK");
+                    //    Debug.WriteLine("Status code from deleting plan: " + clientResponse);
+                    //    //await DisplayAlert("Deleted Plan", currentPlan + " was cancelled and refunded.", "OK");
 
-                        await Navigation.PushAsync(new MealPlans(cust_firstName, cust_lastName, cust_email), false);
-                        Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
-                    }
+                    //    await Navigation.PushAsync(new MealPlans(cust_firstName, cust_lastName, cust_email), false);
+                    //    Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
+                    //}
                 }
 
             }

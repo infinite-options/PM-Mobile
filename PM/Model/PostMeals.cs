@@ -13,8 +13,8 @@ namespace PM.Model
         [JsonProperty("is_addon")]
         public bool IsAddon { get; set; }
 
-        [JsonProperty("items")]
-        public List<MealInformation> Items { get; set; }
+        //[JsonProperty("items")]
+        //public List<MealInformation> Items { get; set; }
 
         [JsonProperty("purchase_id")]
         public string PurchaseId { get; set; }
