@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Forms9Patch="clr-namespace:Forms9Patch;assembly=Forms9Patch"
+    x:Class="PM.ViewModel.PropertyDetails">
+    <ContentPage.Content>
+
+        <Grid>
+           <Grid BackgroundColor="#F5F5F5" VerticalOptions="Start">
+               <StackLayout VerticalOptions="Start">
+                   <BoxView HeightRequest="60"/>
+                   <Grid Margin="20,0,20,10">
+                       <Grid.ColumnDefinitions>
+                           <ColumnDefinition Width="1*"/>
+                           <ColumnDefinition Width="1*"/>
+                           <ColumnDefinition Width="1*"/>
+                       </Grid.ColumnDefinitions>
+
+                       <Forms9Patch:Button OutlineWidth="0" Grid.Column="0" Text="&lt; Back" TextColor="#007AFF" FontSize="17" VerticalOptions="End" HorizontalOptions="Start" Clicked="clickedBack"/>
+                       <Label Grid.Column="1" Text="Properties" FontSize="17" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black"/>
+                       <Forms9Patch:Button OutlineWidth="0" Grid.Column="2" Text="Action" TextColor="#007AFF" FontSize="17" VerticalOptions="End" HorizontalOptions="End"/>
+
+                   </Grid>
+
+                   <!--<Label Text="Login" FontSize="19" Margin="0,0,0,10" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>-->
+
+               </StackLayout>
+           </Grid>
+
+          <ScrollView Margin="20,125,20,0">
+            <StackLayout>
+
+                <ImageButton HeightRequest="198" CornerRadius="10" BorderColor="#C4C4C4" BorderWidth="1" HorizontalOptions="Fill"/>
+
+                <Label Text="$2,000 / mo" FontSize="22" Margin="0,10,0,0" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Start"/>
+                <Label Text="213 Parkland Ave, San Jose, CA 90820" FontSize="16" TextColor="#777777" HorizontalTextAlignment="Start" Margin="0,3"/>
+                <Image HorizontalOptions="Start" BackgroundColor="Transparent" Source="rentedButton.png" HeightRequest="25"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Cash Flow" TextColor="Black" FontAttributes="Bold" FontSize="22" Margin="0,15,0,2"/>
+                    <ImageButton Grid.Column="1" IsVisible="False" Source="new.png" HeightRequest="22" WidthRequest="50" HorizontalOptions="End"/>
+
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label x:Name="cashFlow" Text="$450/mo" VerticalOptions="Start" TextColor="#3DB727" FontAttributes="Bold" HorizontalOptions="Start" FontSize="22"/>
+                    <Image Grid.Column="1" x:Name="cashFlowArrow" Margin="0,3,0,0" VerticalOptions="Start" Source="downArrow.png" HeightRequest="20" WidthRequest="20" HorizontalOptions="End"/>
+                     
+                    <Button Opacity="0.5" Grid.ColumnSpan="2" HorizontalOptions="Fill" VerticalOptions="Fill" Clicked="clickedCashFlow"/>
+
+                </Grid>
+
+                <BoxView BackgroundColor="#707070" HeightRequest="1" HorizontalOptions="Fill" Margin="0,-17,0,0"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Expenses" TextColor="Black" FontAttributes="Bold" FontSize="22" Margin="0,10,0,2"/>
+                    <ImageButton Grid.Column="1" Source="new.png" HeightRequest="22" WidthRequest="50" HorizontalOptions="End" Clicked="clickedNewExpense"/>
+
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label x:Name="expenses" Text="$1550/mo" VerticalOptions="Start" TextColor="#E3441F" FontAttributes="Bold" HorizontalOptions="Start" FontSize="22"/>
+                    <Image Grid.Column="1" x:Name="expensesArrow" Margin="0,3,0,0" VerticalOptions="Start" Source="downArrow.png" HeightRequest="20" WidthRequest="20" HorizontalOptions="End"/>
+
+                    <Button Opacity="0.5" Grid.ColumnSpan="2" HorizontalOptions="Fill" VerticalOptions="Fill" Clicked="clickedExpenses"/>
+                </Grid>
+
+                <BoxView BackgroundColor="#707070" HeightRequest="1" HorizontalOptions="Fill" Margin="0,-17,0,0"/>
+
+                <StackLayout x:Name="expenseStack" IsVisible="False" Margin="0,10,0,0">
+
+                    <Grid Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Column="1" Text="Monthly" HorizontalOptions="Start" TextColor="#777777" FontSize="14"/>
+                        <Label Grid.Column="2" Text="YTD" HorizontalOptions="Start" TextColor="#777777" FontSize="14"/>
+
+                    </Grid>
+
+                    <CollectionView x:Name="propertyColl" Margin="0,0,0,0">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout
+                            Orientation="Vertical"
+                            Span="1" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid ColumnSpacing="10" Margin="{Binding gridMargin}">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="1*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Text="{Binding titleText}" TextColor="Black" FontAttributes="Bold" FontSize="{Binding titleFontSize}"/>
+                                        <Label Grid.Column="1" Text="{Binding monthlyText}" TextColor="{Binding monthlyColor}" IsVisible="{Binding monthlyVisible}" FontSize="14"/>
+                                        <Label Grid.Column="2" Text="{Binding ytdText}" TextColor="{Binding ytdColor}" IsVisible="{Binding ytdVisible}" FontSize="14"/>
+                                        <ImageButton Grid.Column="2" Source="new.png" HeightRequest="20" HorizontalOptions="End" IsVisible="{Binding newVisible}" Margin="0,0,5,0" Clicked="clickedNewRevenue"/>
+
+                                    </Grid>
+                            
+                                </Grid>
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+
+
+                </StackLayout>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Taxes" TextColor="Black" FontAttributes="Bold" FontSize="22" Margin="0,10,0,2"/>
+                    <ImageButton Grid.Column="1" Source="new.png" HeightRequest="22" WidthRequest="50" HorizontalOptions="End" Clicked="clickedNewTax"/>
+
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label x:Name="taxes" Text="$500/mo" VerticalOptions="Start" TextColor="#E3441F" FontAttributes="Bold" HorizontalOptions="Start" FontSize="22"/>
+                    <Image Grid.Column="1" x:Name="taxesArrow" Margin="0,3,0,0" VerticalOptions="Start" Source="downArrow.png" HeightRequest="20" WidthRequest="20" HorizontalOptions="End"/>
+
+                    <Button Grid.ColumnSpan="2" HorizontalOptions="Fill" VerticalOptions="Fill" Clicked="clickedTaxes"/>
+                </Grid>
+
+                <BoxView BackgroundColor="#707070" HeightRequest="1" HorizontalOptions="Fill" Margin="0,-17,0,0"/>
+
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Mortgage" TextColor="Black" FontAttributes="Bold" FontSize="22" Margin="0,10,0,2"/>
+                    <ImageButton Grid.Column="1" Source="new.png" HeightRequest="22" WidthRequest="50" HorizontalOptions="End" Clicked="clickedNewMortgage"/>
+
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label x:Name="mortgage" Text="$500/mo" TextColor="#E3441F" VerticalOptions="Start" FontAttributes="Bold" HorizontalOptions="Start" FontSize="22"/>
+                    <Image Grid.Column="1" x:Name="mortgageArrow" Margin="0,3,0,0" Source="downArrow.png" VerticalOptions="Start" HeightRequest="20" WidthRequest="20" HorizontalOptions="End"/>
+
+                    <Button Grid.ColumnSpan="2" HorizontalOptions="Fill" VerticalOptions="Fill" Clicked="clickedMortgage"/>
+                </Grid>
+
+                <BoxView BackgroundColor="#707070" HeightRequest="1" HorizontalOptions="Fill" Margin="0,-17,0,0"/>
+
+                <Grid Margin="0,15,0,0" HeightRequest="40">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout>
+                        <Label x:Name="propManagerName" Text="Remi Dorsey" TextColor="Black" FontAttributes="Bold" FontSize="22"/>
+                        <Label Text="Property Manager" TextColor="#777777" FontAttributes="Bold" FontSize="17" Margin="0,-2,0,0"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Spacing="5" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1">
+                        <ImageButton VerticalOptions="Fill" HorizontalOptions="Fill" MinimumHeightRequest="30" Source="callIcon.png"/>
+                        <ImageButton VerticalOptions="Fill" HorizontalOptions="Fill" MinimumHeightRequest="30" Source="msgIcon.png"/>
+                    </StackLayout>
+
+                </Grid>
+
+                <BoxView BackgroundColor="#707070" HeightRequest="1" HorizontalOptions="Fill" Margin="0,10,0,0"/>
+
+                <Grid Margin="0,15,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label x:Name="details" Text="Details" VerticalOptions="Start" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Start" FontSize="22"/>
+                    <Image Grid.Column="1" x:Name="detailsArrow" Margin="0,3,0,0" VerticalOptions="Start" Source="downArrow.png" HeightRequest="20" WidthRequest="20" HorizontalOptions="End"/>
+
+                    <Button Grid.ColumnSpan="2" HorizontalOptions="Fill" VerticalOptions="Fill" Clicked="clickedDetails"/>
+                </Grid>
+
+                <BoxView BackgroundColor="#707070" HeightRequest="1" HorizontalOptions="Fill" Margin="0,-17,0,0"/>
+                <BoxView HeightRequest="70" x:Name="filler" Margin="0,0,0,50"/>
+
+            </StackLayout>
+          </ScrollView>
+
+            <Grid BackgroundColor="#F5F5F5" VerticalOptions="End">
+               <StackLayout VerticalOptions="End">
+                   <!--<BoxView HeightRequest="60"/>-->
+                   <Grid Margin="12,10,12,25" ColumnSpacing="5">
+                       <Grid.ColumnDefinitions>
+                           <ColumnDefinition Width="1*"/>
+                           <ColumnDefinition Width="1*"/>
+                           <ColumnDefinition Width="1*"/>
+                           <ColumnDefinition Width="1*"/>
+                           <ColumnDefinition Width="1*"/>
+                       </Grid.ColumnDefinitions>
+
+                       <Grid Grid.Column="0">
+                           <Grid.RowDefinitions>
+                               <RowDefinition Height="Auto"/>
+                               <RowDefinition Height="Auto"/>
+                           </Grid.RowDefinitions>
+
+                           <Image x:Name="propertiesImg" Grid.Row="0" HeightRequest="25" HorizontalOptions="Center" WidthRequest="25" BackgroundColor="LightGray"/>
+                           <Label x:Name="propertiesLabel" Grid.Row="1" Text="Properties" TextColor="#999999" FontSize="10" HorizontalTextAlignment="Center"/>
+
+                           <Button Grid.RowSpan="2" VerticalOptions="Fill" HorizontalOptions="Fill" BackgroundColor="Transparent" Opacity="0.5"/>
+
+                       </Grid>
+
+                       <Grid Grid.Column="1">
+                           <Grid.RowDefinitions>
+                               <RowDefinition Height="Auto"/>
+                               <RowDefinition Height="Auto"/>
+                           </Grid.RowDefinitions>
+
+                           <Image x:Name="repairsImg" Grid.Row="0" HeightRequest="25" HorizontalOptions="Center" WidthRequest="25" BackgroundColor="LightGray"/>
+                           <Label x:Name="repairsLabel" Grid.Row="1" Text="Repairs" TextColor="#999999" FontSize="10" HorizontalTextAlignment="Center"/>
+
+                           <Button Grid.RowSpan="2" VerticalOptions="Fill" HorizontalOptions="Fill" BackgroundColor="Transparent" Opacity="0.5"/>
+
+                       </Grid>
+
+                       <Grid Grid.Column="2">
+                           <Grid.RowDefinitions>
+                               <RowDefinition Height="Auto"/>
+                               <RowDefinition Height="Auto"/>
+                           </Grid.RowDefinitions>
+
+                           <Image x:Name="maintenImg" Grid.Row="0" HeightRequest="25" HorizontalOptions="Center" WidthRequest="25" BackgroundColor="LightGray"/>
+                           <Label x:Name="maintenLabel" Grid.Row="1" Text="Maintenance" TextColor="#999999" FontSize="10" HorizontalTextAlignment="Center"/>
+
+                           <Button Grid.RowSpan="2" VerticalOptions="Fill" HorizontalOptions="Fill" BackgroundColor="Transparent" Opacity="0.5"/>
+
+                       </Grid>
+
+                       <Grid Grid.Column="3">
+                           <Grid.RowDefinitions>
+                               <RowDefinition Height="Auto"/>
+                               <RowDefinition Height="Auto"/>
+                           </Grid.RowDefinitions>
+
+                           <Image x:Name="propManImg" Grid.Row="0" HeightRequest="25" HorizontalOptions="Center" WidthRequest="25" BackgroundColor="LightGray"/>
+                           <Label x:Name="propManLabel" Grid.Row="1" Text="Property Manager" TextColor="#999999" FontSize="10" HorizontalTextAlignment="Center"/>
+
+                           <Button Grid.RowSpan="2" VerticalOptions="Fill" HorizontalOptions="Fill" BackgroundColor="Transparent" Opacity="0.5"/>
+
+                       </Grid>
+
+                       <Grid Grid.Column="4">
+                           <Grid.RowDefinitions>
+                               <RowDefinition Height="Auto"/>
+                               <RowDefinition Height="Auto"/>
+                           </Grid.RowDefinitions>
+
+                           <Image x:Name="profileImg" Grid.Row="0" HeightRequest="25" HorizontalOptions="Center" WidthRequest="25" BackgroundColor="LightGray"/>
+                           <Label x:Name="profileLabel" Grid.Row="1" Text="Profile" TextColor="#999999" FontSize="10" HorizontalTextAlignment="Center"/>
+
+                           <Button Grid.RowSpan="2" VerticalOptions="Fill" HorizontalOptions="Fill" BackgroundColor="Transparent" Opacity="0.5"/>
+
+                       </Grid>
+
+
+
+                       <!--<Forms9Patch:Button OutlineWidth="0" Grid.Column="0" Text="Add New" TextColor="#007AFF" FontSize="19" VerticalOptions="End" HorizontalOptions="Start"/>
+                       <Label Grid.Column="1" Text="Login" FontSize="19" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black"/>
+                       <Forms9Patch:Button OutlineWidth="0" Grid.Column="2" Text="Sort by" TextColor="#007AFF" FontSize="19" VerticalOptions="End" HorizontalOptions="End"/>-->
+
+                   </Grid>
+
+                   <!--<Label Text="Login" FontSize="19" Margin="0,0,0,10" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>-->
+
+               </StackLayout>
+           </Grid>
+
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

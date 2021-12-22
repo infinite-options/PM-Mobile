@@ -49,9 +49,21 @@
                                     <ImageButton Source="{Binding propImg}" VerticalOptions="Center" Grid.Column="0" HeightRequest="113" WidthRequest="113" CornerRadius="10" BorderColor="#C4C4C4" BorderWidth="1" HorizontalOptions="Start"/>
 
                                     <StackLayout Grid.Column="1" VerticalOptions="Center">
-                                        <Label Text="{Binding income}" FontSize="22" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Start"/>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Text="{Binding income}" FontSize="22" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Start"/>
+                                            <Image HorizontalOptions="End" Margin="5,0,0,0" BackgroundColor="Transparent" Source="{Binding statusImg}" HeightRequest="25" VerticalOptions="Start"/>
+
+                                        </Grid>
+
                                         <Label Text="{Binding address}" FontSize="16" TextColor="#777777" HorizontalTextAlignment="Start" Margin="0,3"/>
-                                        <Image HorizontalOptions="Start" BackgroundColor="Transparent" Source="{Binding statusImg}" HeightRequest="25" VerticalOptions="End"/>
+                                        <Label Text="{Binding pmName}" VerticalOptions="End" HorizontalOptions="Start" TextColor="#007AFF" FontSize="12"/>
+
+                                        <!--<Image HorizontalOptions="Start" BackgroundColor="Transparent" Source="{Binding statusImg}" HeightRequest="25" VerticalOptions="End"/>-->
 
                                     </StackLayout>
 

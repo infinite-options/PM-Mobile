@@ -7,5 +7,6 @@ namespace PM.Model
         public string income { get; set; }
         public string address { get; set; }
         public string statusImg { get; set; }
+        public string pmName { get; set; }
     }
 }

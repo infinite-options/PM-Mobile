@@ -211,6 +211,11 @@
     <BundleResource Include="Resources\fbButton.png" />
     <BundleResource Include="Resources\googleButton.png" />
     <BundleResource Include="Resources\rentedButton.png" />
+    <BundleResource Include="Resources\downArrow.png" />
+    <BundleResource Include="Resources\upArrow.png" />
+    <BundleResource Include="Resources\new.png" />
+    <BundleResource Include="Resources\callIcon.png" />
+    <BundleResource Include="Resources\msgIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppleSignIn\" />
