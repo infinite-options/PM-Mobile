@@ -24,6 +24,8 @@ namespace PM.ViewModel
             propertiesImg.BackgroundColor = Color.FromHex("#007AFF");
             propertiesLabel.TextColor = Color.FromHex("#007AFF");
 
+            propertyImg.Source = "sampleHouse.png";
+
             fillDetails();
         }
 
@@ -139,10 +141,12 @@ namespace PM.ViewModel
             if (detailsArrow.Source.ToString() == "File: downArrow.png") //open the list
             {
                 detailsArrow.Source = "upArrow.png";
+                detailsStack.IsVisible = true;
             }
             else //close the list
             {
                 detailsArrow.Source = "downArrow.png";
+                detailsStack.IsVisible = false;
             }
         }
 

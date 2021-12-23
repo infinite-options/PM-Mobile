@@ -61,8 +61,22 @@
                                         </Grid>
 
                                         <Label Text="{Binding address}" FontSize="16" TextColor="#777777" HorizontalTextAlignment="Start" Margin="0,3"/>
-                                        <Label Text="{Binding pmName}" VerticalOptions="End" HorizontalOptions="Start" TextColor="#007AFF" FontSize="12"/>
+                                        <!--<Label Text="{Binding pmName}" VerticalOptions="End" HorizontalOptions="Start" TextColor="#007AFF" FontSize="12"/>-->
 
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Text="{Binding pmName}" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#007AFF" FontSize="12"/>
+                                            <ImageButton Source="callIcon.png" HeightRequest="30" WidthRequest="30" VerticalOptions="End"
+                                                         HorizontalOptions="Start" Margin="2" Grid.Column="1"/>
+                                            <ImageButton Source="msgIcon.png" HeightRequest="30" WidthRequest="30" VerticalOptions="End"
+                                                         HorizontalOptions="Start" Margin="2" Grid.Column="2"/>
+
+                                        </Grid>
                                         <!--<Image HorizontalOptions="Start" BackgroundColor="Transparent" Source="{Binding statusImg}" HeightRequest="25" VerticalOptions="End"/>-->
 
                                     </StackLayout>

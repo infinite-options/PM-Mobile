@@ -33,7 +33,7 @@ namespace PM.ViewModel
             newProp.income = "$2,000 / mo";
             newProp.address = "213 Parkland Ave, San Jose, CA 90820";
             newProp.statusImg = "rentedButton.png";
-            newProp.pmName = "PM: Jane Doe";
+            newProp.pmName = "Manager: Jane Doe";
 
             totalProps.Add(newProp);
 
@@ -42,7 +42,7 @@ namespace PM.ViewModel
             newProp2.income = "$2,000 / mo";
             newProp2.address = "213 Parkland Ave, San Jose, CA 90820";
             newProp2.statusImg = "rentedButton.png";
-            newProp2.pmName = "PM: Jane Doe";
+            newProp2.pmName = "Manager: Jane Doe";
 
             totalProps.Add(newProp2);
 
@@ -51,7 +51,7 @@ namespace PM.ViewModel
             newProp3.income = "$2,000 / mo";
             newProp3.address = "213 Parkland Ave, San Jose, CA 90820";
             newProp3.statusImg = "rentedButton.png";
-            newProp3.pmName = "PM: Jane Doe";
+            newProp3.pmName = "Manager: Jane Doe";
 
             totalProps.Add(newProp3);
 
@@ -60,7 +60,7 @@ namespace PM.ViewModel
             newProp4.income = "$2,000 / mo";
             newProp4.address = "213 Parkland Ave, San Jose, CA 90820";
             newProp4.statusImg = "rentedButton.png";
-            newProp4.pmName = "PM: Jane Doe";
+            newProp4.pmName = "Manager: Jane Doe";
 
             totalProps.Add(newProp4);
 
@@ -69,7 +69,7 @@ namespace PM.ViewModel
             newProp5.income = "$2,000 / mo";
             newProp5.address = "213 Parkland Ave, San Jose, CA 90820";
             newProp5.statusImg = "rentedButton.png";
-            newProp5.pmName = "PM: Jane Doe";
+            newProp5.pmName = "Manager: Jane Doe";
 
             totalProps.Add(newProp5);
             totalProps.Add(newProp5);

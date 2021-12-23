@@ -31,7 +31,7 @@
           <ScrollView Margin="20,125,20,0">
             <StackLayout>
 
-                <ImageButton HeightRequest="198" CornerRadius="10" BorderColor="#C4C4C4" BorderWidth="1" HorizontalOptions="Fill"/>
+                <ImageButton x:Name="propertyImg" Aspect="AspectFill" HeightRequest="198" CornerRadius="10" BorderColor="#C4C4C4" BorderWidth="1" HorizontalOptions="Fill"/>
 
                 <Label Text="$2,000 / mo" FontSize="22" Margin="0,10,0,0" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Start"/>
                 <Label Text="213 Parkland Ave, San Jose, CA 90820" FontSize="16" TextColor="#777777" HorizontalTextAlignment="Start" Margin="0,3"/>
@@ -219,6 +219,245 @@
                 </Grid>
 
                 <BoxView BackgroundColor="#707070" HeightRequest="1" HorizontalOptions="Fill" Margin="0,-17,0,0"/>
+
+                <StackLayout x:Name="detailsStack" Margin="0,10,0,0" IsVisible="False">
+
+                    <Label Text="Property Address" FontSize="16" FontAttributes="Bold" Margin="0,0,0,5"/>
+                    <Label x:Name="propAdd" FontSize="18" Text="453 Barly St., Santa Clara, CA 90808"/>
+
+                    <Label Text="Type" FontSize="16" FontAttributes="Bold" Margin="0,13,0,5"/>
+                    <Label x:Name="propType" FontSize="18" Text="Apartment"/>
+
+                    <Grid Margin="0,13,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout>
+                            <Label Text="Bedroom" FontSize="16" FontAttributes="Bold" Margin="0,0,0,5"/>
+                            <Label x:Name="propBedroom" FontSize="18" Text="2"/>
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="1">
+                            <Label Text="Bath" FontSize="16" FontAttributes="Bold" Margin="0,0,0,5"/>
+                            <Label x:Name="propBath" FontSize="18" Text="1.5"/>
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="2">
+                            <Label Text="Sq. Ft." FontSize="16" FontAttributes="Bold" Margin="0,0,0,5"/>
+                            <Label x:Name="propSqFt" FontSize="18" Text="1100"/>
+                        </StackLayout>
+
+                    </Grid>
+
+                    <Label Text="Monthly Rent" FontSize="16" FontAttributes="Bold" Margin="0,13,0,5"/>
+                    <Label x:Name="propRent" FontSize="18" Text="$2000.00"/>
+
+                    <Label Text="Deposit" FontSize="16" FontAttributes="Bold" Margin="0,13,0,5"/>
+                    <Label x:Name="propDeposit" FontSize="18" Text="$2000.00"/>
+
+                    <Label Text="Appliances" FontSize="16" FontAttributes="Bold" Margin="0,13,0,5"/>
+                    <Grid Margin="6,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image HeightRequest="25" WidthRequest="25" BackgroundColor="LightGray"/>
+                        <Label Grid.Column="1" Text="Microwave" FontSize="18"/> 
+
+                    </Grid>
+
+                    <Grid Margin="6,1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image HeightRequest="25" WidthRequest="25" BackgroundColor="LightGray"/>
+                        <Label Grid.Column="1" Text="Dishwasher" FontSize="18"/> 
+
+                    </Grid>
+
+                    <Grid Margin="6,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image HeightRequest="25" WidthRequest="25" BackgroundColor="LightGray"/>
+                        <Label Grid.Column="1" Text="Refrigerator" FontSize="18"/> 
+
+                    </Grid>
+
+                    <Grid Margin="6,1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image HeightRequest="25" WidthRequest="25" BackgroundColor="LightGray"/>
+                        <Label Grid.Column="1" Text="Washer" FontSize="18"/> 
+
+                    </Grid>
+
+                    <Grid Margin="6,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image HeightRequest="25" WidthRequest="25" BackgroundColor="LightGray"/>
+                        <Label Grid.Column="1" Text="Dryer" FontSize="18"/> 
+
+                    </Grid>
+
+                    <Grid Margin="6,1,6,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image HeightRequest="25" WidthRequest="25" BackgroundColor="LightGray"/>
+                        <Label Grid.Column="1" Text="Range" FontSize="18"/> 
+
+                    </Grid>
+
+                    <Grid Margin="0,13,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Utilities Paid by" FontAttributes="Bold" FontSize="16" HorizontalOptions="Start"/>
+                        <Label Grid.Column="1" Text="Owner" FontAttributes="Bold" FontSize="16" HorizontalOptions="Center"/>
+                        <Label Grid.Column="2" Text="Tenant" FontAttributes="Bold" FontSize="16" HorizontalOptions="Center"/>
+
+                    </Grid>
+
+                    <Grid Margin="0,5,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Electricity" FontSize="18" HorizontalOptions="Start"/>
+                        <CheckBox x:Name="elecOBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
+                                  HeightRequest="25" WidthRequest="25" Grid.Column="1" IsChecked="True"/>
+                        <CheckBox x:Name="elecTBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
+                                  HeightRequest="25" WidthRequest="25" Grid.Column="2"/>
+
+                    </Grid>
+
+                    <Grid Margin="0,5,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Trash" FontSize="18" HorizontalOptions="Start"/>
+                        <CheckBox x:Name="trashOBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
+                                  HeightRequest="25" WidthRequest="25" Grid.Column="1" IsChecked="True"/>
+                        <CheckBox x:Name="trashTBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
+                                  HeightRequest="25" WidthRequest="25" Grid.Column="2"/>
+
+                    </Grid>
+
+                    <Grid Margin="0,5,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Water" FontSize="18" HorizontalOptions="Start"/>
+                        <CheckBox x:Name="waterOBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
+                                  HeightRequest="25" WidthRequest="25" Grid.Column="1" IsChecked="True"/>
+                        <CheckBox x:Name="waterTBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
+                                  HeightRequest="25" WidthRequest="25" Grid.Column="2"/>
+
+                    </Grid>
+
+                    <Grid Margin="0,5,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Wifi" FontSize="18" HorizontalOptions="Start"/>
+                        <CheckBox x:Name="wifiOBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
+                                  HeightRequest="25" WidthRequest="25" Grid.Column="1"/>
+                        <CheckBox x:Name="wifiTBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
+                                  HeightRequest="25" WidthRequest="25" Grid.Column="2" IsChecked="True"/>
+
+                    </Grid>
+
+                    <Grid Margin="0,5,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Gas" FontSize="18" HorizontalOptions="Start"/>
+                        <CheckBox x:Name="gasOBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
+                                  HeightRequest="25" WidthRequest="25" Grid.Column="1"/>
+                        <CheckBox x:Name="gasTBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
+                                  HeightRequest="25" WidthRequest="25" Grid.Column="2" IsChecked="True"/>
+
+                    </Grid>
+
+
+                    <Label Text="Pets Allowed" FontSize="16" FontAttributes="Bold" Margin="0,13,0,5"/>
+                    <Grid Margin="6,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                            <CheckBox x:Name="petsYBox" IsEnabled="False" Color="Black"
+                                  HeightRequest="25" WidthRequest="25" IsChecked="True"/>
+                            <Label Text="Yes" FontSize="18" Margin="5,0"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Grid.Column="1">
+                            <CheckBox x:Name="petsNBox" IsEnabled="False" Color="Black"
+                                  HeightRequest="25" WidthRequest="25"/>
+                            <Label Text="No" FontSize="18" Margin="5,0"/>
+                        </StackLayout>
+
+                    </Grid>
+
+                    <Label Text="Deposit can be used for last month’s rent" FontSize="16" FontAttributes="Bold" Margin="0,13,0,5"/>
+                    <Grid Margin="6,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                            <CheckBox x:Name="useDepositYBox" IsEnabled="False" Color="Black"
+                                  HeightRequest="25" WidthRequest="25" IsChecked="True"/>
+                            <Label Text="Yes" FontSize="18" Margin="5,0"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Grid.Column="1">
+                            <CheckBox x:Name="useDepositNBox" IsEnabled="False" Color="Black"
+                                  HeightRequest="25" WidthRequest="25"/>
+                            <Label Text="No" FontSize="18" Margin="5,0"/>
+                        </StackLayout>
+
+                    </Grid>
+
+                </StackLayout>
+
                 <BoxView HeightRequest="70" x:Name="filler" Margin="0,0,0,50"/>
 
             </StackLayout>
