@@ -45,7 +45,7 @@
 
                 </Frame>
 
-                <Forms9Patch:Button HorizontalOptions="Center" FontSize="20" FontAttributes="Bold" Text="Login" TextColor="White" BackgroundColor="#007AFF" HeightRequest="38" BorderRadius="33" WidthRequest="100" Clicked="clickedLogin"/>
+                <Forms9Patch:Button HorizontalOptions="Center" FontSize="20" FontAttributes="Bold" Text="Login" TextColor="White" BackgroundColor="#007AFF" HeightRequest="38" BorderRadius="33" WidthRequest="100" Clicked="clickedLogin"/> <!--clickedLogin-->
 
                 <Label Margin="0,60,0,5" Text="Don't have an account?" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" FontSize="18"/>
                 <Forms9Patch:Button HorizontalOptions="Center" Text="Sign Up" FontSize="20" FontAttributes="Bold" TextColor="#007AFF" BackgroundColor="White" BorderColor="#007AFF" BorderWidth="2" HeightRequest="38" BorderRadius="33" WidthRequest="130"/>

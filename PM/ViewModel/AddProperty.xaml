@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Forms9Patch="clr-namespace:Forms9Patch;assembly=Forms9Patch"
+    x:Class="PM.ViewModel.AddProperty">
+    <ContentPage.Content>
+
+        <Grid>
+           <Grid BackgroundColor="#F5F5F5" VerticalOptions="Start">
+               <StackLayout VerticalOptions="Start">
+                   <BoxView HeightRequest="60"/>
+                   <Grid Margin="20,0,20,10">
+                       <Grid.ColumnDefinitions>
+                           <ColumnDefinition Width="1*"/>
+                           <ColumnDefinition Width="1*"/>
+                           <ColumnDefinition Width="1*"/>
+                       </Grid.ColumnDefinitions>
+
+                       <Forms9Patch:Button OutlineWidth="0" Grid.Column="0" Text="Add New" TextColor="#007AFF" FontSize="17" VerticalOptions="End" HorizontalOptions="Start"/>
+                       <Label Grid.Column="1" Text="Properties" FontSize="17" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black"/>
+                       <Forms9Patch:Button OutlineWidth="0" Grid.Column="2" Text="Sort by" TextColor="#007AFF" FontSize="17" VerticalOptions="End" HorizontalOptions="End"/>
+
+                   </Grid>
+
+                   <!--<Label Text="Login" FontSize="19" Margin="0,0,0,10" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>-->
+
+               </StackLayout>
+           </Grid>
+
+            <ScrollView Margin="20,140,20,0">
+                <StackLayout>
+
+                    <Label Margin="5,10,5,0" Text="Property Address" FontSize="16" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Start"/>
+
+                    <Frame HasShadow="False" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                        <Entry HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                Placeholder="453 Barly St., Santa Clara, CA 90808" TextColor="#777777" PlaceholderColor="#777777"/>
+                    </Frame>
+
+                    <Label Margin="5,10,5,1" Text="Type" FontSize="16" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Start"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Frame HasShadow="False" HeightRequest="5" HorizontalOptions="Fill" BorderColor="#707070" CornerRadius="0" Grid.ColumnSpan="2"/>
+                        <Label Text="Apartment" VerticalOptions="Center" TextColor="#777777" FontSize="18" Margin="10,0,2,0"/>
+                        <Image Grid.Column="1" HeightRequest="15" WidthRequest="15" Margin="0,0,10,0" Source="downArrow.png"/>
+                        <Button Grid.ColumnSpan="2" HorizontalOptions="Fill" VerticalOptions="Fill"/>
+
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout>
+                            <Label Margin="5,10,0,0" Text="Bedroom" FontSize="16" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Start"/>
+
+                            <Frame HasShadow="False" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                                <Entry HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                        Placeholder="2" TextColor="#777777" PlaceholderColor="#777777"/>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="1">
+                            <Label Margin="5,10,0,0" Text="Bath" FontSize="16" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Start"/>
+
+                            <Frame HasShadow="False" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                                <Entry HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                        Placeholder="1.5" TextColor="#777777" PlaceholderColor="#777777"/>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="2">
+                            <Label Margin="5,10,0,0" Text="Sq. Ft." FontSize="16" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Start"/>
+
+                            <Frame HasShadow="False" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                                <Entry HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                        Placeholder="1100" TextColor="#777777" PlaceholderColor="#777777"/>
+                            </Frame>
+                        </StackLayout>
+
+                    </Grid>
+
+                    <Label Margin="5,10,5,0" Text="Monthly Rent" FontSize="16" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Start"/>
+
+                    <Frame HasShadow="False" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                        <Entry HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                Placeholder="$2000.00" TextColor="#777777" PlaceholderColor="#777777"/>
+                    </Frame>
+
+                    <Label Margin="5,10,5,0" Text="Deposit" FontSize="16" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Start"/>
+
+                    <Frame HasShadow="False" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                        <Entry HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                Placeholder="$2000.00" TextColor="#777777" PlaceholderColor="#777777"/>
+                    </Frame>
+
+                    <Label Margin="5,10,5,0" Text="Appliances" FontSize="16" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Start"/>
+
+                    <CollectionView x:Name="applianceColl" Margin="10,0,5,0">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout
+                        Orientation="Vertical"
+                        Span="1" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,4">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <ImageButton CornerRadius="0" Clicked="checkAppliance" HeightRequest="25" WidthRequest="25" Source="{Binding checkboxImg}"/>
+                                <Label Grid.Column="1" Text="{Binding appName}" FontSize="18" VerticalOptions="Center"/> 
+
+                            </Grid>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <Forms9Patch:Button Margin="40,5,0,0" Text="Add Other +" BorderColor="Transparent" FontSize="18" TextColor="#007AFF" HorizontalTextAlignment="Start"/>
+
+                    <Grid Margin="0,13,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Utilities Paid by" FontAttributes="Bold" FontSize="16" HorizontalOptions="Start"/>
+                        <Label Grid.Column="1" Text="Owner" FontAttributes="Bold" FontSize="16" HorizontalOptions="Center"/>
+                        <Label Grid.Column="2" Text="Tenant" FontAttributes="Bold" FontSize="16" HorizontalOptions="Center"/>
+
+                    </Grid>
+
+                    <Grid Margin="0,5,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Electricity" FontSize="18" HorizontalOptions="Start"/>
+                        <RadioButton Grid.Column="1" GroupName="electricity" Value="owner" IsChecked="True" CheckedChanged="checkUtility" Margin="5,0,0,0" HorizontalOptions="Center"/>
+                        <RadioButton Grid.Column="2" GroupName="electricity" Value="tenant" IsChecked="False" CheckedChanged="checkUtility" Margin="5,0,0,0" HorizontalOptions="Center"/>
+
+                    </Grid>
+
+                    <Grid Margin="0,5,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Trash" FontSize="18" HorizontalOptions="Start"/>
+                        <RadioButton Grid.Column="1" GroupName="trash" Value="owner" IsChecked="True" CheckedChanged="checkUtility" Margin="5,0,0,0" HorizontalOptions="Center"/>
+                        <RadioButton Grid.Column="2" GroupName="trash" Value="tenant" IsChecked="False" CheckedChanged="checkUtility" Margin="5,0,0,0" HorizontalOptions="Center"/>
+
+                    </Grid>
+
+                    <Grid Margin="0,5,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Water" FontSize="18" HorizontalOptions="Start"/>
+                        <RadioButton Grid.Column="1" GroupName="water" Value="owner" IsChecked="True" CheckedChanged="checkUtility" Margin="5,0,0,0" HorizontalOptions="Center"/>
+                        <RadioButton Grid.Column="2" GroupName="water" Value="tenant" IsChecked="False" CheckedChanged="checkUtility" Margin="5,0,0,0" HorizontalOptions="Center"/>
+
+                    </Grid>
+
+                    <Grid Margin="0,5,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Wifi" FontSize="18" HorizontalOptions="Start"/>
+                        <RadioButton Grid.Column="1" GroupName="wifi" Value="owner" IsChecked="True" CheckedChanged="checkUtility" Margin="5,0,0,0" HorizontalOptions="Center"/>
+                        <RadioButton Grid.Column="2" GroupName="wifi" Value="tenant" IsChecked="False" CheckedChanged="checkUtility" Margin="5,0,0,0" HorizontalOptions="Center"/>
+
+                    </Grid>
+
+                    <Grid Margin="0,5,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Gas" FontSize="18" HorizontalOptions="Start"/>
+                        <RadioButton Grid.Column="1" GroupName="gas" Value="owner" IsChecked="True" CheckedChanged="checkUtility" Margin="5,0,0,0" HorizontalOptions="Center"/>
+                        <RadioButton Grid.Column="2" GroupName="gas" Value="tenant" IsChecked="False" CheckedChanged="checkUtility" Margin="5,0,0,0" HorizontalOptions="Center"/>
+
+                    </Grid>
+
+
+                    <Label Text="Pets Allowed" FontSize="16" FontAttributes="Bold" Margin="0,13,0,5"/>
+                    <Grid Margin="6,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <RadioButton GroupName="pets" Content="Yes" Value="Yes" IsChecked="True" FontSize="18" CheckedChanged="checkUtility"/>
+
+                        <RadioButton Grid.Column="1" GroupName="pets" Value="No" Content="No" FontSize="18" CheckedChanged="checkUtility"/>
+
+                    </Grid>
+
+                    <Label Text="Deposit can be used for last month’s rent" FontSize="16" FontAttributes="Bold" Margin="0,13,0,5"/>
+                    <Grid Margin="6,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <RadioButton GroupName="useDeposit" Content="Yes" Value="Yes" IsChecked="True" FontSize="18" CheckedChanged="checkUtility"/>
+
+                        <RadioButton Grid.Column="1" GroupName="useDeposit" Value="No" Content="No" FontSize="18" CheckedChanged="checkUtility"/>
+
+
+                    </Grid>
+
+                    <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Margin="0,20,0,90">
+
+                        <Forms9Patch:Button FontSize="17" Text="Cancel" TextColor="#007AFF"
+                                            BorderColor="#007AFF" BorderWidth="2" BackgroundColor="White" HeightRequest="25"
+                                            BorderRadius="22" WidthRequest="90" Clicked="clickedBack" Margin="5,0"/>
+
+                        <Forms9Patch:Button  x:Name="saveButton" FontSize="17" Text="Save" TextColor="White"
+                                             BackgroundColor="#007AFF" HeightRequest="25"
+                                            BorderRadius="22" WidthRequest="80" Clicked="clickedBack" Margin="5,0"/>
+
+
+                    </StackLayout>
+
+                </StackLayout>
+            </ScrollView>
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

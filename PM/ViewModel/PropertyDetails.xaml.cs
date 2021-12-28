@@ -174,5 +174,37 @@ namespace PM.ViewModel
         {
             await Navigation.PopAsync();
         }
+
+        void checkRadio(System.Object sender, System.EventArgs e)
+        {
+            RadioButton rb = (RadioButton)sender;
+            //Debug.WriteLine("radiobutton content: " + rb.Content.ToString());
+            Debug.WriteLine("radiobutton group: " + rb.GroupName.ToString());
+            Debug.WriteLine("radiobutton value: " + rb.Value.ToString());
+            //var rbval = rb.Value;
+        }
+
+        void checkCheckbox(System.Object sender, System.EventArgs e)
+        {
+            ImageButton img = (ImageButton)sender;
+            if (img.Source.ToString() == "File: blankBox.png") //check the item
+            {
+                img.Source = "checkedBox.png";
+            }
+            else
+            {
+                img.Source = "blankBox.png";
+            }
+
+        }
+
+        void clickedTitle(System.Object sender, System.EventArgs e)
+        {
+            Forms9Patch.Button button1 = (Forms9Patch.Button)sender;
+            PropListDetails titleChosen = button1.BindingContext as PropListDetails;
+
+            Debug.WriteLine("title clicked: " + titleChosen.titleText);
+            Navigation.PushAsync(new CostBreakdown());
+        }
     }
 }

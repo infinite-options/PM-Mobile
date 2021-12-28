@@ -17,7 +17,7 @@
                            <ColumnDefinition Width="1*"/>
                        </Grid.ColumnDefinitions>
 
-                       <Forms9Patch:Button OutlineWidth="0" Grid.Column="0" Text="Add New" TextColor="#007AFF" FontSize="17" VerticalOptions="End" HorizontalOptions="Start"/>
+                       <Forms9Patch:Button OutlineWidth="0" Grid.Column="0" Text="Add New" TextColor="#007AFF" FontSize="17" VerticalOptions="End" HorizontalOptions="Start" Clicked="clickedAddNew"/>
                        <Label Grid.Column="1" Text="Properties" FontSize="17" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black"/>
                        <Forms9Patch:Button OutlineWidth="0" Grid.Column="2" Text="Sort by" TextColor="#007AFF" FontSize="17" VerticalOptions="End" HorizontalOptions="End"/>
 
@@ -72,9 +72,9 @@
 
                                             <Label Text="{Binding pmName}" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#007AFF" FontSize="12"/>
                                             <ImageButton Source="callIcon.png" HeightRequest="30" WidthRequest="30" VerticalOptions="End"
-                                                         HorizontalOptions="Start" Margin="2" Grid.Column="1"/>
+                                                         HorizontalOptions="Start" Margin="2" Grid.Column="1" CornerRadius="0"/>
                                             <ImageButton Source="msgIcon.png" HeightRequest="30" WidthRequest="30" VerticalOptions="End"
-                                                         HorizontalOptions="Start" Margin="2" Grid.Column="2"/>
+                                                         HorizontalOptions="Start" Margin="2" Grid.Column="2" CornerRadius="0"/>
 
                                         </Grid>
                                         <!--<Image HorizontalOptions="Start" BackgroundColor="Transparent" Source="{Binding statusImg}" HeightRequest="25" VerticalOptions="End"/>-->
@@ -172,7 +172,7 @@
                            <Image x:Name="propManImg" Grid.Row="0" HeightRequest="25" HorizontalOptions="Center" WidthRequest="25" BackgroundColor="LightGray"/>
                            <Label x:Name="propManLabel" Grid.Row="1" Text="Property Manager" TextColor="#999999" FontSize="10" HorizontalTextAlignment="Center"/>
 
-                           <Button Grid.RowSpan="2" VerticalOptions="Fill" HorizontalOptions="Fill" BackgroundColor="Transparent" Opacity="0.5"/>
+                           <Button Grid.RowSpan="2" VerticalOptions="Fill" HorizontalOptions="Fill" BackgroundColor="Transparent" Opacity="0.5" Clicked="clickedPMProfile"/>
 
                        </Grid>
 
@@ -185,7 +185,7 @@
                            <Image x:Name="profileImg" Grid.Row="0" HeightRequest="25" HorizontalOptions="Center" WidthRequest="25" BackgroundColor="LightGray"/>
                            <Label x:Name="profileLabel" Grid.Row="1" Text="Profile" TextColor="#999999" FontSize="10" HorizontalTextAlignment="Center"/>
 
-                           <Button Grid.RowSpan="2" VerticalOptions="Fill" HorizontalOptions="Fill" BackgroundColor="Transparent" Opacity="0.5"/>
+                           <Button Grid.RowSpan="2" VerticalOptions="Fill" HorizontalOptions="Fill" BackgroundColor="Transparent" Opacity="0.5" Clicked="clickedOwnerProfile"/>
 
                        </Grid>
 

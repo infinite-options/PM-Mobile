@@ -89,5 +89,20 @@ namespace PM.ViewModel
 
             await Navigation.PushAsync(new PropertyDetails());
         }
+
+        async void clickedAddNew(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new AddProperty());
+        }
+
+        async void clickedOwnerProfile(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new OwnerProfile());
+        }
+
+        async void clickedPMProfile(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new EditPMProfile());
+        }
     }
 }

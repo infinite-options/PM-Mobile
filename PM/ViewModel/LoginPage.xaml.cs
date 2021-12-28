@@ -1316,5 +1316,10 @@ namespace PM.ViewModel
         {
             await DisplayAlert("Error", "We weren't able to set an account for you", "OK");
         }
+
+        void tempNav(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new NavigationPage(new PropertySummary());
+        }
     }
 }

@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Forms9Patch="clr-namespace:Forms9Patch;assembly=Forms9Patch"
+    x:Class="PM.ViewModel.EditPMProfile">
+    <ContentPage.Content>
+
+        <Grid>
+           <Grid BackgroundColor="#F5F5F5" VerticalOptions="Start">
+               <StackLayout VerticalOptions="Start">
+                   <BoxView HeightRequest="60"/>
+                   <Grid Margin="20,0,20,10">
+                       <Grid.ColumnDefinitions>
+                           <ColumnDefinition Width="1*"/>
+                           <ColumnDefinition Width="1*"/>
+                           <ColumnDefinition Width="1*"/>
+                       </Grid.ColumnDefinitions>
+
+                       <Forms9Patch:Button OutlineWidth="0" Grid.Column="0" Text="&lt; Back" TextColor="#007AFF" FontSize="17" VerticalOptions="End" HorizontalOptions="Start" Clicked="clickedBack"/>
+                       <Label Grid.Column="1" Text="PM Profile" FontSize="17" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black"/>
+                       <Forms9Patch:Button OutlineWidth="0" Grid.Column="2" Text="Save" TextColor="#007AFF" FontSize="17" VerticalOptions="End" HorizontalOptions="End" Clicked="clickedBack"/>
+
+                   </Grid>
+
+                   <!--<Label Text="Login" FontSize="19" Margin="0,0,0,10" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>-->
+
+               </StackLayout>
+           </Grid>
+
+            <ScrollView Margin="20,140,20,0">
+                <StackLayout>
+
+                    <Label Text="Services you provide:" FontAttributes="Bold" TextColor="Black" FontSize="16"/>
+                    <Button x:Name="addService" Text="Add Service" BorderColor="#007AFF" BorderWidth="1" HeightRequest="30" Clicked="showAddService"
+                            CornerRadius="15" Padding="2" WidthRequest="110" HorizontalOptions="Start" TextColor="#007AFF" Margin="0,20,0,0"/>
+
+                  <StackLayout x:Name="addServiceStack" IsVisible="False" Margin="0,15,0,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Column="0">
+                            <Label Text="Service Name" FontAttributes="Bold" TextColor="Black" FontSize="16" Margin="5,0,0,0"/>
+                            <Frame HasShadow="False" Margin="0,5,0,0" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                                <Entry x:Name="serviceNameEntry" HorizontalOptions="Fill" FontSize="16" VerticalOptions="Center"
+                                        Placeholder="Service Charge" TextColor="#777777" PlaceholderColor="#777777"/>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="1">
+                            <Label Text="Charge Type" FontAttributes="Bold" TextColor="Black" FontSize="16" Margin="5,0,0,0"/>
+                            <Frame HasShadow="False" Margin="0,5,0,0" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                                <Grid>
+                                <Label x:Name="chargeTypeEntry" HorizontalOptions="Fill" FontSize="16" VerticalOptions="Center"
+                                        Text="%" TextColor="#777777"/>
+                                <Image HeightRequest="23" WidthRequest="23" HorizontalOptions="End" VerticalOptions="Center" Source="downArrow.png"/>
+                                <Button HorizontalOptions="Fill" VerticalOptions="Fill" Clicked="showChargeOptions"/>
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+
+                    </Grid>
+
+                    <Grid Margin="0,0,0,20" x:Name="chargeOptionGrid" IsVisible="False">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Column="1">
+
+                            <Frame HasShadow="False" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                                <Button x:Name="percntButton" HorizontalOptions="Fill" FontSize="16" VerticalOptions="Fill"
+                                        Text="%" TextColor="#777777" Clicked="clickedChargeOptions"/>
+                            </Frame>
+
+                            <Frame HasShadow="False" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                                <Button x:Name="dllarButton" HorizontalOptions="Fill" FontSize="16" VerticalOptions="Fill"
+                                        Text="$" TextColor="#777777" Clicked="clickedChargeOptions"/>
+                            </Frame>
+
+                        </StackLayout>
+
+                    </Grid>
+
+                    <Grid x:Name="percentGrid" IsVisible="False" Margin="0,10,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Column="0">
+                            <Label Text="Charge" FontAttributes="Bold" TextColor="Black" FontSize="16" Margin="5,0,0,0"/>
+                            <Frame HasShadow="False" Margin="0,5,0,0" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                                <Entry x:Name="chargePEntry" HorizontalOptions="Fill" FontSize="16" VerticalOptions="Center"
+                                        Placeholder="10%" TextColor="#777777" PlaceholderColor="#777777"/>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="1">
+                            <Label Text="Of" FontAttributes="Bold" TextColor="Black" FontSize="16" Margin="5,0,0,0"/>
+                            <Frame HasShadow="False" Margin="0,5,0,0" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                                <Entry x:Name="ofEntry" HorizontalOptions="Fill" FontSize="16" VerticalOptions="Center"
+                                        Placeholder="Gross Rent" TextColor="#777777" PlaceholderColor="#777777"/>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="2">
+                            <Label Text="Per" FontAttributes="Bold" TextColor="Black" FontSize="16" Margin="5,0,0,0"/>
+                            <Frame HasShadow="False" Margin="0,5,0,0" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                                <Grid>
+                                <Label x:Name="perPEntry" HorizontalOptions="Fill" FontSize="16" VerticalOptions="Center"
+                                        Text="Monthly" TextColor="#777777"/>
+                                <Image HeightRequest="23" WidthRequest="23" HorizontalOptions="End" VerticalOptions="Center" Source="downArrow.png"/>
+                                <Button x:Name="perButton" HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+
+                    </Grid>
+
+                    <Grid x:Name="dollarGrid" IsVisible="False" Margin="0,10,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Column="0">
+                            <Label Text="Charge" FontAttributes="Bold" TextColor="Black" FontSize="16" Margin="5,0,0,0"/>
+                            <Frame HasShadow="False" Margin="0,5,0,0" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                                <Entry x:Name="chargeDEntry" HorizontalOptions="Fill" FontSize="16" VerticalOptions="Center"
+                                        Placeholder="10%" TextColor="#777777" PlaceholderColor="#777777"/>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="1">
+                            <Label Text="Per" FontAttributes="Bold" TextColor="Black" FontSize="16" Margin="5,0,0,0"/>
+                            <Frame HasShadow="False" Margin="0,5,0,0" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                                <Grid>
+                                <Label x:Name="perDEntry" HorizontalOptions="Fill" FontSize="16" VerticalOptions="Center"
+                                        Text="One-time" TextColor="#777777"/>
+                                <Image HeightRequest="23" WidthRequest="23" HorizontalOptions="End" VerticalOptions="Center" Source="downArrow.png"/>
+                                <Button x:Name="dolButton" HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+
+                    </Grid>
+
+                    <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Margin="0,20,0,20">
+
+                        <Forms9Patch:Button FontSize="17" Text="Cancel" TextColor="#007AFF"
+                                            BorderColor="#007AFF" BorderWidth="2" BackgroundColor="White" HeightRequest="25"
+                                            BorderRadius="22" WidthRequest="90" Clicked="hideAddService" Margin="5,0"/>
+
+                        <Forms9Patch:Button  x:Name="saveButton" FontSize="17" Text="Save Expense" TextColor="White"
+                                             BackgroundColor="#007AFF" HeightRequest="25"
+                                            BorderRadius="22" WidthRequest="140" Clicked="hideAddService" Margin="5,0"/>
+
+
+                    </StackLayout>
+                  </StackLayout>
+
+                </StackLayout>
+            </ScrollView>
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Forms9Patch="clr-namespace:Forms9Patch;assembly=Forms9Patch"
+    x:Class="PM.ViewModel.OwnerProfile">
+    <ContentPage.Content>
+
+        <Grid>
+           <Grid BackgroundColor="#F5F5F5" VerticalOptions="Start">
+               <StackLayout VerticalOptions="Start">
+                   <BoxView HeightRequest="60"/>
+                   <Grid Margin="20,0,20,10">
+                       <Grid.ColumnDefinitions>
+                           <ColumnDefinition Width="1*"/>
+                           <ColumnDefinition Width="1*"/>
+                           <ColumnDefinition Width="1*"/>
+                       </Grid.ColumnDefinitions>
+
+                       <Forms9Patch:Button OutlineWidth="0" Grid.Column="0" Text="&lt; Back" TextColor="#007AFF" FontSize="17" VerticalOptions="End" HorizontalOptions="Start" Clicked="clickedBack"/>
+                       <Label Grid.Column="1" Text="Owner Profile" FontSize="17" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black"/>
+                       <Forms9Patch:Button OutlineWidth="0" Grid.Column="2" Text="Edit" TextColor="#007AFF" FontSize="17" VerticalOptions="End" HorizontalOptions="End" Clicked="clickedEdit"/>
+
+                   </Grid>
+
+                   <!--<Label Text="Login" FontSize="19" Margin="0,0,0,10" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>-->
+
+               </StackLayout>
+           </Grid>
+
+            <ScrollView Margin="20,140,20,0">
+                <StackLayout>
+
+                    <Label Text="First Name" FontAttributes="Bold" TextColor="Black" FontSize="16"/>
+                    <Label x:Name="fName" Text="Mike" FontSize="18" TextColor="#777777" Margin="0,5,0,0"/>
+
+                    <Label Text="Last Name" FontAttributes="Bold" TextColor="Black" FontSize="16" Margin="0,20,0,0"/>
+                    <Label x:Name="lName" Text="Ray" FontSize="18" TextColor="#777777" Margin="0,5,0,0"/>
+
+                    <Label Text="Phone Number" FontAttributes="Bold" TextColor="Black" FontSize="16" Margin="0,20,0,0"/>
+                    <Label x:Name="phone" Text="(789)908-9087" FontSize="18" TextColor="#777777" Margin="0,5,0,0"/>
+
+                    <Label Text="Email ID" FontAttributes="Bold" TextColor="Black" FontSize="16" Margin="0,20,0,0"/>
+                    <Label x:Name="email" Text="pm@gmail.com" FontSize="18" TextColor="#777777" Margin="0,5,0,0"/>
+
+                    <Label Text="Account Number" FontAttributes="Bold" TextColor="Black" FontSize="16" Margin="0,20,0,0"/>
+                    <Label x:Name="acctNum" Text="13057936589013" FontSize="18" TextColor="#777777" Margin="0,5,0,0"/>
+
+                    <Label Text="Routing Number" FontAttributes="Bold" TextColor="Black" FontSize="16" Margin="0,20,0,0"/>
+                    <Label x:Name="routingNum" Text="26459742265" FontSize="18" TextColor="#777777" Margin="0,5,0,0"/>
+
+                    <Label Text="EIN Number" FontAttributes="Bold" TextColor="Black" FontSize="16" Margin="0,20,0,0"/>
+                    <Label x:Name="einNum" Text="1213" FontSize="18" TextColor="#777777" Margin="0,5,0,0"/>
+
+                    <Label Text="Social Security" FontAttributes="Bold" TextColor="Black" FontSize="16" Margin="0,20,0,0"/>
+                    <Label x:Name="ssNum" Text="131-89-1839" FontSize="18" TextColor="#777777" Margin="0,5,0,0"/>
+
+                    <Label Text="Accept Payments via:" FontAttributes="Bold" TextColor="Black" FontSize="16" Margin="0,20,0,0"/>
+                    <Grid Margin="0,20,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton x:Name="paypalBox" Grid.Column="0" CornerRadius="0" HeightRequest="25" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="25" Source="blankBox.png"/>
+                        <Label Grid.Column="1" Text="Paypal" FontSize="18" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Label Grid.Column="2" x:Name="paypalInfo" Text="pm@gmail.com" FontSize="18" TextColor="#777777" VerticalOptions="Center"/>
+
+                    </Grid>
+
+                    <Grid Margin="0,20,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton x:Name="appleBox" Grid.Column="0" CornerRadius="0" HeightRequest="25" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="25" Source="blankBox.png"/>
+                        <Label Grid.Column="1" Text="Apple Pay" FontSize="18" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Label Grid.Column="2" x:Name="applePayInfo" Text="(081)230-1901" FontSize="18" TextColor="#777777" VerticalOptions="Center"/>
+
+                    </Grid>
+
+                    <Grid Margin="0,20,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton x:Name="zelleBox" Grid.Column="0" CornerRadius="0" HeightRequest="25" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="25" Source="blankBox.png"/>
+                        <Label Grid.Column="1" Text="Zelle" FontSize="18" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Label Grid.Column="2" x:Name="zelleInfo" Text="pm@gmail.com" FontSize="18" TextColor="#777777" VerticalOptions="Center"/>
+
+                    </Grid>
+
+                    <Grid Margin="0,20,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton x:Name="venmoBox" Grid.Column="0" CornerRadius="0" HeightRequest="25" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="25" Source="blankBox.png"/>
+                        <Label Grid.Column="1" Text="Venmo" FontSize="18" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Label Grid.Column="2" x:Name="venmoInfo" Text="" FontSize="18" TextColor="#777777" VerticalOptions="Center"/>
+
+                    </Grid>
+
+                </StackLayout>
+            </ScrollView>
+            
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

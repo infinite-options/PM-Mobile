@@ -44,7 +44,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Text="Cash Flow" TextColor="Black" FontAttributes="Bold" FontSize="22" Margin="0,15,0,2"/>
-                    <ImageButton Grid.Column="1" IsVisible="False" Source="new.png" HeightRequest="22" WidthRequest="50" HorizontalOptions="End"/>
+                    <ImageButton Grid.Column="1" IsVisible="False" Source="plusButton.png" HeightRequest="25" WidthRequest="25" HorizontalOptions="End"/>
 
                 </Grid>
 
@@ -70,7 +70,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Text="Expenses" TextColor="Black" FontAttributes="Bold" FontSize="22" Margin="0,10,0,2"/>
-                    <ImageButton Grid.Column="1" Source="new.png" HeightRequest="22" WidthRequest="50" HorizontalOptions="End" Clicked="clickedNewExpense"/>
+                    <ImageButton Grid.Column="1" Source="plusButton.png" HeightRequest="25" WidthRequest="25" HorizontalOptions="End" Clicked="clickedNewExpense"/>
 
                 </Grid>
 
@@ -118,10 +118,10 @@
                                             <ColumnDefinition Width="1*"/>
                                         </Grid.ColumnDefinitions>
 
-                                        <Label Text="{Binding titleText}" TextColor="Black" FontAttributes="Bold" FontSize="{Binding titleFontSize}"/>
+                                        <Forms9Patch:Button HorizontalTextAlignment="Start" BorderColor="Transparent" Padding="0" Text="{Binding titleText}" TextColor="Black" FontAttributes="Bold" FontSize="{Binding titleFontSize}" Clicked="clickedTitle"/>
                                         <Label Grid.Column="1" Text="{Binding monthlyText}" TextColor="{Binding monthlyColor}" IsVisible="{Binding monthlyVisible}" FontSize="14"/>
                                         <Label Grid.Column="2" Text="{Binding ytdText}" TextColor="{Binding ytdColor}" IsVisible="{Binding ytdVisible}" FontSize="14"/>
-                                        <ImageButton Grid.Column="2" Source="new.png" HeightRequest="20" HorizontalOptions="End" IsVisible="{Binding newVisible}" Margin="0,0,5,0" Clicked="clickedNewRevenue"/>
+                                        <ImageButton Grid.Column="2" Source="plusButton.png" HeightRequest="25" WidthRequest="25" HorizontalOptions="End" IsVisible="{Binding newVisible}" Margin="0,0,5,0" Clicked="clickedNewRevenue"/>
 
                                     </Grid>
                             
@@ -142,7 +142,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Text="Taxes" TextColor="Black" FontAttributes="Bold" FontSize="22" Margin="0,10,0,2"/>
-                    <ImageButton Grid.Column="1" Source="new.png" HeightRequest="22" WidthRequest="50" HorizontalOptions="End" Clicked="clickedNewTax"/>
+                    <ImageButton Grid.Column="1" Source="plusButton.png" HeightRequest="25" WidthRequest="25" HorizontalOptions="End" Clicked="clickedNewTax"/>
 
                 </Grid>
 
@@ -168,7 +168,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Text="Mortgage" TextColor="Black" FontAttributes="Bold" FontSize="22" Margin="0,10,0,2"/>
-                    <ImageButton Grid.Column="1" Source="new.png" HeightRequest="22" WidthRequest="50" HorizontalOptions="End" Clicked="clickedNewMortgage"/>
+                    <ImageButton Grid.Column="1" Source="plusButton.png" HeightRequest="25" WidthRequest="25" HorizontalOptions="End" Clicked="clickedNewMortgage"/>
 
                 </Grid>
 
@@ -222,7 +222,16 @@
 
                 <StackLayout x:Name="detailsStack" Margin="0,10,0,0" IsVisible="False">
 
-                    <Label Text="Property Address" FontSize="16" FontAttributes="Bold" Margin="0,0,0,5"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Property Address" FontSize="16" FontAttributes="Bold" Margin="0,0,0,5"/>
+                        <ImageButton Grid.Column="1" HeightRequest="17" WidthRequest="17" Source="editIcon.png" HorizontalOptions="End"/>
+
+                    </Grid>
                     <Label x:Name="propAdd" FontSize="18" Text="453 Barly St., Santa Clara, CA 90808"/>
 
                     <Label Text="Type" FontSize="16" FontAttributes="Bold" Margin="0,13,0,5"/>
@@ -265,7 +274,7 @@
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Image HeightRequest="25" WidthRequest="25" BackgroundColor="LightGray"/>
+                        <ImageButton CornerRadius="0" Clicked="checkCheckbox" HeightRequest="25" WidthRequest="25" Source="checkedBox.png"/>
                         <Label Grid.Column="1" Text="Microwave" FontSize="18"/> 
 
                     </Grid>
@@ -276,7 +285,7 @@
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Image HeightRequest="25" WidthRequest="25" BackgroundColor="LightGray"/>
+                        <ImageButton CornerRadius="0" Clicked="checkCheckbox" HeightRequest="25" WidthRequest="25" Source="checkedBox.png"/>
                         <Label Grid.Column="1" Text="Dishwasher" FontSize="18"/> 
 
                     </Grid>
@@ -287,7 +296,7 @@
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Image HeightRequest="25" WidthRequest="25" BackgroundColor="LightGray"/>
+                        <ImageButton CornerRadius="0" Clicked="checkCheckbox" HeightRequest="25" WidthRequest="25" Source="checkedBox.png"/>
                         <Label Grid.Column="1" Text="Refrigerator" FontSize="18"/> 
 
                     </Grid>
@@ -298,7 +307,7 @@
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Image HeightRequest="25" WidthRequest="25" BackgroundColor="LightGray"/>
+                        <ImageButton CornerRadius="0" Clicked="checkCheckbox" HeightRequest="25" WidthRequest="25" Source="blankBox.png"/>
                         <Label Grid.Column="1" Text="Washer" FontSize="18"/> 
 
                     </Grid>
@@ -309,7 +318,7 @@
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Image HeightRequest="25" WidthRequest="25" BackgroundColor="LightGray"/>
+                        <ImageButton CornerRadius="0" Clicked="checkCheckbox" HeightRequest="25" WidthRequest="25" Source="blankBox.png"/>
                         <Label Grid.Column="1" Text="Dryer" FontSize="18"/> 
 
                     </Grid>
@@ -320,7 +329,7 @@
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Image HeightRequest="25" WidthRequest="25" BackgroundColor="LightGray"/>
+                        <ImageButton CornerRadius="0" Clicked="checkCheckbox" HeightRequest="25" WidthRequest="25" Source="blankBox.png"/>
                         <Label Grid.Column="1" Text="Range" FontSize="18"/> 
 
                     </Grid>
@@ -346,10 +355,12 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Text="Electricity" FontSize="18" HorizontalOptions="Start"/>
-                        <CheckBox x:Name="elecOBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
+                        <RadioButton Grid.Column="1" GroupName="electricity" Value="owner" IsChecked="True" CheckedChanged="checkRadio" Margin="5,0,0,0" HorizontalOptions="Center"/>
+                        <RadioButton Grid.Column="2" GroupName="electricity" Value="tenant" IsChecked="False" CheckedChanged="checkRadio" Margin="5,0,0,0" HorizontalOptions="Center"/>
+                        <!--<CheckBox x:Name="elecOBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
                                   HeightRequest="25" WidthRequest="25" Grid.Column="1" IsChecked="True"/>
                         <CheckBox x:Name="elecTBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
-                                  HeightRequest="25" WidthRequest="25" Grid.Column="2"/>
+                                  HeightRequest="25" WidthRequest="25" Grid.Column="2"/>-->
 
                     </Grid>
 
@@ -361,10 +372,12 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Text="Trash" FontSize="18" HorizontalOptions="Start"/>
-                        <CheckBox x:Name="trashOBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
+                        <RadioButton Grid.Column="1" GroupName="trash" Value="owner" IsChecked="True" CheckedChanged="checkRadio" Margin="5,0,0,0" HorizontalOptions="Center"/>
+                        <RadioButton Grid.Column="2" GroupName="trash" Value="tenant" IsChecked="False" CheckedChanged="checkRadio" Margin="5,0,0,0" HorizontalOptions="Center"/>
+                        <!--<CheckBox x:Name="trashOBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
                                   HeightRequest="25" WidthRequest="25" Grid.Column="1" IsChecked="True"/>
                         <CheckBox x:Name="trashTBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
-                                  HeightRequest="25" WidthRequest="25" Grid.Column="2"/>
+                                  HeightRequest="25" WidthRequest="25" Grid.Column="2"/>-->
 
                     </Grid>
 
@@ -376,10 +389,12 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Text="Water" FontSize="18" HorizontalOptions="Start"/>
-                        <CheckBox x:Name="waterOBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
+                        <RadioButton Grid.Column="1" GroupName="water" Value="owner" IsChecked="True" CheckedChanged="checkRadio" Margin="5,0,0,0" HorizontalOptions="Center"/>
+                        <RadioButton Grid.Column="2" GroupName="water" Value="tenant" IsChecked="False" CheckedChanged="checkRadio" Margin="5,0,0,0" HorizontalOptions="Center"/>
+                        <!--<CheckBox x:Name="waterOBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
                                   HeightRequest="25" WidthRequest="25" Grid.Column="1" IsChecked="True"/>
                         <CheckBox x:Name="waterTBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
-                                  HeightRequest="25" WidthRequest="25" Grid.Column="2"/>
+                                  HeightRequest="25" WidthRequest="25" Grid.Column="2"/>-->
 
                     </Grid>
 
@@ -391,10 +406,12 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Text="Wifi" FontSize="18" HorizontalOptions="Start"/>
-                        <CheckBox x:Name="wifiOBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
+                        <RadioButton Grid.Column="1" GroupName="wifi" Value="owner" IsChecked="True" CheckedChanged="checkRadio" Margin="5,0,0,0" HorizontalOptions="Center"/>
+                        <RadioButton Grid.Column="2" GroupName="wifi" Value="tenant" IsChecked="False" CheckedChanged="checkRadio" Margin="5,0,0,0" HorizontalOptions="Center"/>
+                        <!--<CheckBox x:Name="wifiOBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
                                   HeightRequest="25" WidthRequest="25" Grid.Column="1"/>
                         <CheckBox x:Name="wifiTBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
-                                  HeightRequest="25" WidthRequest="25" Grid.Column="2" IsChecked="True"/>
+                                  HeightRequest="25" WidthRequest="25" Grid.Column="2" IsChecked="True"/>-->
 
                     </Grid>
 
@@ -406,10 +423,12 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Text="Gas" FontSize="18" HorizontalOptions="Start"/>
-                        <CheckBox x:Name="gasOBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
+                        <RadioButton Grid.Column="1" GroupName="gas" Value="owner" IsChecked="True" CheckedChanged="checkRadio" Margin="5,0,0,0" HorizontalOptions="Center"/>
+                        <RadioButton Grid.Column="2" GroupName="gas" Value="tenant" IsChecked="False" CheckedChanged="checkRadio" Margin="5,0,0,0" HorizontalOptions="Center"/>
+                        <!--<CheckBox x:Name="gasOBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
                                   HeightRequest="25" WidthRequest="25" Grid.Column="1"/>
                         <CheckBox x:Name="gasTBox" IsEnabled="False" Color="Black" HorizontalOptions="Center"
-                                  HeightRequest="25" WidthRequest="25" Grid.Column="2" IsChecked="True"/>
+                                  HeightRequest="25" WidthRequest="25" Grid.Column="2" IsChecked="True"/>-->
 
                     </Grid>
 
@@ -421,17 +440,19 @@
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
 
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                        <RadioButton GroupName="pets" Content="Yes" Value="Yes" IsChecked="True" FontSize="18" CheckedChanged="checkRadio"/>
+                        <!--<StackLayout Orientation="Horizontal" HorizontalOptions="Start">
                             <CheckBox x:Name="petsYBox" IsEnabled="False" Color="Black"
                                   HeightRequest="25" WidthRequest="25" IsChecked="True"/>
                             <Label Text="Yes" FontSize="18" Margin="5,0"/>
-                        </StackLayout>
+                        </StackLayout>-->
 
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Grid.Column="1">
+                        <RadioButton Grid.Column="1" GroupName="pets" Value="No" Content="No" FontSize="18" CheckedChanged="checkRadio"/>
+                        <!--<StackLayout Orientation="Horizontal" HorizontalOptions="Start" Grid.Column="1">
                             <CheckBox x:Name="petsNBox" IsEnabled="False" Color="Black"
                                   HeightRequest="25" WidthRequest="25"/>
                             <Label Text="No" FontSize="18" Margin="5,0"/>
-                        </StackLayout>
+                        </StackLayout>-->
 
                     </Grid>
 
@@ -442,17 +463,19 @@
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
 
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                        <RadioButton GroupName="useDeposit" Content="Yes" Value="Yes" IsChecked="True" FontSize="18" CheckedChanged="checkRadio"/>
+                        <!--<StackLayout Orientation="Horizontal" HorizontalOptions="Start">
                             <CheckBox x:Name="useDepositYBox" IsEnabled="False" Color="Black"
                                   HeightRequest="25" WidthRequest="25" IsChecked="True"/>
                             <Label Text="Yes" FontSize="18" Margin="5,0"/>
-                        </StackLayout>
+                        </StackLayout>-->
 
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Grid.Column="1">
+                        <RadioButton Grid.Column="1" GroupName="useDeposit" Value="No" Content="No" FontSize="18" CheckedChanged="checkRadio"/>
+                        <!--<StackLayout Orientation="Horizontal" HorizontalOptions="Start" Grid.Column="1">
                             <CheckBox x:Name="useDepositNBox" IsEnabled="False" Color="Black"
                                   HeightRequest="25" WidthRequest="25"/>
                             <Label Text="No" FontSize="18" Margin="5,0"/>
-                        </StackLayout>
+                        </StackLayout>-->
 
                     </Grid>
 

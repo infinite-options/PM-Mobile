@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Forms9Patch="clr-namespace:Forms9Patch;assembly=Forms9Patch"
+    x:Class="PM.ViewModel.EditOwnerProfile">
+    <ContentPage.Content>
+
+        <Grid>
+           <Grid BackgroundColor="#F5F5F5" VerticalOptions="Start">
+               <StackLayout VerticalOptions="Start">
+                   <BoxView HeightRequest="60"/>
+                   <Grid Margin="20,0,20,10">
+                       <Grid.ColumnDefinitions>
+                           <ColumnDefinition Width="1*"/>
+                           <ColumnDefinition Width="1*"/>
+                           <ColumnDefinition Width="1*"/>
+                       </Grid.ColumnDefinitions>
+
+                       <Forms9Patch:Button OutlineWidth="0" Grid.Column="0" Text="&lt; Back" TextColor="#007AFF" FontSize="17" VerticalOptions="End" HorizontalOptions="Start" Clicked="clickedBack"/>
+                       <Label Grid.Column="1" Text="Owner Profile" FontSize="17" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black"/>
+                       <Forms9Patch:Button OutlineWidth="0" Grid.Column="2" Text="Done" TextColor="#007AFF" FontSize="17" VerticalOptions="End" HorizontalOptions="End" Clicked="clickedBack"/>
+
+                   </Grid>
+
+                   <!--<Label Text="Login" FontSize="19" Margin="0,0,0,10" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>-->
+
+               </StackLayout>
+           </Grid>
+
+            <ScrollView Margin="20,140,20,0">
+                <StackLayout>
+
+                    <Label Text="First Name" FontAttributes="Bold" TextColor="Black" FontSize="16"/>
+                    <Frame HasShadow="False" Margin="0,5,0,0" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                        <Entry x:Name="FNameEntry" HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                Placeholder="Mike" TextColor="#777777" PlaceholderColor="#777777"/>
+                    </Frame>
+                    <!--<Label x:Name="fName" Text="Mike" FontSize="18" TextColor="#777777" Margin="0,5,0,0"/>-->
+
+                    <Label Text="Last Name" FontAttributes="Bold" TextColor="Black" FontSize="16" Margin="0,20,0,0"/>
+                    <Frame HasShadow="False" Margin="0,5,0,0" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                        <Entry x:Name="LNameEntry" HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                Placeholder="Ray" TextColor="#777777" PlaceholderColor="#777777"/>
+                    </Frame>
+                    <!--<Label x:Name="lName" Text="Ray" FontSize="18" TextColor="#777777" Margin="0,5,0,0"/>-->
+
+                    <Label Text="Phone Number" FontAttributes="Bold" TextColor="Black" FontSize="16" Margin="0,20,0,0"/>
+                    <Frame HasShadow="False" Margin="0,5,0,0" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                        <Entry x:Name="numEntry" HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                Placeholder="(789)908-9087" TextColor="#777777" PlaceholderColor="#777777"/>
+                    </Frame>
+                    <!--<Label x:Name="phone" Text="(789)908-9087" FontSize="18" TextColor="#777777" Margin="0,5,0,0"/>-->
+
+                    <Label Text="Email ID" FontAttributes="Bold" TextColor="Black" FontSize="16" Margin="0,20,0,0"/>
+                    <Frame HasShadow="False" Margin="0,5,0,0" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                        <Entry x:Name="emailEntry" HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                Placeholder="pm@gmail.com" TextColor="#777777" PlaceholderColor="#777777"/>
+                    </Frame>
+                    <!--<Label x:Name="email" Text="pm@gmail.com" FontSize="18" TextColor="#777777" Margin="0,5,0,0"/>-->
+
+                    <Label Text="Account Number" FontAttributes="Bold" TextColor="Black" FontSize="16" Margin="0,20,0,0"/>
+                    <Frame HasShadow="False" Margin="0,5,0,0" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                        <Entry x:Name="acctNumEntry" HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                Placeholder="13057936589013" TextColor="#777777" PlaceholderColor="#777777"/>
+                    </Frame>
+                    <!--<Label x:Name="acctNum" Text="13057936589013" FontSize="18" TextColor="#777777" Margin="0,5,0,0"/>-->
+
+                    <Label Text="Routing Number" FontAttributes="Bold" TextColor="Black" FontSize="16" Margin="0,20,0,0"/>
+                    <Frame HasShadow="False" Margin="0,5,0,0" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                        <Entry x:Name="routingNumEntry" HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                Placeholder="26459742265" TextColor="#777777" PlaceholderColor="#777777"/>
+                    </Frame>
+                    <!--<Label x:Name="routingNum" Text="26459742265" FontSize="18" TextColor="#777777" Margin="0,5,0,0"/>-->
+
+                    <Label Text="EIN Number" FontAttributes="Bold" TextColor="Black" FontSize="16" Margin="0,20,0,0"/>
+                    <Frame HasShadow="False" Margin="0,5,0,0" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                        <Entry x:Name="einEntry" HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                Placeholder="1213" TextColor="#777777" PlaceholderColor="#777777"/>
+                    </Frame>
+                    <!--<Label x:Name="einNum" Text="1213" FontSize="18" TextColor="#777777" Margin="0,5,0,0"/>-->
+
+                    <Label Text="Social Security" FontAttributes="Bold" TextColor="Black" FontSize="16" Margin="0,20,0,0"/>
+                    <Frame HasShadow="False" Margin="0,5,0,0" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                        <Entry x:Name="ssEntry" HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                Placeholder="131-89-1839" TextColor="#777777" PlaceholderColor="#777777"/>
+                    </Frame>
+
+                    <Label Text="Accept Payments via:" FontAttributes="Bold" TextColor="Black" FontSize="16" Margin="0,20,0,0"/>
+                    <Grid Margin="0,20,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton x:Name="paypalBox" Clicked="checkMethod" Grid.Column="0" CornerRadius="0" HeightRequest="25" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="25" Source="blankBox.png"/>
+                        <Label Grid.Column="1" Text="Paypal" FontSize="18" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Frame Grid.Column="2" HasShadow="False" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0" VerticalOptions="Center">
+                            <Entry x:Name="paypalEntry" HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                    Placeholder="pm@gmail.com" TextColor="#777777" PlaceholderColor="#777777"/>
+                        </Frame>
+
+                    </Grid>
+
+                    <Grid Margin="0,20,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton x:Name="appleBox"  Clicked="checkMethod" Grid.Column="0" CornerRadius="0" HeightRequest="25" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="25" Source="blankBox.png"/>
+                        <Label Grid.Column="1" Text="Apple Pay" FontSize="18" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Frame Grid.Column="2" HasShadow="False" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0" VerticalOptions="Center">
+                            <Entry x:Name="appleEntry" HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                    Placeholder="(081)230-1901" TextColor="#777777" PlaceholderColor="#777777"/>
+                        </Frame>
+                        <!--<Label Grid.Column="2" x:Name="applePayInfo" Text="(081)230-1901" FontSize="18" TextColor="#777777" VerticalOptions="Center"/>-->
+
+                    </Grid>
+
+                    <Grid Margin="0,20,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton x:Name="zelleBox" Clicked="checkMethod" Grid.Column="0" CornerRadius="0" HeightRequest="25" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="25" Source="blankBox.png"/>
+                        <Label Grid.Column="1" Text="Zelle" FontSize="18" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Frame Grid.Column="2" HasShadow="False" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0" VerticalOptions="Center">
+                            <Entry x:Name="zelleEntry" HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                    Placeholder="pm@gmail.com" TextColor="#777777" PlaceholderColor="#777777"/>
+                        </Frame>
+                        <!--<Label Grid.Column="2" x:Name="zelleInfo" Text="pm@gmail.com" FontSize="18" TextColor="#777777" VerticalOptions="Center"/>-->
+
+                    </Grid>
+
+                    <Grid Margin="0,20,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton x:Name="venmoBox" Clicked="checkMethod" Grid.Column="0" CornerRadius="0" HeightRequest="25" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="25" Source="blankBox.png"/>
+                        <Label Grid.Column="1" Text="Venmo" FontSize="18" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Frame Grid.Column="2" HasShadow="False" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0" VerticalOptions="Center">
+                            <Entry x:Name="venmoEntry" HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                    Placeholder="(081)230-1901" TextColor="#777777" PlaceholderColor="#777777"/>
+                        </Frame>
+                        <!--<Label Grid.Column="2" x:Name="venmoInfo" Text="" FontSize="18" TextColor="#777777" VerticalOptions="Center"/>-->
+
+                    </Grid>
+
+                </StackLayout>
+            </ScrollView>
+            
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

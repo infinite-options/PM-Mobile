@@ -217,6 +217,10 @@
     <BundleResource Include="Resources\callIcon.png" />
     <BundleResource Include="Resources\msgIcon.png" />
     <BundleResource Include="Resources\sampleHouse.png" />
+    <BundleResource Include="Resources\blankBox.png" />
+    <BundleResource Include="Resources\checkedBox.png" />
+    <BundleResource Include="Resources\calendarIcon.png" />
+    <BundleResource Include="Resources\plusButton.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppleSignIn\" />
