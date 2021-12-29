@@ -1871,6 +1871,10 @@ namespace PM
         }
         //end of menu functions
 
+        void signUpClicked(System.Object sender, System.EventArgs e)
+        {
+            Application.Current.MainPage = new SignUpStart();
+        }
 
     }
 }

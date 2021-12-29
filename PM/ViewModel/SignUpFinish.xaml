@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Forms9Patch="clr-namespace:Forms9Patch;assembly=Forms9Patch"
+    x:Class="PM.ViewModel.SignUpFinish">
+    <ContentPage.Content>
+
+        <Grid>
+           <Grid BackgroundColor="#F5F5F5" VerticalOptions="Start">
+               <StackLayout VerticalOptions="Start">
+                   <BoxView HeightRequest="60"/>
+                   <Grid Margin="20,0,20,10">
+                       <Grid.ColumnDefinitions>
+                           <ColumnDefinition Width="1*"/>
+                           <ColumnDefinition Width="1*"/>
+                           <ColumnDefinition Width="1*"/>
+                       </Grid.ColumnDefinitions>
+
+                       <Forms9Patch:Button OutlineWidth="0" Grid.Column="0" Text="&lt; Back" TextColor="#007AFF" FontSize="17" VerticalOptions="End" HorizontalOptions="Start" Clicked="clickedBack"/>
+                       <Label Grid.Column="1" Text="Sign Up" FontSize="17" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black"/>
+                       <Forms9Patch:Button IsVisible="False" OutlineWidth="0" Grid.Column="2" Text="Done" TextColor="#007AFF" FontSize="17" VerticalOptions="End" HorizontalOptions="End"/>
+
+                   </Grid>
+
+                   <!--<Label Text="Login" FontSize="19" Margin="0,0,0,10" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>-->
+
+               </StackLayout>
+           </Grid>
+
+            <ScrollView Margin="20,150,20,0">
+                <StackLayout>
+
+                    <Label Text="Great Job!&#x0a;Your profiles have been set up" HorizontalTextAlignment="Center" FontSize="22" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center"/>
+
+                    <Label Text="Login as: (choose one)" FontSize="22" FontAttributes="Bold" HorizontalOptions="Start" TextColor="Black" Margin="0,50,0,20"/>
+
+                    <RadioButton GroupName="role" Value="Property Maintenance" Content="Property Maintenance" FontSize="18" HeightRequest="30" CheckedChanged="roleSelected" VerticalOptions="Center" Margin="15,0,0,0"/>
+                    <RadioButton GroupName="role" Value="Property Owner" Content="Property Owner" FontSize="18" HeightRequest="30" CheckedChanged="roleSelected" VerticalOptions="Center" Margin="15,0,0,0"/>
+
+
+                </StackLayout>
+            </ScrollView>
+
+            <Forms9Patch:Button HorizontalOptions="Center" VerticalOptions="End" BackgroundColor="#007AFF" FontSize="19" TextColor="White" HeightRequest="35" WidthRequest="110" BorderRadius="30" FontAttributes="Bold" Text="Login" Margin="0,0,0,100" Clicked="clickedLogin"/>
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

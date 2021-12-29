@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Forms9Patch="clr-namespace:Forms9Patch;assembly=Forms9Patch"
+    x:Class="PM.ViewModel.SignUpStart">
+    <ContentPage.Content>
+
+       <Grid>
+        <Grid x:Name="roleSelectionGrid">
+           <Grid BackgroundColor="#F5F5F5" VerticalOptions="Start">
+               <StackLayout VerticalOptions="Start">
+                   <BoxView HeightRequest="60"/>
+                   <Grid Margin="20,0,20,10">
+                       <Grid.ColumnDefinitions>
+                           <ColumnDefinition Width="1*"/>
+                           <ColumnDefinition Width="1*"/>
+                           <ColumnDefinition Width="1*"/>
+                       </Grid.ColumnDefinitions>
+
+                       <Forms9Patch:Button OutlineWidth="0" Grid.Column="0" Text="&lt; Back" TextColor="#007AFF" FontSize="17" VerticalOptions="End" HorizontalOptions="Start" Clicked="clickedBack"/>
+                       <Label Grid.Column="1" Text="Sign Up" FontSize="17" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black"/>
+                       <Forms9Patch:Button IsVisible="False" OutlineWidth="0" Grid.Column="2" Text="Action" TextColor="#007AFF" FontSize="17" VerticalOptions="End" HorizontalOptions="End"/>
+
+                   </Grid>
+
+                   <!--<Label Text="Login" FontSize="19" Margin="0,0,0,10" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>-->
+
+               </StackLayout>
+           </Grid>
+
+            <ScrollView Margin="20,150,20,0">
+                <StackLayout>
+
+                    <Label Text="How do you plan to use this app?" FontSize="22" FontAttributes="Bold" TextColor="Black" Margin="0,0,0,50"/>
+
+                    <Grid Margin="20,7">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton CornerRadius="0" AnchorX="1" Clicked="checkCheckbox" HeightRequest="25" WidthRequest="25" Source="blankBox.png"/>
+                        <Label Margin="5,0,0,0" Grid.Column="1" VerticalOptions="Center" Text="Property Manager" FontSize="18"/> 
+
+                    </Grid>
+
+                    <Grid Margin="20,7">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton CornerRadius="0" AnchorX="2" Clicked="checkCheckbox" HeightRequest="25" WidthRequest="25" Source="blankBox.png"/>
+                        <Label Margin="5,0,0,0" Grid.Column="1" VerticalOptions="Center" Text="Property Owner" FontSize="18"/> 
+
+                    </Grid>
+
+                    <Grid Margin="20,7">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton CornerRadius="0"  AnchorX="3" Clicked="checkCheckbox" HeightRequest="25" WidthRequest="25" Source="blankBox.png"/>
+                        <Label Margin="5,0,0,0" Grid.Column="1" VerticalOptions="Center" Text="Tenant" FontSize="18"/> 
+
+                    </Grid>
+
+                    <Grid Margin="20,7">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton CornerRadius="0" AnchorX="4" Clicked="checkCheckbox" HeightRequest="25" WidthRequest="25" Source="blankBox.png"/>
+                        <Label Margin="5,0,0,0" Grid.Column="1" VerticalOptions="Center" Text="Property Maintenance" FontSize="18"/> 
+
+                    </Grid>
+
+                    <!--<RadioButton GroupName="1" Content="Property Manager" HeightRequest="30" Value="Property Manager" CheckedChanged="checkRadio" FontSize="18" Margin="10,0,0,0" HorizontalOptions="Start"/>
+                    <RadioButton GroupName="2" Content="Property Owner" HeightRequest="30" Value="Property Owner" CheckedChanged="checkRadio" FontSize="18" Margin="10,0,0,0" HorizontalOptions="Start"/>
+                    <RadioButton GroupName="3" Content="Tenant" Value="Tenant" HeightRequest="30" CheckedChanged="checkRadio" Margin="10,0,0,0" FontSize="18" HorizontalOptions="Start"/>
+                    <RadioButton GroupName="4" Content="Property Maintenance" HeightRequest="30" Value="Property Maintenance" CheckedChanged="checkRadio" FontSize="18" Margin="10,0,0,0" HorizontalOptions="Start"/>-->
+
+                </StackLayout>
+            </ScrollView>
+
+            <Forms9Patch:Button HorizontalOptions="Center" VerticalOptions="End" BackgroundColor="#007AFF" FontSize="19" TextColor="White" HeightRequest="35" WidthRequest="100" BorderRadius="30" FontAttributes="Bold" Text="Next" Margin="0,0,0,130" Clicked="clickedNext"/>
+
+        </Grid>
+
+
+
+
+
+
+        <Grid x:Name="starterInfoGrid" IsVisible="False">
+           <Grid BackgroundColor="#F5F5F5" VerticalOptions="Start">
+               <StackLayout VerticalOptions="Start">
+                   <BoxView HeightRequest="60"/>
+                   <Grid Margin="20,0,20,10">
+                       <Grid.ColumnDefinitions>
+                           <ColumnDefinition Width="1*"/>
+                           <ColumnDefinition Width="1*"/>
+                           <ColumnDefinition Width="1*"/>
+                       </Grid.ColumnDefinitions>
+
+                       <Forms9Patch:Button OutlineWidth="0" Grid.Column="0" Text="&lt; Back" TextColor="#007AFF" FontSize="17" VerticalOptions="End" HorizontalOptions="Start" Clicked="showRoleSelection"/>
+                       <Label Grid.Column="1" Text="Sign Up" FontSize="17" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black"/>
+                       <Forms9Patch:Button IsVisible="False" OutlineWidth="0" Grid.Column="2" Text="Action" TextColor="#007AFF" FontSize="17" VerticalOptions="End" HorizontalOptions="End"/>
+
+                   </Grid>
+
+                   <!--<Label Text="Login" FontSize="19" Margin="0,0,0,10" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>-->
+
+               </StackLayout>
+           </Grid>
+
+            <ScrollView Margin="20,150,20,0">
+                <StackLayout>
+
+                    <Label Text="Full Name" FontSize="22" FontAttributes="Bold" TextColor="Black" Margin="0,0,0,2"/>
+
+                    <Frame HasShadow="False" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                        <Entry HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                Placeholder="John Doe" TextColor="#777777" PlaceholderColor="#777777"/>
+                    </Frame>
+
+                    <Label Text="Phone Number" FontSize="22" FontAttributes="Bold" TextColor="Black" Margin="0,20,0,2"/>
+
+                    <Frame HasShadow="False" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                        <Entry HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                Placeholder="(800)901-9080" TextColor="#777777" PlaceholderColor="#777777"/>
+                    </Frame>
+
+                    <Forms9Patch:Button Margin="0,30,0,0" BorderColor="#007AFF" VerticalOptions="Start" HorizontalOptions="Center" BorderWidth="2" HeightRequest="30" BorderRadius="25" Text="Proceed" TextColor="#007AFF" WidthRequest="120" FontSize="20" FontAttributes="Bold" Clicked="clickedProceed"/>
+
+                </StackLayout>
+            </ScrollView>
+
+            <StackLayout VerticalOptions="End">
+
+                <Label Margin="0,30,0,5" Text="Already have an account?" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" FontSize="18"/>
+                <Forms9Patch:Button HorizontalOptions="Center" Text="Login" FontSize="20" FontAttributes="Bold" TextColor="#007AFF" BackgroundColor="White" BorderColor="#007AFF" BorderWidth="2" HeightRequest="33" BorderRadius="33" WidthRequest="110" Clicked="loginClicked" Margin="0,0,0,80"/>
+
+
+            </StackLayout>
+
+        </Grid>
+
+        <Grid x:Name="loginMethodGrid" IsVisible="False">
+           <Grid BackgroundColor="#F5F5F5" VerticalOptions="Start">
+               <StackLayout VerticalOptions="Start">
+                   <BoxView HeightRequest="60"/>
+                   <Grid Margin="20,0,20,10">
+                       <Grid.ColumnDefinitions>
+                           <ColumnDefinition Width="1*"/>
+                           <ColumnDefinition Width="1*"/>
+                           <ColumnDefinition Width="1*"/>
+                       </Grid.ColumnDefinitions>
+
+                       <Forms9Patch:Button x:Name="leftButton" OutlineWidth="0" Grid.Column="0" Text="&lt; Back" TextColor="#007AFF" FontSize="17" VerticalOptions="End" HorizontalOptions="Start" Clicked="showStarterInfo"/>
+                       <Label Grid.Column="1" Text="Sign Up" FontSize="17" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black"/>
+                       <Forms9Patch:Button IsVisible="False" OutlineWidth="0" Grid.Column="2" Text="Action" TextColor="#007AFF" FontSize="17" VerticalOptions="End" HorizontalOptions="End"/>
+
+                   </Grid>
+
+                   <!--<Label Text="Login" FontSize="19" Margin="0,0,0,10" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>-->
+
+               </StackLayout>
+           </Grid>
+
+            <ScrollView Margin="20,150,20,0">
+                <StackLayout>
+
+                    <Label Text="Full Name" FontSize="22" FontAttributes="Bold" TextColor="Black" Margin="0,0,0,6"/>
+                    <Label Text="John Doe" FontSize="18" TextColor="#777777"/>
+
+                    <Label Text="Phone Number" FontSize="22" FontAttributes="Bold" TextColor="Black" Margin="0,20,0,6"/>
+                    <Label Text="(800)901-9080" FontSize="18" TextColor="#777777"/>
+
+                    <Label Text="Choose login method:" FontSize="22" FontAttributes="Bold" TextColor="Black" Margin="0,30,0,25"/>
+
+                    <ImageButton Source="appleButton.png" Margin="0,0,0,3" HeightRequest="52" HorizontalOptions="Fill"/>
+                    <ImageButton Source="fbButton.png" Margin="0,3" HeightRequest="52" HorizontalOptions="Fill"/>
+                    <ImageButton Source="googleButton.png" Margin="0,3,0,20" HeightRequest="52" HorizontalOptions="Fill"/>
+
+                    <BoxView Margin="0,0,0,15" HeightRequest="1" BackgroundColor="#707070" HorizontalOptions="Fill"/>
+
+                    <StackLayout x:Name="innerStack">
+
+                        <Grid>
+                            <Label Text="Or continue with email" FontSize="17" TextColor="Black" TextDecorations="Underline" FontAttributes="Bold" HorizontalOptions="Center" />
+                            <Button HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="Transparent" Clicked="continueEmail"/>
+
+                        </Grid>
+
+                        <Label Margin="0,70,0,5" Text="Already have an account?" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" FontSize="18"/>
+                        <Forms9Patch:Button HorizontalOptions="Center" Text="Login" FontSize="20" FontAttributes="Bold" TextColor="#007AFF" BackgroundColor="White" BorderColor="#007AFF" BorderWidth="1" HeightRequest="33" BorderRadius="33" WidthRequest="110" Clicked="loginClicked" Margin="0,0,0,30"/>
+                    </StackLayout>
+
+                    <StackLayout x:Name="emailStack" IsVisible="False">
+                        <Label Text="Or continue with email" FontSize="17" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" />
+
+                        <Label Text="Email Address" FontSize="22" FontAttributes="Bold" TextColor="Black" Margin="0,30,0,2"/>
+
+                        <Frame HasShadow="False" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                            <Entry HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                    Placeholder="johndoe@gmail.com" TextColor="#777777" PlaceholderColor="#777777"/>
+                        </Frame>
+
+                        <Label Text="Confirm Email Address" FontSize="22" FontAttributes="Bold" TextColor="Black" Margin="0,20,0,2"/>
+
+                        <Frame HasShadow="False" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                            <Entry HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                    Placeholder="johndoe@gmail.com" TextColor="#777777" PlaceholderColor="#777777"/>
+                        </Frame>
+
+                        <Label Text="Enter Password" FontSize="22" FontAttributes="Bold" TextColor="Black" Margin="0,20,0,2"/>
+
+                        <Frame HasShadow="False" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                            <Entry HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                    Placeholder="johndoe@gmail.com" TextColor="#777777" PlaceholderColor="#777777"/>
+                        </Frame>
+
+                        <Label Text="Confirm Password" FontSize="22" FontAttributes="Bold" TextColor="Black" Margin="0,20,0,2"/>
+
+                        <Frame HasShadow="False" HeightRequest="25" HorizontalOptions="Fill" Padding="10" BorderColor="#707070" CornerRadius="0">
+                            <Entry HorizontalOptions="Fill" FontSize="18" VerticalOptions="Center"
+                                    Placeholder="johndoe@gmail.com" TextColor="#777777" PlaceholderColor="#777777"/>
+                        </Frame>
+
+                        <Forms9Patch:Button HorizontalOptions="Center" VerticalOptions="End" BackgroundColor="#007AFF" FontSize="19" TextColor="White" HeightRequest="35" WidthRequest="100" BorderRadius="30" FontAttributes="Bold" Text="Next" Margin="0,20,0,50" Clicked="clickedSetupProfiles"/>
+
+                    </StackLayout>
+
+                </StackLayout>
+            </ScrollView>
+
+            <!--<StackLayout VerticalOptions="End">
+
+                <Label Margin="0,30,0,5" Text="Already have an account?" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" FontSize="18"/>
+                <Forms9Patch:Button HorizontalOptions="Center" Text="Login" FontSize="20" FontAttributes="Bold" TextColor="#007AFF" BackgroundColor="White" BorderColor="#007AFF" BorderWidth="2" HeightRequest="33" BorderRadius="33" WidthRequest="110" Clicked="loginClicked" Margin="0,0,0,80"/>
+
+
+            </StackLayout>-->
+
+        </Grid>
+
+      </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

@@ -16,7 +16,7 @@
         <Forms9Patch:Button Margin="0,100,0,0" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold" Text="Login" TextColor="White" BackgroundColor="#007AFF" HeightRequest="38" BorderRadius="33" WidthRequest="100" Clicked="loginClicked"/>
 
         <Label Margin="0,30,0,5" Text="Don't have an account?" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" FontSize="18"/>
-        <Forms9Patch:Button HorizontalOptions="Center" Text="Sign Up" FontSize="20" FontAttributes="Bold" TextColor="#007AFF" BackgroundColor="White" BorderColor="#007AFF" BorderWidth="2" HeightRequest="38" BorderRadius="33" WidthRequest="130"/>
+        <Forms9Patch:Button HorizontalOptions="Center" Text="Sign Up" FontSize="20" FontAttributes="Bold" TextColor="#007AFF" BackgroundColor="White" BorderColor="#007AFF" BorderWidth="2" HeightRequest="38" BorderRadius="33" WidthRequest="130" Clicked="signUpClicked"/>
 
         <!--<Label Text="Welcome to" TextColor="Black" FontAttributes="Bold" FontSize="35" HorizontalTextAlignment="Start" Margin="30,0,0,0"/>
         <Label Text="Serving Now" TextColor="#E7404A" FontAttributes="Bold" FontSize="35" HorizontalTextAlignment="Start" Margin="30,0,0,20"/>-->
