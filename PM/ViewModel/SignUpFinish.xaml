@@ -35,8 +35,10 @@
 
                     <Label Text="Login as: (choose one)" FontSize="22" FontAttributes="Bold" HorizontalOptions="Start" TextColor="Black" Margin="0,50,0,20"/>
 
-                    <RadioButton GroupName="role" Value="Property Maintenance" Content="Property Maintenance" FontSize="18" HeightRequest="30" CheckedChanged="roleSelected" VerticalOptions="Center" Margin="15,0,0,0"/>
-                    <RadioButton GroupName="role" Value="Property Owner" Content="Property Owner" FontSize="18" HeightRequest="30" CheckedChanged="roleSelected" VerticalOptions="Center" Margin="15,0,0,0"/>
+                    <RadioButton x:Name="managerRadio" GroupName="role" Value="Property Manager" Content="Property Manager" FontSize="18" HeightRequest="30" CheckedChanged="roleSelected" VerticalOptions="Center" Margin="15,0,0,0"/>
+                    <RadioButton x:Name="ownerRadio" GroupName="role" Value="Property Owner" Content="Property Owner" FontSize="18" HeightRequest="30" CheckedChanged="roleSelected" VerticalOptions="Center" Margin="15,0,0,0"/>
+                    <RadioButton x:Name="tenantRadio" GroupName="role" Value="Tenant" Content="Tenant" FontSize="18" HeightRequest="30" CheckedChanged="roleSelected" VerticalOptions="Center" Margin="15,0,0,0"/>
+                    <RadioButton x:Name="maintRadio" GroupName="role" Value="Property Maintenance" Content="Property Maintenance" FontSize="18" HeightRequest="30" CheckedChanged="roleSelected" VerticalOptions="Center" Margin="15,0,0,0"/>
 
 
                 </StackLayout>

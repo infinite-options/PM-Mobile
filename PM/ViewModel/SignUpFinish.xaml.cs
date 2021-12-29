@@ -15,6 +15,11 @@ namespace PM.ViewModel
             var height = DeviceDisplay.MainDisplayInfo.Height;
 
             InitializeComponent();
+
+            managerRadio.IsVisible = Preferences.Get("manager_role", false);
+            ownerRadio.IsVisible = Preferences.Get("owner_role", false);
+            tenantRadio.IsVisible = Preferences.Get("tenant_role", false);
+            maintRadio.IsVisible = Preferences.Get("maintenance_role", false);
         }
 
         void clickedBack(System.Object sender, System.EventArgs e)

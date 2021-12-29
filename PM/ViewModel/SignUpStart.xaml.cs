@@ -16,6 +16,11 @@ namespace PM.ViewModel
             var height = DeviceDisplay.MainDisplayInfo.Height;
 
             InitializeComponent();
+
+            Preferences.Set("manager_role", false);
+            Preferences.Set("owner_role", false);
+            Preferences.Set("tenant_role", false);
+            Preferences.Set("maintenance_role", false);
         }
 
         void clickedBack(System.Object sender, System.EventArgs e)
@@ -29,10 +34,26 @@ namespace PM.ViewModel
             if (img.Source.ToString() == "File: blankBox.png") //check the item
             {
                 img.Source = "checkedBox.png";
+                if (img.AnchorX == 1)
+                    Preferences.Set("manager_role", true);
+                else if (img.AnchorX == 2)
+                    Preferences.Set("owner_role", true);
+                else if (img.AnchorX == 3)
+                    Preferences.Set("tenant_role", true);
+                else if (img.AnchorX == 4)
+                    Preferences.Set("maintenance_role", true);
             }
             else
             {
                 img.Source = "blankBox.png";
+                if (img.AnchorX == 1)
+                    Preferences.Set("manager_role", false);
+                else if (img.AnchorX == 2)
+                    Preferences.Set("owner_role", false);
+                else if (img.AnchorX == 3)
+                    Preferences.Set("tenant_role", false);
+                else if (img.AnchorX == 4)
+                    Preferences.Set("maintenance_role", false);
             }
 
         }
@@ -74,7 +95,16 @@ namespace PM.ViewModel
 
         void clickedSetupProfiles(System.Object sender, System.EventArgs e)
         {
-            Application.Current.MainPage = new OwnerSetup();
+            if (Preferences.Get("manager_role", false) == true)
+                Application.Current.MainPage = new ManagerSetup();
+            else if (Preferences.Get("owner_role", false) == true)
+                Application.Current.MainPage = new OwnerSetup();
+            else if (Preferences.Get("tenant_role", false) == true)
+                Application.Current.MainPage = new TenantSetup();
+            else if (Preferences.Get("maintenance_role", false) == true)
+                Application.Current.MainPage = new MaintenanceSetup();
+
+            //Application.Current.MainPage = new OwnerSetup();
         }
     }
 }

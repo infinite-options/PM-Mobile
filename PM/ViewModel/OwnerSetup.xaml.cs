@@ -25,7 +25,12 @@ namespace PM.ViewModel
 
         void clickedDone(System.Object sender, System.EventArgs e)
         {
-            Application.Current.MainPage = new SignUpFinish();
+            //Application.Current.MainPage = new SignUpFinish();
+            if (Preferences.Get("tenant_role", false) == true)
+                Application.Current.MainPage = new TenantSetup();
+            else if (Preferences.Get("maintenance_role", false) == true)
+                Application.Current.MainPage = new MaintenanceSetup();
+            else Application.Current.MainPage = new SignUpFinish();
         }
 
         void checkMethod(System.Object sender, System.EventArgs e)
